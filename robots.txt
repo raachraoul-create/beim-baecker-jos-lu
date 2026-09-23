@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raachraoul-create.github.io/beim-baecker-jos-lu/sitemap.xml
