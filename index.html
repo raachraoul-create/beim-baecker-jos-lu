@@ -72,6 +72,11 @@
   .news-price-wrap a{display:block}
   .news-price-wrap img{display:block;width:min(100%,1055px);height:auto;margin:0 auto;background:#fff;box-shadow:0 10px 36px #0002}
   .news-modal-foot{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:16px 18px 20px;background:#fff}
+  .event-detail-card{display:none;max-width:820px;margin:18px auto;padding:34px 28px;border-radius:24px;background:linear-gradient(145deg,#fff9f1,#fff);border:1px solid #ead8c4;text-align:left;box-shadow:0 12px 34px #6d3b1b12}
+  .event-detail-card .event-icon{font-size:46px;margin-bottom:8px}
+  .event-detail-card h3{font-size:32px;line-height:1.05;margin:0 0 10px;color:#201713}
+  .event-detail-card p{font-size:17px;line-height:1.65;color:#64564d;margin:0}
+  .event-detail-card .event-date-big{display:inline-flex;margin-top:18px;padding:9px 13px;border-radius:999px;background:#fff0ee;color:#a70d16;font-weight:900}
   @media(max-width:780px){#news{padding:36px 0}.news-teaser{grid-template-columns:1fr;padding:24px 20px;gap:18px}.news-teaser-action{justify-content:flex-start}.news-open-btn{width:100%;justify-content:center}.news-price-modal .news-modal-card{width:calc(100% - 10px);max-height:96vh;border-radius:18px}.news-price-wrap{padding:5px}.news-modal-top{padding:12px 12px}.news-modal-title strong{font-size:16px}}
 
 
@@ -279,9 +284,15 @@
         <button class="news-modal-close" type="button" data-close aria-label="Zoumaachen">×</button>
       </div>
       <div class="news-price-wrap">
-        <a href="pappendag-2026-preisliste.jpg" target="_blank" rel="noopener">
-          <img src="pappendag-2026-preisliste.jpg" alt="Pappendag 2026 Präislëscht - Beim Bäcker Jos.LU">
+        <a id="eventImageLink" href="pappendag-2026-preisliste.jpg" target="_blank" rel="noopener">
+          <img id="eventImage" src="pappendag-2026-preisliste.jpg" alt="Pappendag 2026 Präislëscht - Beim Bäcker Jos.LU">
         </a>
+        <div class="event-detail-card" id="eventDetailCard">
+          <div class="event-icon" id="eventDetailIcon">🎉</div>
+          <h3 id="eventDetailTitle">Aktuell News</h3>
+          <p id="eventDetailText"></p>
+          <span class="event-date-big" id="eventDetailDate"></span>
+        </div>
       </div>
       <div class="news-modal-foot">
         <button class="btn primary" type="button" data-open="call">☎ <span data-news-i18n="news_order">Elo virbestellen</span></button>
@@ -314,22 +325,148 @@
 
     };
 
-    const NEWS_T={
-      lb:{news_nav:'News',news_badge:'Nei · Pappendag 2026',news_title:'Pappendag steet virun der Dier',news_intro:'Entdeckt eis aktuell Pappendag-Spezialitéiten. Mat engem Klick gesitt Dir déi komplett Auswiel mat de Präisser.',news_date:'Sonndeg, 4. Oktober 2026',news_open:'Méi Infos & Präisser',news_modal_title:'Pappendag 2026 · Auswiel & Präisser',news_modal_note:"Tippt op d’Bild fir et separat grouss opzemaachen.",news_order:'Elo virbestellen',news_close:'Zoumaachen',count_days:'Nach {n} Deeg bis Pappendag',count_today:'Haut ass Pappendag',count_passed:'Pappendag 2026 war de 4. Oktober'},
-      de:{news_nav:'News',news_badge:'Neu · Vatertag 2026',news_title:'Vatertag steht vor der Tür',news_intro:'Entdecken Sie unsere aktuellen Vatertags-Spezialitäten. Mit einem Klick sehen Sie die komplette Auswahl mit allen Preisen.',news_date:'Sonntag, 4. Oktober 2026',news_open:'Mehr Infos & Preise',news_modal_title:'Vatertag 2026 · Auswahl & Preise',news_modal_note:'Tippen Sie auf das Bild, um es separat groß zu öffnen.',news_order:'Jetzt vorbestellen',news_close:'Schließen',count_days:'Noch {n} Tage bis Vatertag',count_today:'Heute ist Vatertag',count_passed:'Vatertag 2026 war am 4. Oktober'},
-      fr:{news_nav:'Actualités',news_badge:'Nouveau · Fête des Pères 2026',news_title:'La Fête des Pères approche',news_intro:'Découvrez nos spécialités actuelles pour la Fête des Pères. Un clic suffit pour voir toute la sélection avec les prix.',news_date:'Dimanche 4 octobre 2026',news_open:'Infos & prix',news_modal_title:'Fête des Pères 2026 · Sélection & prix',news_modal_note:"Touchez l’image pour l’ouvrir séparément en grand.",news_order:'Précommander',news_close:'Fermer',count_days:'Encore {n} jours avant la Fête des Pères',count_today:"Aujourd’hui, c’est la Fête des Pères",count_passed:'La Fête des Pères 2026 était le 4 octobre'},
-      pt:{news_nav:'Novidades',news_badge:'Novo · Dia do Pai 2026',news_title:'O Dia do Pai está a chegar',news_intro:'Descubra as nossas especialidades atuais para o Dia do Pai. Com um clique, pode ver toda a seleção com os preços.',news_date:'Domingo, 4 de outubro de 2026',news_open:'Mais informações & preços',news_modal_title:'Dia do Pai 2026 · Seleção & preços',news_modal_note:'Toque na imagem para a abrir separadamente em tamanho grande.',news_order:'Pré-encomendar agora',news_close:'Fechar',count_days:'Faltam {n} dias para o Dia do Pai',count_today:'Hoje é o Dia do Pai',count_passed:'O Dia do Pai 2026 foi a 4 de outubro'}
+    const NEWS_EVENTS=[
+      {
+        id:'pappendag-2026',start:'2026-10-04T00:00:00+02:00',end:'2026-10-05T00:00:00+02:00',icon:'👔',image:'pappendag-2026-preisliste.jpg',
+        t:{
+          lb:{badge:'Nei · Pappendag 2026',title:'Pappendag steet virun der Dier',intro:'Entdeckt eis aktuell Pappendag-Spezialitéiten. Mat engem Klick gesitt Dir déi komplett Auswiel mat de Präisser.',date:'Sonndeg, 4. Oktober 2026',open:'Méi Infos & Präisser',modal:'Pappendag 2026 · Auswiel & Präisser',note:"Tippt op d’Bild fir et separat grouss opzemaachen.",detail:'Eis aktuell Pappendag-Auswiel mat Taarten, Canapéen, Pain Surprise, Mignardises a Kaddoen.',order:'Elo virbestellen'},
+          de:{badge:'Neu · Vatertag 2026',title:'Vatertag steht vor der Tür',intro:'Entdecken Sie unsere aktuellen Vatertags-Spezialitäten. Mit einem Klick sehen Sie die komplette Auswahl mit allen Preisen.',date:'Sonntag, 4. Oktober 2026',open:'Mehr Infos & Preise',modal:'Vatertag 2026 · Auswahl & Preise',note:'Tippen Sie auf das Bild, um es separat groß zu öffnen.',detail:'Unsere aktuelle Vatertags-Auswahl mit Torten, Canapés, Pain Surprise, Mignardises und Geschenken.',order:'Jetzt vorbestellen'},
+          fr:{badge:'Nouveau · Fête des Pères 2026',title:'La Fête des Pères approche',intro:'Découvrez nos spécialités actuelles pour la Fête des Pères. Un clic suffit pour voir toute la sélection avec les prix.',date:'Dimanche 4 octobre 2026',open:'Infos & prix',modal:'Fête des Pères 2026 · Sélection & prix',note:"Touchez l’image pour l’ouvrir séparément en grand.",detail:'Notre sélection actuelle de gâteaux, canapés, Pain Surprise, mignardises et cadeaux.',order:'Précommander'},
+          pt:{badge:'Novo · Dia do Pai 2026',title:'O Dia do Pai está a chegar',intro:'Descubra as nossas especialidades atuais para o Dia do Pai. Com um clique, pode ver toda a seleção com os preços.',date:'Domingo, 4 de outubro de 2026',open:'Mais informações & preços',modal:'Dia do Pai 2026 · Seleção & preços',note:'Toque na imagem para a abrir separadamente em tamanho grande.',detail:'A nossa seleção atual de bolos, canapés, Pain Surprise, mignardises e presentes.',order:'Pré-encomendar agora'}
+        }
+      },
+      {
+        id:'kleeschen-2026',start:'2026-12-06T00:00:00+01:00',end:'2026-12-07T00:00:00+01:00',icon:'🎅',
+        t:{
+          lb:{badge:'Nächst Aktioun · Kleeschen 2026',title:'Kleeschen kënnt geschwënn',intro:'Boxemännchen a saisonal Spezialitéite fir de Kleeschen. Mir erënneren Iech automatesch drun.',date:'Sonndeg, 6. Dezember 2026',open:'Méi Infos',modal:'Kleeschen 2026',note:'D’Auswiel gëtt hei gewisen, soubal dës Aktioun aktuell ass.',detail:'Ronderëm de Kleeschen sti bei eis Boxemännchen a saisonal Bäckerei-Spezialitéiten am Mëttelpunkt.',order:'Elo uruffen'},
+          de:{badge:'Nächste Aktion · Nikolaus 2026',title:'Nikolaus steht vor der Tür',intro:'Boxemännchen und saisonale Spezialitäten für Nikolaus. Die Erinnerung wechselt automatisch.',date:'Sonntag, 6. Dezember 2026',open:'Mehr Infos',modal:'Nikolaus 2026',note:'Die Auswahl wird hier angezeigt, sobald diese Aktion aktuell ist.',detail:'Rund um Nikolaus stehen Boxemännchen und saisonale Bäckerei-Spezialitäten im Mittelpunkt.',order:'Jetzt anrufen'},
+          fr:{badge:'Prochaine actualité · Saint-Nicolas 2026',title:'La Saint-Nicolas approche',intro:'Boxemännchen et spécialités de saison pour la Saint-Nicolas.',date:'Dimanche 6 décembre 2026',open:'Plus d’infos',modal:'Saint-Nicolas 2026',note:'La sélection sera affichée ici lorsque cette actualité sera active.',detail:'Pour la Saint-Nicolas, nos Boxemännchen et spécialités saisonnières seront à l’honneur.',order:'Appeler maintenant'},
+          pt:{badge:'Próxima novidade · São Nicolau 2026',title:'O São Nicolau está a chegar',intro:'Boxemännchen e especialidades sazonais para o São Nicolau.',date:'Domingo, 6 de dezembro de 2026',open:'Mais informações',modal:'São Nicolau 2026',note:'A seleção será apresentada aqui quando esta campanha estiver ativa.',detail:'Para o São Nicolau, os Boxemännchen e as especialidades sazonais estarão em destaque.',order:'Ligar agora'}
+        }
+      },
+      {
+        id:'christmas-2026',start:'2026-12-24T00:00:00+01:00',end:'2026-12-27T00:00:00+01:00',icon:'🎄',
+        t:{
+          lb:{badge:'Festlech · Chrëschtdag 2026',title:'Chrëschtdag kënnt méi no',intro:'Festlech Taarten, Desserten a Pâtisserie fir Är Feierdeeg.',date:'24.–26. Dezember 2026',open:'Méi Infos',modal:'Chrëschtdag 2026',note:'Dës Aktioun gëtt automatesch nom Kleeschen aktiv.',detail:'Fir Chrëschtdag plange mir festlech Taarten, Hiem Bottercreme, Duo Mousse Schokolat an aner Pâtisserie fir d’Feierdeeg.',order:'Elo uruffen'},
+          de:{badge:'Festlich · Weihnachten 2026',title:'Weihnachten rückt näher',intro:'Festliche Torten, Desserts und Pâtisserie für die Feiertage.',date:'24.–26. Dezember 2026',open:'Mehr Infos',modal:'Weihnachten 2026',note:'Diese Aktion wird nach Nikolaus automatisch aktiv.',detail:'Für Weihnachten planen wir festliche Torten, Hiem Bottercreme, Duo Mousse Schokolat und weitere Pâtisserie für die Feiertage.',order:'Jetzt anrufen'},
+          fr:{badge:'Fêtes · Noël 2026',title:'Noël approche',intro:'Gâteaux, desserts et pâtisseries festives pour les fêtes.',date:'24–26 décembre 2026',open:'Plus d’infos',modal:'Noël 2026',note:'Cette actualité s’active automatiquement après la Saint-Nicolas.',detail:'Pour Noël, nous mettons à l’honneur des gâteaux festifs, Hiem Bottercreme, Duo Mousse Chocolat et d’autres pâtisseries.',order:'Appeler maintenant'},
+          pt:{badge:'Festas · Natal 2026',title:'O Natal está a chegar',intro:'Bolos, sobremesas e pastelaria festiva para as festas.',date:'24–26 de dezembro de 2026',open:'Mais informações',modal:'Natal 2026',note:'Esta campanha fica ativa automaticamente depois do São Nicolau.',detail:'Para o Natal, destacamos bolos festivos, Hiem Bottercreme, Duo Mousse Chocolat e outras especialidades.',order:'Ligar agora'}
+        }
+      },
+      {
+        id:'silvester-2026',start:'2026-12-31T00:00:00+01:00',end:'2027-01-01T00:00:00+01:00',icon:'🥂',
+        t:{
+          lb:{badge:'Fest · Silvester 2026',title:'Silvester steet virun der Dier',intro:'Canapéen, Partyplateauen, Pain Surprise a Mignardises fir de Joreswiessel.',date:'Donneschdeg, 31. Dezember 2026',open:'Méi Infos',modal:'Silvester 2026',note:'Dës Aktioun gëtt nom 26. Dezember automatesch aktiv.',detail:'Fir de Joreswiessel passe Canapéen, Partyplateauen, Pain Surprise a Mignardises perfekt op Ären Dësch.',order:'Elo uruffen'},
+          de:{badge:'Fest · Silvester 2026',title:'Silvester steht vor der Tür',intro:'Canapés, Partyplatten, Pain Surprise und Mignardises für den Jahreswechsel.',date:'Donnerstag, 31. Dezember 2026',open:'Mehr Infos',modal:'Silvester 2026',note:'Diese Aktion wird nach dem 26. Dezember automatisch aktiv.',detail:'Für den Jahreswechsel passen Canapés, Partyplatten, Pain Surprise und Mignardises perfekt auf Ihren Tisch.',order:'Jetzt anrufen'},
+          fr:{badge:'Fête · Réveillon 2026',title:'Le réveillon approche',intro:'Canapés, plateaux, Pain Surprise et mignardises pour la Saint-Sylvestre.',date:'Jeudi 31 décembre 2026',open:'Plus d’infos',modal:'Réveillon 2026',note:'Cette actualité s’active automatiquement après le 26 décembre.',detail:'Pour le réveillon, canapés, plateaux, Pain Surprise et mignardises sont parfaits pour votre table.',order:'Appeler maintenant'},
+          pt:{badge:'Festa · Passagem de Ano 2026',title:'A passagem de ano está a chegar',intro:'Canapés, tabuleiros, Pain Surprise e mignardises para a passagem de ano.',date:'Quinta-feira, 31 de dezembro de 2026',open:'Mais informações',modal:'Passagem de Ano 2026',note:'Esta campanha fica ativa automaticamente depois de 26 de dezembro.',detail:'Para a passagem de ano, canapés, tabuleiros, Pain Surprise e mignardises são ideais.',order:'Ligar agora'}
+        }
+      },
+      {
+        id:'draikinneksdag-2027',start:'2027-01-06T00:00:00+01:00',end:'2027-01-07T00:00:00+01:00',icon:'👑',
+        t:{
+          lb:{badge:'Traditioun · Dräikinneksdag 2027',title:'Dräikinneksdag kënnt',intro:'Dräikinnekskuch fir de 6. Januar – eng klassesch Traditioun.',date:'Mëttwoch, 6. Januar 2027',open:'Méi Infos',modal:'Dräikinneksdag 2027',note:'Dës Aktioun wiesselt automatesch nom Silvester.',detail:'Zum Dräikinneksdag gehéiert den traditionelle Dräikinnekskuch – perfekt fir mat Famill, Frënn oder Kollegen ze deelen.',order:'Elo uruffen'},
+          de:{badge:'Tradition · Dreikönigstag 2027',title:'Dreikönigstag kommt',intro:'Dräikinnekskuch für den 6. Januar – eine klassische Tradition.',date:'Mittwoch, 6. Januar 2027',open:'Mehr Infos',modal:'Dreikönigstag 2027',note:'Diese Aktion wechselt automatisch nach Silvester.',detail:'Zum Dreikönigstag gehört der traditionelle Dräikinnekskuch – ideal zum Teilen mit Familie, Freunden oder Kollegen.',order:'Jetzt anrufen'},
+          fr:{badge:'Tradition · Épiphanie 2027',title:'L’Épiphanie approche',intro:'Dräikinnekskuch pour le 6 janvier – une tradition classique.',date:'Mercredi 6 janvier 2027',open:'Plus d’infos',modal:'Épiphanie 2027',note:'Cette actualité prend automatiquement le relais après le réveillon.',detail:'Pour l’Épiphanie, le traditionnel Dräikinnekskuch est parfait à partager.',order:'Appeler maintenant'},
+          pt:{badge:'Tradição · Dia de Reis 2027',title:'O Dia de Reis aproxima-se',intro:'Dräikinnekskuch para 6 de janeiro – uma tradição clássica.',date:'Quarta-feira, 6 de janeiro de 2027',open:'Mais informações',modal:'Dia de Reis 2027',note:'Esta campanha aparece automaticamente depois da passagem de ano.',detail:'No Dia de Reis, o tradicional Dräikinnekskuch é perfeito para partilhar.',order:'Ligar agora'}
+        }
+      },
+      {
+        id:'fuesent-2027',start:'2027-02-02T00:00:00+01:00',end:'2027-02-11T00:00:00+01:00',icon:'🎭',
+        t:{
+          lb:{badge:'Fuesent 2027',title:'Fuesent kënnt',intro:'Fueskichelcher, Verwurrelter an aner saisonal Klassiker.',date:'2.–10. Februar 2027',open:'Méi Infos',modal:'Fuesent 2027',note:'Dës Aktioun gëtt automatesch no Dräikinneksdag gewisen.',detail:'Zur Fuesent gehéieren Fueskichelcher, Verwurrelter an aner traditionell Séissegkeeten.',order:'Elo uruffen'},
+          de:{badge:'Karneval 2027',title:'Die Fuesent kommt',intro:'Fueskichelcher, Verwurrelter und weitere saisonale Klassiker.',date:'2.–10. Februar 2027',open:'Mehr Infos',modal:'Fuesent 2027',note:'Diese Aktion erscheint automatisch nach Dreikönigstag.',detail:'Zur Fuesent gehören Fueskichelcher, Verwurrelter und weitere traditionelle süße Spezialitäten.',order:'Jetzt anrufen'},
+          fr:{badge:'Carnaval 2027',title:'Le carnaval approche',intro:'Fueskichelcher, Verwurrelter et autres classiques de saison.',date:'2–10 février 2027',open:'Plus d’infos',modal:'Carnaval 2027',note:'Cette actualité apparaît automatiquement après l’Épiphanie.',detail:'Pour le carnaval, Fueskichelcher, Verwurrelter et autres spécialités traditionnelles sont à l’honneur.',order:'Appeler maintenant'},
+          pt:{badge:'Carnaval 2027',title:'O Carnaval aproxima-se',intro:'Fueskichelcher, Verwurrelter e outros clássicos sazonais.',date:'2–10 de fevereiro de 2027',open:'Mais informações',modal:'Carnaval 2027',note:'Esta campanha aparece automaticamente depois do Dia de Reis.',detail:'No Carnaval destacamos Fueskichelcher, Verwurrelter e outras especialidades tradicionais.',order:'Ligar agora'}
+        }
+      },
+      {
+        id:'valentine-2027',start:'2027-02-14T00:00:00+01:00',end:'2027-02-15T00:00:00+01:00',icon:'❤️',
+        t:{
+          lb:{badge:'Valentinsdag 2027',title:'Valentinsdag kënnt',intro:'Séiss Iddien, Häerzer a kleng Taarten fir een, deen Iech wichteg ass.',date:'Sonndeg, 14. Februar 2027',open:'Méi Infos',modal:'Valentinsdag 2027',note:'Dës Aktioun erschéngt automatesch no der Fuesent.',detail:'Fir Valentinsdag passe kleng Taarten, Pâtisserie an Häerz-Motiver als séiss Opmierksamkeet.',order:'Elo uruffen'},
+          de:{badge:'Valentinstag 2027',title:'Valentinstag kommt',intro:'Süße Ideen, Herzen und kleine Torten für einen besonderen Menschen.',date:'Sonntag, 14. Februar 2027',open:'Mehr Infos',modal:'Valentinstag 2027',note:'Diese Aktion erscheint automatisch nach der Fuesent.',detail:'Für Valentinstag passen kleine Torten, Pâtisserie und Herz-Motive als süße Aufmerksamkeit.',order:'Jetzt anrufen'},
+          fr:{badge:'Saint-Valentin 2027',title:'La Saint-Valentin approche',intro:'Idées gourmandes, cœurs et petits gâteaux pour une personne spéciale.',date:'Dimanche 14 février 2027',open:'Plus d’infos',modal:'Saint-Valentin 2027',note:'Cette actualité apparaît automatiquement après le carnaval.',detail:'Pour la Saint-Valentin, petits gâteaux, pâtisseries et motifs en forme de cœur sont parfaits.',order:'Appeler maintenant'},
+          pt:{badge:'Dia dos Namorados 2027',title:'O Dia dos Namorados aproxima-se',intro:'Ideias doces, corações e pequenos bolos para alguém especial.',date:'Domingo, 14 de fevereiro de 2027',open:'Mais informações',modal:'Dia dos Namorados 2027',note:'Esta campanha aparece automaticamente depois do Carnaval.',detail:'Para o Dia dos Namorados, pequenos bolos, pastelaria e motivos em forma de coração são perfeitos.',order:'Ligar agora'}
+        }
+      },
+      {
+        id:'bretzelsonndeg-2027',start:'2027-03-07T00:00:00+01:00',end:'2027-03-08T00:00:00+01:00',icon:'🥨',
+        t:{
+          lb:{badge:'Bretzelsonndeg 2027',title:'Bretzelsonndeg kënnt',intro:'Eng vun de wichtegste Lëtzebuerger Bäckerei-Traditiounen: Bretzelen.',date:'Sonndeg, 7. Mäerz 2027',open:'Méi Infos',modal:'Bretzelsonndeg 2027',note:'Dës Aktioun erschéngt automatesch nom Valentinsdag.',detail:'Bretzelsonndeg ass eng klassesch Lëtzebuerger Traditioun – mat Bretzelen am Mëttelpunkt.',order:'Elo uruffen'},
+          de:{badge:'Bretzelsonntag 2027',title:'Bretzelsonntag kommt',intro:'Eine der wichtigsten Luxemburger Bäckerei-Traditionen: Bretzeln.',date:'Sonntag, 7. März 2027',open:'Mehr Infos',modal:'Bretzelsonntag 2027',note:'Diese Aktion erscheint automatisch nach Valentinstag.',detail:'Der Bretzelsonntag ist eine klassische Luxemburger Tradition – mit Bretzeln im Mittelpunkt.',order:'Jetzt anrufen'},
+          fr:{badge:'Bretzelsonndeg 2027',title:'Le Bretzelsonndeg approche',intro:'Une des grandes traditions boulangères luxembourgeoises : les bretzels.',date:'Dimanche 7 mars 2027',open:'Plus d’infos',modal:'Bretzelsonndeg 2027',note:'Cette actualité apparaît automatiquement après la Saint-Valentin.',detail:'Le Bretzelsonndeg est une tradition luxembourgeoise classique, autour des bretzels.',order:'Appeler maintenant'},
+          pt:{badge:'Bretzelsonndeg 2027',title:'O Bretzelsonndeg aproxima-se',intro:'Uma das grandes tradições de padaria do Luxemburgo: pretzels.',date:'Domingo, 7 de março de 2027',open:'Mais informações',modal:'Bretzelsonndeg 2027',note:'Esta campanha aparece automaticamente depois do Dia dos Namorados.',detail:'O Bretzelsonndeg é uma tradição clássica luxemburguesa, centrada nos pretzels.',order:'Ligar agora'}
+        }
+      },
+      {
+        id:'easter-2027',start:'2027-03-28T00:00:00+02:00',end:'2027-03-29T00:00:00+02:00',icon:'🐣',
+        t:{
+          lb:{badge:'Ouschteren 2027',title:'Ouschteren kënnt',intro:'Ouschter-Spezialitéiten, Taarten a séiss Iddien fir d’Famill.',date:'Sonndeg, 28. Mäerz 2027',open:'Méi Infos',modal:'Ouschteren 2027',note:'Dës Aktioun erschéngt automatesch nom Bretzelsonndeg.',detail:'Fir Ouschteren kënne saisonal Pâtisserie, Taarten a séiss Ouschter-Iddie bestallt ginn.',order:'Elo uruffen'},
+          de:{badge:'Ostern 2027',title:'Ostern kommt',intro:'Oster-Spezialitäten, Torten und süße Ideen für die Familie.',date:'Sonntag, 28. März 2027',open:'Mehr Infos',modal:'Ostern 2027',note:'Diese Aktion erscheint automatisch nach Bretzelsonntag.',detail:'Für Ostern können saisonale Pâtisserie, Torten und süße Osterideen bestellt werden.',order:'Jetzt anrufen'},
+          fr:{badge:'Pâques 2027',title:'Pâques approche',intro:'Spécialités de Pâques, gâteaux et idées gourmandes pour la famille.',date:'Dimanche 28 mars 2027',open:'Plus d’infos',modal:'Pâques 2027',note:'Cette actualité apparaît automatiquement après le Bretzelsonndeg.',detail:'Pour Pâques, pâtisseries de saison, gâteaux et gourmandises peuvent être commandés.',order:'Appeler maintenant'},
+          pt:{badge:'Páscoa 2027',title:'A Páscoa aproxima-se',intro:'Especialidades de Páscoa, bolos e ideias doces para a família.',date:'Domingo, 28 de março de 2027',open:'Mais informações',modal:'Páscoa 2027',note:'Esta campanha aparece automaticamente depois do Bretzelsonndeg.',detail:'Para a Páscoa podem ser encomendadas especialidades sazonais, bolos e doces.',order:'Ligar agora'}
+        }
+      },
+      {
+        id:'mammendag-2027',start:'2027-06-13T00:00:00+02:00',end:'2027-06-14T00:00:00+02:00',icon:'💐',
+        t:{
+          lb:{badge:'Mammendag 2027',title:'Mammendag kënnt',intro:'Taarten, Pâtisserie a séiss Kaddosiddien fir d’Mammen.',date:'Sonndeg, 13. Juni 2027',open:'Méi Infos',modal:'Mammendag 2027',note:'Dës Aktioun erschéngt automatesch no Ouschteren.',detail:'Fir Mammendag sti festlech Taarten, Pâtisserie a séiss Kaddosiddien am Mëttelpunkt.',order:'Elo uruffen'},
+          de:{badge:'Muttertag 2027',title:'Muttertag kommt',intro:'Torten, Pâtisserie und süße Geschenkideen für Mütter.',date:'Sonntag, 13. Juni 2027',open:'Mehr Infos',modal:'Muttertag 2027',note:'Diese Aktion erscheint automatisch nach Ostern.',detail:'Für Muttertag stehen festliche Torten, Pâtisserie und süße Geschenkideen im Mittelpunkt.',order:'Jetzt anrufen'},
+          fr:{badge:'Fête des Mères 2027',title:'La Fête des Mères approche',intro:'Gâteaux, pâtisseries et idées cadeaux gourmandes pour les mamans.',date:'Dimanche 13 juin 2027',open:'Plus d’infos',modal:'Fête des Mères 2027',note:'Cette actualité apparaît automatiquement après Pâques.',detail:'Pour la Fête des Mères, gâteaux, pâtisseries et cadeaux gourmands sont à l’honneur.',order:'Appeler maintenant'},
+          pt:{badge:'Dia da Mãe 2027',title:'O Dia da Mãe aproxima-se',intro:'Bolos, pastelaria e ideias de presentes doces para as mães.',date:'Domingo, 13 de junho de 2027',open:'Mais informações',modal:'Dia da Mãe 2027',note:'Esta campanha aparece automaticamente depois da Páscoa.',detail:'Para o Dia da Mãe, bolos festivos, pastelaria e presentes doces estão em destaque.',order:'Ligar agora'}
+        }
+      },
+      {
+        id:'nationalday-2027',start:'2027-06-23T00:00:00+02:00',end:'2027-06-24T00:00:00+02:00',icon:'🇱🇺',
+        t:{
+          lb:{badge:'Nationalfeierdag 2027',title:'Nationalfeierdag kënnt',intro:'Eng Lëtzebuerger Aktioun fir den 23. Juni.',date:'Mëttwoch, 23. Juni 2027',open:'Méi Infos',modal:'Nationalfeierdag 2027',note:'Dës Aktioun erschéngt automatesch nom Mammendag.',detail:'Ronderëm den Nationalfeierdag kënne Lëtzebuerger a festlech Bäckerei-Spezialitéiten an de Mëttelpunkt stoen.',order:'Elo uruffen'},
+          de:{badge:'Nationalfeiertag 2027',title:'Der Nationalfeiertag kommt',intro:'Eine Luxemburger Aktion für den 23. Juni.',date:'Mittwoch, 23. Juni 2027',open:'Mehr Infos',modal:'Nationalfeiertag 2027',note:'Diese Aktion erscheint automatisch nach Muttertag.',detail:'Rund um den Nationalfeiertag können Luxemburger und festliche Bäckerei-Spezialitäten im Mittelpunkt stehen.',order:'Jetzt anrufen'},
+          fr:{badge:'Fête nationale 2027',title:'La Fête nationale approche',intro:'Une actualité luxembourgeoise pour le 23 juin.',date:'Mercredi 23 juin 2027',open:'Plus d’infos',modal:'Fête nationale 2027',note:'Cette actualité apparaît automatiquement après la Fête des Mères.',detail:'Pour la Fête nationale, des spécialités luxembourgeoises et festives peuvent être mises à l’honneur.',order:'Appeler maintenant'},
+          pt:{badge:'Dia Nacional 2027',title:'O Dia Nacional aproxima-se',intro:'Uma campanha luxemburguesa para 23 de junho.',date:'Quarta-feira, 23 de junho de 2027',open:'Mais informações',modal:'Dia Nacional 2027',note:'Esta campanha aparece automaticamente depois do Dia da Mãe.',detail:'Para o Dia Nacional, especialidades luxemburguesas e festivas podem estar em destaque.',order:'Ligar agora'}
+        }
+      },
+      {
+        id:'pappendag-2027',start:'2027-10-03T00:00:00+02:00',end:'2027-10-04T00:00:00+02:00',icon:'👔',
+        t:{
+          lb:{badge:'Pappendag 2027',title:'Pappendag kënnt erëm',intro:'Taarten, Pâtisserie a Kaddosiddien fir de beschte Papp.',date:'Sonndeg, 3. Oktober 2027',open:'Méi Infos',modal:'Pappendag 2027',note:'Dës Aktioun erschéngt automatesch nom Nationalfeierdag.',detail:'Fir Pappendag 2027 wäert hei nees déi aktuell Auswiel mat de passende Spezialitéite stoen.',order:'Elo uruffen'},
+          de:{badge:'Vatertag 2027',title:'Vatertag kommt wieder',intro:'Torten, Pâtisserie und Geschenkideen für den besten Papa.',date:'Sonntag, 3. Oktober 2027',open:'Mehr Infos',modal:'Vatertag 2027',note:'Diese Aktion erscheint automatisch nach dem Nationalfeiertag.',detail:'Für Vatertag 2027 wird hier wieder die aktuelle Auswahl mit den passenden Spezialitäten stehen.',order:'Jetzt anrufen'},
+          fr:{badge:'Fête des Pères 2027',title:'La Fête des Pères revient',intro:'Gâteaux, pâtisseries et idées cadeaux pour le meilleur papa.',date:'Dimanche 3 octobre 2027',open:'Plus d’infos',modal:'Fête des Pères 2027',note:'Cette actualité apparaît automatiquement après la Fête nationale.',detail:'Pour la Fête des Pères 2027, la sélection actuelle sera affichée ici.',order:'Appeler maintenant'},
+          pt:{badge:'Dia do Pai 2027',title:'O Dia do Pai volta',intro:'Bolos, pastelaria e ideias de presentes para o melhor pai.',date:'Domingo, 3 de outubro de 2027',open:'Mais informações',modal:'Dia do Pai 2027',note:'Esta campanha aparece automaticamente depois do Dia Nacional.',detail:'Para o Dia do Pai 2027, a seleção atual será apresentada aqui.',order:'Ligar agora'}
+        }
+      }
+    ];
+
+    const NEWS_COMMON={
+      lb:{nav:'News',close:'Zoumaachen',days:'Nach {n} Deeg',today:'Haut',active:'Elo aktuell'},
+      de:{nav:'News',close:'Schließen',days:'Noch {n} Tage',today:'Heute',active:'Jetzt aktuell'},
+      fr:{nav:'Actualités',close:'Fermer',days:'Encore {n} jours',today:"Aujourd’hui",active:'En ce moment'},
+      pt:{nav:'Novidades',close:'Fechar',days:'Faltam {n} dias',today:'Hoje',active:'Agora'}
     };
-    function updateFatherCountdown(lang){
-      const el=document.getElementById('fatherCountdown'); if(!el)return;
-      const now=new Date(), target=new Date('2026-10-04T00:00:00+02:00'), end=new Date('2026-10-05T00:00:00+02:00');
-      const tx=NEWS_T[lang]||NEWS_T.lb;
-      if(now>=target&&now<end){el.textContent=tx.count_today;return}
-      if(now>=end){el.textContent=tx.count_passed;return}
-      const n=Math.max(0,Math.ceil((target-now)/86400000)); el.textContent=tx.count_days.replace('{n}',n);
+
+    function currentNewsEvent(now=new Date()){
+      return NEWS_EVENTS.find(e=>now<new Date(e.end)) || NEWS_EVENTS[NEWS_EVENTS.length-1];
+    }
+    function renderNews(lang){
+      const event=currentNewsEvent(), tx=event.t[lang]||event.t.lb, common=NEWS_COMMON[lang]||NEWS_COMMON.lb;
+      document.querySelectorAll('[data-news-i18n="news_nav"]').forEach(el=>el.textContent=common.nav);
+      const map={news_badge:tx.badge,news_title:tx.title,news_intro:tx.intro,news_date:tx.date,news_open:tx.open,news_modal_title:tx.modal,news_modal_note:tx.note,news_order:tx.order,news_close:common.close};
+      document.querySelectorAll('[data-news-i18n]').forEach(el=>{const k=el.dataset.newsI18n;if(map[k])el.textContent=map[k]});
+      const now=new Date(), start=new Date(event.start), end=new Date(event.end), countdown=document.getElementById('fatherCountdown');
+      if(countdown){
+        if(now>=start&&now<end){countdown.textContent=common.active}
+        else{const n=Math.max(0,Math.ceil((start-now)/86400000));countdown.textContent=common.days.replace('{n}',n)}
+      }
+      const imageLink=document.getElementById('eventImageLink'), image=document.getElementById('eventImage'), card=document.getElementById('eventDetailCard');
+      const dIcon=document.getElementById('eventDetailIcon'),dTitle=document.getElementById('eventDetailTitle'),dText=document.getElementById('eventDetailText'),dDate=document.getElementById('eventDetailDate');
+      if(event.image){
+        imageLink.style.display='block'; card.style.display='none'; imageLink.href=event.image; image.src=event.image; image.alt=tx.modal+' - Beim Bäcker Jos.LU';
+      }else{
+        imageLink.style.display='none'; card.style.display='block'; dIcon.textContent=event.icon; dTitle.textContent=tx.modal; dText.textContent=tx.detail; dDate.textContent=tx.date;
+      }
+      const modal=document.getElementById('newsModal'); if(modal)modal.setAttribute('aria-label',tx.modal);
     }
 
-    function setLang(lang){document.documentElement.lang=lang==='pt'?'pt-PT':lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(T[lang]&&T[lang][k])el.textContent=T[lang][k]});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));document.querySelectorAll('[data-news-i18n]').forEach(el=>{const k=el.dataset.newsI18n;if(NEWS_T[lang]&&NEWS_T[lang][k])el.textContent=NEWS_T[lang][k]});updateFatherCountdown(lang);localStorage.setItem('bbj_lang',lang)}
+    function setLang(lang){document.documentElement.lang=lang==='pt'?'pt-PT':lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(T[lang]&&T[lang][k])el.textContent=T[lang][k]});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderNews(lang);localStorage.setItem('bbj_lang',lang)}
     document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
     setLang(localStorage.getItem('bbj_lang')||'lb');
     const nav=document.getElementById('nav'),hamb=document.getElementById('hamb');hamb.addEventListener('click',()=>nav.classList.toggle('open'));document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
