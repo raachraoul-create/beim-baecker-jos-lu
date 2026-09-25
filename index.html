@@ -193,7 +193,7 @@
           <article class="product clickable" data-gallery="cakes" role="button" tabindex="0" aria-label="Pâtisserie & Torten entdecken"><img src="images/torten/torte-01.webp" alt="Hochzeitstorte aus der Backstube" loading="lazy"><div class="product-copy"><b data-i18n="p3">Pâtisserie & Torten</b><p data-i18n="p3t">Fir kleng Freed a grouss Momenter.</p></div></article>
           <article class="product"><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=86" alt="Sandwich" loading="lazy"><div class="product-copy"><b data-i18n="p4">Snacks & Sandwiches</b><p data-i18n="p4t">Fir eng séier a gutt Paus.</p></div></article>
           <article class="product"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=900&q=86" alt="Gebäck" loading="lazy"><div class="product-copy"><b data-i18n="p5">Kichelcher & Petits fours</b><p data-i18n="p5t">Kleng, fein a perfekt fir ze deelen.</p></div></article>
-          <article class="product"><img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=900&q=86" alt="Glace" loading="lazy"><div class="product-copy"><b data-i18n="p6">Glace & Séisses</b><p data-i18n="p6t">Eng séiss Belounung fir zwëschenduerch.</p></div></article>
+          <article class="product clickable" data-gallery="ice" role="button" tabindex="0" aria-label="Glace & Séisses entdecken"><img src="images/eis/eis-03.webp" alt="Glace Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p6">Glace & Séisses</b><p data-i18n="p6t">Eng séiss Belounung fir zwëschenduerch.</p></div></article>
         </div>
       </div>
     </section>
@@ -315,6 +315,18 @@
     </div>
   </div>
 
+
+
+  <div class="modal gallery-modal" id="iceGalleryModal" role="dialog" aria-modal="true" aria-label="Glace & Séisses">
+    <div class="gallery-card">
+      <div class="gallery-top">
+        <div><h3 id="iceGalleryTitle">Hausgemaachten Glace</h3><p id="iceGalleryIntro">Vun der Produktioun bis an d’Verpakung: en Abléck an eis Aarbecht.</p></div>
+        <button class="gallery-close" type="button" data-close aria-label="Schließen">×</button>
+      </div>
+      <div class="gallery-scroll"><div class="gallery-grid" id="iceGalleryGrid"></div></div>
+    </div>
+  </div>
+
   <div class="modal" id="callModal" role="dialog" aria-modal="true" aria-label="Standort wählen">
     <div class="modal-card"><div class="modal-top"><h3 data-i18n="choose_call">Wou wëlls du uruffen?</h3><button class="close" data-close>×</button></div><div class="choose"><a href="tel:+35223621479"><span>Biekerech<small>37 Huewelerstrooss</small></span><strong>☎</strong></a><a href="tel:+35226622444"><span>Sëll<small>14A Haaptstrooss</small></span><strong>☎</strong></a></div></div>
   </div>
@@ -397,6 +409,36 @@
       const t=document.getElementById('cakeGalleryTitle'),i=document.getElementById('cakeGalleryIntro'),g=document.getElementById('cakeGalleryGrid');
       if(t)t.textContent=d.title;if(i)i.textContent=d.intro;
       if(g)g.innerHTML=d.items.map((x,n)=>`<article class="gallery-item"><a href="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" target="_blank" rel="noopener"><img src="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
+    }
+
+
+    const ICE_GALLERY={
+      lb:{title:'Hausgemaachten Glace',intro:'Vun der Produktioun bis an d’Verpakung: en Abléck an eis Aarbecht, wou eise Glace mat Suergfalt a professioneller Technik preparéiert gëtt.',items:[
+        ['Frësch aus der Glacemaschinn','Eng cremeg Glacemass direkt aus der Produktioun – suergfälteg verschafft fir eng gläichméisseg, fein Konsistenz.'],
+        ['Gläichméisseg verréiert & gekillt','Während der Produktioun gëtt d’Glacemass kontrolléiert gekillt a verréiert, fir eng geschmeideg an homogen Struktur ze kréien.'],
+        ['Beim Bäcker Jos – Glace fir matzehuelen','Duerno gëtt eise Glace propper ofgefëllt a praktesch verpaakt – prett fir matzehuelen an ze genéissen.']
+      ]},
+      de:{title:'Hausgemachtes Eis',intro:'Von der Herstellung bis zur Abfüllung: ein Blick in unsere Backstube, wo unser Eis mit Sorgfalt und professioneller Technik zubereitet wird.',items:[
+        ['Frisch aus der Eismaschine','Cremige Eismasse direkt aus der professionellen Produktion – sorgfältig verarbeitet für eine gleichmäßige, feine Konsistenz.'],
+        ['Sorgfältig gerührt & gekühlt','Während der Verarbeitung wird die Eismasse gleichmäßig gekühlt und gerührt, damit sie ihre geschmeidige und homogene Struktur erhält.'],
+        ['Beim Bäcker Jos – Eis zum Mitnehmen','Unser Eis wird anschließend sauber abgefüllt und praktisch verpackt – bereit zum Mitnehmen und Genießen.']
+      ]},
+      fr:{title:'Glaces maison',intro:'De la fabrication au conditionnement : un aperçu de notre travail, avec une préparation soignée et du matériel professionnel.',items:[
+        ['Fraîchement sortie de la turbine','Une base glacée crémeuse directement issue de la production, travaillée avec soin pour une texture régulière et fine.'],
+        ['Brassage & refroidissement maîtrisés','Pendant la préparation, la glace est brassée et refroidie de manière régulière afin d’obtenir une texture souple et homogène.'],
+        ['Beim Bäcker Jos – glace à emporter','Notre glace est ensuite conditionnée proprement et dans un format pratique, prête à emporter et à savourer.']
+      ]},
+      pt:{title:'Gelados artesanais',intro:'Da preparação ao acondicionamento: um olhar sobre o nosso trabalho, feito com cuidado e equipamento profissional.',items:[
+        ['Fresco da máquina de gelado','Uma base cremosa acabada de sair da produção, trabalhada cuidadosamente para uma textura fina e uniforme.'],
+        ['Mistura & arrefecimento controlados','Durante a preparação, a massa é arrefecida e misturada de forma uniforme para obter uma textura suave e homogénea.'],
+        ['Beim Bäcker Jos – gelado para levar','No final, o nosso gelado é acondicionado de forma limpa e prática, pronto para levar e saborear.']
+      ]}
+    };
+    function renderIceGallery(lang){
+      const d=ICE_GALLERY[lang]||ICE_GALLERY.lb;
+      const t=document.getElementById('iceGalleryTitle'),i=document.getElementById('iceGalleryIntro'),g=document.getElementById('iceGalleryGrid');
+      if(t)t.textContent=d.title;if(i)i.textContent=d.intro;
+      if(g)g.innerHTML=d.items.map((x,n)=>`<article class="gallery-item"><a href="images/eis/eis-${String(n+1).padStart(2,'0')}.webp" target="_blank" rel="noopener"><img src="images/eis/eis-${String(n+1).padStart(2,'0')}.webp" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
     }
 
     const NEWS_EVENTS=[
@@ -540,12 +582,13 @@
       const modal=document.getElementById('newsModal'); if(modal)modal.setAttribute('aria-label',tx.modal);
     }
 
-    function setLang(lang){document.documentElement.lang=lang==='pt'?'pt-PT':lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(T[lang]&&T[lang][k])el.textContent=T[lang][k]});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderNews(lang);renderCakeGallery(lang);localStorage.setItem('bbj_lang',lang)}
+    function setLang(lang){document.documentElement.lang=lang==='pt'?'pt-PT':lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(T[lang]&&T[lang][k])el.textContent=T[lang][k]});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderNews(lang);renderCakeGallery(lang);renderIceGallery(lang);localStorage.setItem('bbj_lang',lang)}
     document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
     setLang(localStorage.getItem('bbj_lang')||'lb');
     const nav=document.getElementById('nav'),hamb=document.getElementById('hamb');hamb.addEventListener('click',()=>nav.classList.toggle('open'));document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-    const callModal=document.getElementById('callModal'),routeModal=document.getElementById('routeModal'),newsModal=document.getElementById('newsModal'),cakeGalleryModal=document.getElementById('cakeGalleryModal');
+    const callModal=document.getElementById('callModal'),routeModal=document.getElementById('routeModal'),newsModal=document.getElementById('newsModal'),cakeGalleryModal=document.getElementById('cakeGalleryModal'),iceGalleryModal=document.getElementById('iceGalleryModal');
     document.querySelectorAll('[data-gallery="cakes"]').forEach(el=>{const open=()=>{cakeGalleryModal.classList.add('open');document.body.classList.add('modal-open');nav.classList.remove('open')};el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
+    document.querySelectorAll('[data-gallery="ice"]').forEach(el=>{const open=()=>{iceGalleryModal.classList.add('open');document.body.classList.add('modal-open');nav.classList.remove('open')};el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
     function openModal(type){(type==='route'?routeModal:callModal).classList.add('open');document.body.classList.add('modal-open')}
     function closeModal(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('open'));document.body.classList.remove('modal-open')}
     document.querySelectorAll('[data-news-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();newsModal.classList.add('open');document.body.classList.add('modal-open');nav.classList.remove('open')}));document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openModal(b.dataset.open)));
