@@ -235,7 +235,7 @@
           <article class="loc">
             <div class="loc-top"><div><span class="city">Sëll</span><h3>Beim Bäcker Jos</h3></div><span class="status" data-i18n="local_shop">Lokal Bäckerei</span></div>
             <address>14A, Haaptstrooss<br>L-7470 Sëll, Luxembourg</address>
-            <div class="hours"><div><span data-i18n="hours_week">Dënschdeg – Freideg</span><b>06:00 – 18:30</b></div><div><span data-i18n="hours_sat">Samschdeg</span><b>07:00 – 14:00</b></div><div><span data-i18n="hours_closed">Sonndeg & Méindeg</span><b data-i18n="closed">zou</b></div></div>
+            <div class="hours"><div><span data-i18n="hours_week">Dënschdeg – Freideg</span><b>06:00 – 18:30</b></div><div><span data-i18n="hours_sat">Samschdeg</span><b>06:00 – 14:00</b></div><div><span data-i18n="hours_closed">Sonndeg & Méindeg</span><b data-i18n="closed">zou</b></div></div>
             <div class="loc-actions"><a class="btn primary small" href="tel:+35226622444">☎ +352 26 62 24 44</a><a class="btn outline small" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=14A%20Haaptstrooss%2C%207470%20Saeul%2C%20Luxembourg" data-i18n="route">Route</a></div>
           </article>
         </div>
@@ -266,7 +266,7 @@
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand"><img src="logo.jpg" alt="Beim Bäcker Jos Logo"><p data-i18n="footer_text">Boulangerie & Pâtisserie mat zwee Standuerter am Grand-Duché de Luxembourg.</p></div>
+        <div class="footer-brand"><img src="logo.jpg" alt="Beim Bäcker Jos Logo"><p data-i18n="footer_text">Boulangerie & Pâtisserie mat zwee Standuerter am Grand-Duché de Luxembourg.</p><a class="btn light small" href="https://www.facebook.com/profile.php?id=100063540854580&sk=about&locale=de_DE" target="_blank" rel="noopener noreferrer" aria-label="Beim Bäcker Jos op Facebook">Facebook</a></div>
         <div><div class="footer-title" data-i18n="footer_locations">Standuerter</div><div class="footer-links"><a href="#locations">Biekerech · +352 23 62 14 79</a><a href="#locations">Sëll · +352 26 62 24 44</a></div></div>
         <div><div class="footer-title" data-i18n="footer_nav">Navigatioun</div><div class="footer-links"><a href="#about" data-i18n="nav_about">Iwwer eis</a><a href="#products" data-i18n="nav_products">Sortiment</a><a href="#cakes" data-i18n="nav_cakes">Torten</a><a href="#news" data-news-open data-news-i18n="news_nav">News</a><a href="#faq">FAQ</a></div></div>
       </div>
@@ -348,9 +348,9 @@
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
-    {"@type":"Organization","name":"BOULANGERIE-PATISSERIE « BEIM BÄCKER JOS » S.à r.l.","alternateName":"Beim Bäcker Jos.LU","foundingDate":"2002","taxID":"LU19112744","url":"https://beim-baecker-jos-lu.webflow.io/"},
+    {"@type":"Organization","name":"BOULANGERIE-PATISSERIE « BEIM BÄCKER JOS » S.à r.l.","alternateName":"Beim Bäcker Jos.LU","foundingDate":"2002","taxID":"LU19112744","url":"https://beim-baecker-jos-lu.webflow.io/","sameAs":["https://www.facebook.com/profile.php?id=100063540854580&sk=about&locale=de_DE"]},
     {"@type":"Bakery","name":"Beim Bäcker Jos – Biekerech","telephone":"+35223621479","address":{"@type":"PostalAddress","streetAddress":"37 Huewelerstrooss","postalCode":"8521","addressLocality":"Beckerich","addressCountry":"LU"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"06:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"06:00","closes":"14:00"}]},
-    {"@type":"Bakery","name":"Beim Bäcker Jos – Sëll","telephone":"+35226622444","address":{"@type":"PostalAddress","streetAddress":"14A Haaptstrooss","postalCode":"7470","addressLocality":"Saeul","addressCountry":"LU"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"06:00","closes":"18:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"07:00","closes":"14:00"}],"award":"RTL Readers' Choice 2026 – 2. Platz Fueskichelcher"}
+    {"@type":"Bakery","name":"Beim Bäcker Jos – Sëll","telephone":"+35226622444","address":{"@type":"PostalAddress","streetAddress":"14A Haaptstrooss","postalCode":"7470","addressLocality":"Saeul","addressCountry":"LU"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"06:00","closes":"18:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"06:00","closes":"14:00"}],"award":"RTL Readers' Choice 2026 – 2. Platz Fueskichelcher"}
   ]}
   </script>
   <script>
@@ -452,7 +452,7 @@
       const d=CAKE_GALLERY[lang]||CAKE_GALLERY.lb;
       const t=document.getElementById('cakeGalleryTitle'),i=document.getElementById('cakeGalleryIntro'),g=document.getElementById('cakeGalleryGrid');
       if(t)t.textContent=d.title;if(i)i.textContent=d.intro;
-      if(g)g.innerHTML=d.items.map((x,n)=>`<article class="gallery-item"><a href="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" target="_blank" rel="noopener"><img src="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
+      if(g)g.innerHTML=d.items.slice(0,26).map((x,n)=>`<article class="gallery-item"><a href="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" target="_blank" rel="noopener"><img src="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
     }
 
 
@@ -540,9 +540,9 @@
     }
 
     const ICE_IMAGES=[
-      'eis-01.webp','eis-02.webp','eis-03.webp','eis-04.webp','eis-05.webp',
-      'eis-06.webp','eis-07.webp','eis-08.webp','eis-09.webp','eis-10.webp',
-      'eis-11.webp','eis-12.webp','eis-13.webp','eis-14.webp','eis-15.webp'
+      'images/eis/eis-01.webp','images/eis/eis-02.webp','images/eis/eis-03.webp','images/eis/eis-04.webp','images/eis/eis-05.webp',
+      'images/eis/eis-06.webp','images/eis/eis-07.webp','images/eis/eis-08.webp','images/eis/eis-09.webp','images/eis/eis-10.webp',
+      'images/torten/torte-27.webp','images/eis/eis-12.webp','images/torten/torte-28.webp','images/torten/torte-29.webp','images/torten/torte-30.webp'
     ];
     const ICE_GALLERY={
       lb:{title:'Hausgemaachten Glace & festlech Eiskreatiounen',intro:'Vun der Produktioun bis zu festlechen Eistaarten, Bûchen an Eiskonfekt: eis Eisspezialitéite ginn mat Suergfalt preparéiert, propper presentéiert a fir besonnesch Momenter dekoréiert.',items:[
@@ -618,7 +618,7 @@
       const d=ICE_GALLERY[lang]||ICE_GALLERY.lb;
       const t=document.getElementById('iceGalleryTitle'),i=document.getElementById('iceGalleryIntro'),g=document.getElementById('iceGalleryGrid');
       if(t)t.textContent=d.title;if(i)i.textContent=d.intro;
-      if(g)g.innerHTML=d.items.map((x,n)=>`<article class="gallery-item"><a href="images/eis/${ICE_IMAGES[n]}" target="_blank" rel="noopener"><img src="images/eis/${ICE_IMAGES[n]}" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
+      if(g)g.innerHTML=d.items.map((x,n)=>`<article class="gallery-item"><a href="${ICE_IMAGES[n]}" target="_blank" rel="noopener"><img src="${ICE_IMAGES[n]}" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
     }
 
     const NEWS_EVENTS=[
