@@ -449,40 +449,12 @@
       ]}
     };
 
-    const MOVED_CAKE_IMAGES=['images/eis/eis-05.webp','images/eis/eis-08.webp','images/eis/eis-09.webp','images/eis/eis-10.webp'];
-    const MOVED_CAKE_GALLERY={
-      lb:[
-        ['Chrëschtdags-Uebsttaart „Joyeux Noël“','Festlech Chrëschtdags-Taart mat frësche Beeren, Uebst, Schockela an handgemaachter Wanterdekoratioun – e faarwege Mëttelpunkt fir d’Feierdeeg.'],
-        ['Chrëschtdags-Schockela-Bûche','Festlech Kuch-Bûche mat Schockelacoque, Kichelcher a Chrëschtdagsdekor – mat vill Suergfalt an eiser Backstube preparéiert.'],
-        ['Festlech Bûche-Auswiel','Eng Auswiel u Bûchen mat Uebst, Crème a Schockela – verschidden dekoréiert Varianten aus eiser Pâtisserie.'],
-        ['Chrëschtdags-Schockela-Bûche','Wanterlech Bûche mat knuspereger Schockelacoque, Kichelcher a Chrëschtdagsdekor – eng festlech Spezialitéit fir d’Feierdeeg.']
-      ],
-      de:[
-        ['Weihnachts-Fruchttorte „Joyeux Noël“','Festliche Weihnachtstorte mit frischen Beeren, Früchten, Schokolade und handgefertigter Winterdekoration – ein farbenfroher Mittelpunkt für die Feiertage.'],
-        ['Weihnachts-Schokoladen-Bûche','Festliche Kuchen-Bûche mit Schokoladenhülle, Gebäck und Weihnachtsdekor – mit viel Sorgfalt in unserer Backstube zubereitet.'],
-        ['Festliche Bûche-Auswahl','Eine Auswahl an Bûches mit Früchten, Creme und Schokolade – unterschiedlich dekorierte Varianten aus unserer Pâtisserie.'],
-        ['Weihnachts-Schokoladen-Bûche','Winterliche Bûche mit knuspriger Schokoladenhülle, Gebäck und Weihnachtsdekor – eine festliche Spezialität für die Feiertage.']
-      ],
-      fr:[
-        ['Gâteau de Noël aux fruits « Joyeux Noël »','Gâteau de Noël festif garni de fruits rouges, de fruits frais, de chocolat et d’un décor hivernal soigné – une création colorée pour les fêtes.'],
-        ['Bûche de Noël « Joyeuses Fêtes »','Bûche festive à la crème fine, décorée de chocolat et de motifs de Noël – préparée avec soin dans notre atelier.'],
-        ['Assortiment de bûches festives','Une sélection de bûches aux fruits, à la crème et au chocolat – plusieurs finitions de notre pâtisserie.'],
-        ['Bûche de Noël au chocolat','Bûche hivernale avec enrobage chocolaté croustillant, biscuits et décor de Noël – une spécialité festive pour les fêtes.']
-      ],
-      pt:[
-        ['Bolo de Natal com fruta « Joyeux Noël »','Bolo de Natal festivo com frutos vermelhos, fruta fresca, chocolate e decoração de inverno cuidada – uma criação colorida para as festas.'],
-        ['Tronco de Natal « Joyeuses Fêtes »','Tronco festivo com creme delicado, decoração de chocolate e motivos de Natal – preparado com cuidado na nossa pastelaria.'],
-        ['Seleção festiva de troncos','Uma seleção de troncos com fruta, creme e chocolate – várias versões decoradas da nossa pastelaria.'],
-        ['Tronco de Natal de chocolate','Tronco de inverno com cobertura crocante de chocolate, biscoitos e decoração de Natal – uma especialidade festiva para as festas.']
-      ]
-    };
     function renderCakeGallery(lang){
       const d=CAKE_GALLERY[lang]||CAKE_GALLERY.lb;
       const t=document.getElementById('cakeGalleryTitle'),i=document.getElementById('cakeGalleryIntro'),g=document.getElementById('cakeGalleryGrid');
       if(t)t.textContent=d.title;if(i)i.textContent=d.intro;
-      if(g){const moved=MOVED_CAKE_GALLERY[lang]||MOVED_CAKE_GALLERY.lb;g.innerHTML=d.items.map((x,n)=>`<article class="gallery-item"><a href="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" target="_blank" rel="noopener"><img src="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('')+moved.map((x,n)=>`<article class="gallery-item"><a href="${MOVED_CAKE_IMAGES[n]}" target="_blank" rel="noopener"><img src="${MOVED_CAKE_IMAGES[n]}" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');}
+      if(g)g.innerHTML=d.items.map((x,n)=>`<article class="gallery-item"><a href="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" target="_blank" rel="noopener"><img src="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
     }
-
 
 
     const SNACK_IMAGES=['canapes','fingerfood','salate','wraps','canapes-neu','gemueseplatte','wrap-offen','canapes-platte','minisandwich-tablett','mini-quiches','fladenbrot-tortenturm','mini-sandwich-buffet','wrap-ei-salat','wrap-lachs','wrap-schinken','wrap-haehnchen'];
@@ -574,7 +546,7 @@
       "images/eis/eis-04.webp",
       "images/eis/eis-06.webp",
       "images/eis/eis-07.webp",
-      "images/eis/eis-weihnachten-01.avif",
+      "images/eis/eis-weihnachten-01.webp",
       "images/eis/eis-weihnachten-02.avif",
       "images/eis/eis-weihnachten-03.avif",
       "images/eis/eis-weihnachten-04.avif"
