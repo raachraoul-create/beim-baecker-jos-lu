@@ -452,7 +452,7 @@
       const d=CAKE_GALLERY[lang]||CAKE_GALLERY.lb;
       const t=document.getElementById('cakeGalleryTitle'),i=document.getElementById('cakeGalleryIntro'),g=document.getElementById('cakeGalleryGrid');
       if(t)t.textContent=d.title;if(i)i.textContent=d.intro;
-      if(g)g.innerHTML=d.items.slice(0,19).map((x,n)=>`<article class="gallery-item"><a href="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" target="_blank" rel="noopener"><img src="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
+      if(g)g.innerHTML=d.items.map((x,n)=>`<article class="gallery-item"><a href="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" target="_blank" rel="noopener"><img src="images/torten/torte-${String(n+1).padStart(2,'0')}.webp" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
     }
 
 
@@ -539,123 +539,27 @@
       if(g)g.innerHTML=d.items.map((x,n)=>`<article class="gallery-item"><a href="images/snacks/${SNACK_IMAGES[n]}.webp" target="_blank" rel="noopener"><img src="images/snacks/${SNACK_IMAGES[n]}.webp" alt="${x[0]}" loading="lazy"></a><div class="gallery-copy"><h4>${x[0]}</h4><p>${x[1]}</p></div></article>`).join('');
     }
 
-    const ICE_IMAGES=['eis-01.webp','eis-02.webp','eis-03.webp','eis-04.jpg','eis-05.jpg','eis-06.jpg','eis-07.jpg','eis-08.jpg','eis-09.jpg','eis-10.jpg','eis-11.jpg','eis-12.jpg','eis-13.jpg','eis-14.jpg','eis-15.jpg'];
+    const ICE_IMAGES=['eis-01.webp','eis-02.webp','eis-03.webp'];
     const ICE_GALLERY={
-      lb:{title:'Hausgemaachten Glace',intro:'Vun der Produktioun bis bei eis festlech Eis-Kreatiounen: hausgemaachte Glace, Eis-Bûchen an Eistaarten, mat Suergfalt an eiser Backstube preparéiert.',items:[
+      lb:{title:'Hausgemaachten Glace',intro:'Vun der Produktioun bis an d’Verpakung: en Abléck an eis Aarbecht, wou eise Glace mat Suergfalt a professioneller Technik preparéiert gëtt.',items:[
         ['Frësch aus der Glacemaschinn','Eng cremeg Glacemass direkt aus der Produktioun – suergfälteg verschafft fir eng gläichméisseg, fein Konsistenz.'],
         ['Gläichméisseg verréiert & gekillt','Während der Produktioun gëtt d’Glacemass kontrolléiert gekillt a verréiert, fir eng geschmeideg an homogen Struktur ze kréien.'],
-        ['Beim Bäcker Jos – Glace fir matzehuelen','Duerno gëtt eise Glace propper ofgefëllt a praktesch verpaakt – prett fir matzehuelen an ze genéissen.'],
-        ['Chrëschtdags-Eistaart „Joyeux Noël“','Ronn festlech Eistaart a rout-wäissem Look mat dekorativer Crème, Schockelasplack an Chrëschtdagsdekor – eng originell kal Spezialitéit fir d’Feierdeeg.'],
-        ['Chrëschtdags-Uebst-Eistaart','Festlech Eistaart mat frëschem Uebst a feinem Schockeladekor – faarweg, frësch an elegant fir d’Chrëschtzäit.'],
-        ['Mini-Eisdessert-Auswiel „Joyeux Noël“','Eng faarweg Auswiel u klenge gefruerenen Desserten, festlech ugeriicht mat enger „Joyeux Noël“-Schockelasplack – ideal fir ze deelen.'],
-        ['Eis-Bûche mat geréischtertem Baiser','Länglech gefrueren Bûche mat fein ofgeflämmtem Baiser an Chrëschtdagsdekor – eng klassesch-festlech Eis-Kreatioun.'],
-        ['Eis-Bûche mat Wanterdekor','Elegant länglech Eis-Bûche mat feinem Schockeladekor, klengen Wanterelementer an „Joyeuses Fêtes“-Plack – festlech an handwierklech ugeriicht.'],
-        ['Festlech Eis-Bûche-Auswiel','Eng grouss Auswiel u rouden an donkelen Eis-Bûchen, dekoréiert mat Uebst, Crème a Schockelaelementer – passend fir Feierdeeg a méi grouss Bestellungen.'],
-        ['Schockela-Eis-Bûche mat Chrëschtdagsdekor','Länglech gefrueren Schockela-Kreatioun mat strukturéierter Glasur, Kichelcher a klengem Schneemann-Dekor – rustikal a festlech.'],
-        ['Chrëschtdags-Eisdessert mat Baiserhaub','Opfällegt gefruerent Dessert mat spiralfërmeg ofgeflämmtem Baiser a klenge Chrëschtdagsdetailer – eng festlech Spezialitéit fir de Chrëschtdësch.'],
-        ['Eis-Bûche mat Baiser-Dekor','Länglech gefrueren Bûche mat reichlech ofgeflämmtem Baiser an engem klenge grénge Festdekor – klassesch a festlech presentéiert.'],
-        ['Hell Eis-Bûche „Joyeux Noël“','Elegant hell Eis-Bûche mat feiner Dekoratioun, rosa Akzenter a „Joyeux Noël“-Schockelasplack – eng festlech kal Spezialitéit.'],
-        ['Rout Eis-Bûche mat Uebst & Schneemann','Glänzend rout Eis-Bûche mat rosa Dekor, frëschem Uebst a klenge Schneemann-Elementer – faarweg a festlech.'],
-        ['Festlech Eistaart „Bonne Fête“','Ronn gefrueren Festtaart mat rosa a rouden Dekorelementer, „Bonne Fête“-Schockelasplack a klengem grénge Festdekor – ideal fir eng besonnesch Geleeënheet.'],
-        ['Chrëschtdags-Eistaart „Joyeux Noël“','Festlech ronn Eistaart a rout-wäissem Look mat Schockelasplack an dekorative Chrëschtdagsakzenter – eng besonnesch Eis-Kreatioun fir d’Feierdeeg.'],
-        ['Festlech Uebst-Eistaart','Ronn Eistaart mat enger generéiser Dekoratioun aus frëschem Uebst, Schockela a Chrëschtdagsdetailer – faarweg a festlech presentéiert.'],
-        ['Chrëschtdags Mini-Eisdessert-Auswiel','Eng faarweg Auswiel u klenge gefruerene Dessert- an Eis-Kreatiounen op engem Plateau – ideal fir ze deelen an ze probéieren.'],
-        ['Eis-Bûche mat geréischtertem Baiser','Länglech Eis-Bûche mat fein ofgeflämmtem Baiser an „Joyeux Noël“-Schockelasdekor – klassesch a festlech ugeriicht.'],
-        ['Festlech Eis-Bûche mat Wanterdekor','Elegant länglech Eis-Bûche mat Schockeladekor, klenge Chrëschtdagselementer an engem Wanter-Motiv – passend fir d’Feierdeeg.'],
-        ['Eis-Bûche-Auswiel mat Uebst & Schockela','Eng grouss Auswiel u festlechen Eis-Bûchen, dekoréiert mat Uebst, Crème a Schockelaelementer – ideal fir eng feierlech Presentatioun.'],
-        ['Schockela-Eis-Bûche mat Chrëschtdagsdekor','Länglech Schockela-Eis-Bûche mat strukturéierter Glasur, Kichelcher a klenge Chrëschtdagsdetailer – rustikal a festlech.'],
-        ['Chrëschtdags-Eisdessert mat Baiser','Opfällegt gefruerent Dessert mat spiralfërmeg ofgeflämmtem Baiser a klengen Chrëschtdagsdetailer – eng hell a festlech Eis-Spezialitéit.'],
-        ['Hell Eis-Bûche „Joyeux Noël“','Elegant hell Eis-Bûche mat feiner Dekoratioun, rosa Akzenter a „Joyeux Noël“-Schockelasplack – propper a festlech presentéiert.'],
-        ['Rout Eis-Bûche mat Uebst & Schneemann','Glänzend rout Eis-Bûche mat rosa Dekor, frëschem Uebst an engem klenge Schneemann – eng faarweg Chrëschtdags-Kreatioun.'],
-        ['Festlech Eistaart „Bonne Fête“','Ronn Eistaart mat rosa a rouden Dekor-Rosetten, Schockelasplack „Bonne Fête“ a klenge Festdetailer – ideal fir eng besonnesch Geleeënheet.'],
-        ['Hell Eis-Bûche mat geréischtertem Baiser','Länglech hell Eis-Bûche mat dekorativ ofgeflämmtem Baiser an engem klenge festlechen Akzent – fein a klassesch presentéiert.']
+        ['Beim Bäcker Jos – Glace fir matzehuelen','Duerno gëtt eise Glace propper ofgefëllt a praktesch verpaakt – prett fir matzehuelen an ze genéissen.']
       ]},
-      de:{title:'Hausgemachtes Eis',intro:'Von der Herstellung bis zu unseren festlichen Eis-Kreationen: hausgemachtes Eis, Eis-Bûches und Eistorten, mit Sorgfalt in unserer Backstube zubereitet.',items:[
+      de:{title:'Hausgemachtes Eis',intro:'Von der Herstellung bis zur Abfüllung: ein Blick in unsere Backstube, wo unser Eis mit Sorgfalt und professioneller Technik zubereitet wird.',items:[
         ['Frisch aus der Eismaschine','Cremige Eismasse direkt aus der professionellen Produktion – sorgfältig verarbeitet für eine gleichmäßige, feine Konsistenz.'],
         ['Sorgfältig gerührt & gekühlt','Während der Verarbeitung wird die Eismasse gleichmäßig gekühlt und gerührt, damit sie ihre geschmeidige und homogene Struktur erhält.'],
-        ['Beim Bäcker Jos – Eis zum Mitnehmen','Unser Eis wird anschließend sauber abgefüllt und praktisch verpackt – bereit zum Mitnehmen und Genießen.'],
-        ['Weihnachts-Eistorte „Joyeux Noël“','Runde festliche Eistorte in Rot-Weiß mit dekorativer Creme, Schokoladenplatte und Weihnachtsdekor – eine besondere kalte Spezialität für die Feiertage.'],
-        ['Weihnachtliche Frucht-Eistorte','Festliche Eistorte mit frischen Früchten und feinem Schokoladendekor – farbenfroh, frisch und elegant für die Weihnachtszeit.'],
-        ['Mini-Eisdessert-Auswahl „Joyeux Noël“','Eine farbenfrohe Auswahl kleiner gefrorener Desserts, festlich angerichtet mit einer „Joyeux Noël“-Schokoladenplatte – ideal zum Teilen.'],
-        ['Eis-Bûche mit geröstetem Baiser','Längliche gefrorene Bûche mit fein abgeflammtem Baiser und Weihnachtsdekor – eine klassisch-festliche Eiskreation.'],
-        ['Eis-Bûche mit Winterdekor','Elegante längliche Eis-Bûche mit feinem Schokoladendekor, kleinen Winterelementen und „Joyeuses Fêtes“-Plakette – festlich und handwerklich angerichtet.'],
-        ['Festliche Eis-Bûche-Auswahl','Eine große Auswahl roter und dunkler Eis-Bûches, dekoriert mit Früchten, Creme und Schokoladenelementen – passend für Feiertage und größere Bestellungen.'],
-        ['Schokoladen-Eis-Bûche mit Weihnachtsdekor','Längliche gefrorene Schokoladenkreation mit strukturierter Glasur, Gebäck und kleinem Schneemann-Dekor – rustikal und festlich.'],
-        ['Weihnachtliches Eisdessert mit Baiserhaube','Auffälliges gefrorenes Dessert mit spiralförmig abgeflammtem Baiser und kleinen Weihnachtsdetails – eine festliche Spezialität für die Weihnachtstafel.'],
-        ['Eis-Bûche mit Baiser-Dekor','Längliche gefrorene Bûche mit reichlich abgeflammtem Baiser und kleinem grünem Festdekor – klassisch und festlich präsentiert.'],
-        ['Helle Eis-Bûche „Joyeux Noël“','Elegante helle Eis-Bûche mit feiner Dekoration, rosa Akzenten und „Joyeux Noël“-Schokoladenplatte – eine festliche kalte Spezialität.'],
-        ['Rote Eis-Bûche mit Früchten & Schneemann','Glänzend rote Eis-Bûche mit rosa Dekor, frischen Früchten und kleinen Schneemann-Elementen – farbenfroh und festlich.'],
-        ['Festliche Eistorte „Bonne Fête“','Runde gefrorene Festtorte mit rosa und roten Dekorelementen, „Bonne Fête“-Schokoladenplatte und kleinem grünem Festdekor – ideal für einen besonderen Anlass.'],
-        ['Weihnachtliche Eistorte „Joyeux Noël“','Festliche runde Eistorte in Rot-Weiß mit Schokoladenplatte und dekorativen Weihnachtsakzenten – eine besondere Eis-Kreation für die Feiertage.'],
-        ['Festliche Früchte-Eistorte','Runde Eistorte mit einer großzügigen Dekoration aus frischen Früchten, Schokolade und weihnachtlichen Details – farbenfroh und festlich präsentiert.'],
-        ['Weihnachtliche Mini-Eisdessert-Auswahl','Eine farbenfrohe Auswahl kleiner gefrorener Dessert- und Eis-Kreationen auf einem Plateau – ideal zum Teilen und Probieren.'],
-        ['Eis-Bûche mit geröstetem Baiser','Längliche Eis-Bûche mit fein abgeflammtem Baiser und „Joyeux Noël“-Schokoladendekor – klassisch und festlich angerichtet.'],
-        ['Festliche Eis-Bûche mit Winterdekor','Elegante längliche Eis-Bûche mit Schokoladendekor, kleinen Weihnachtselementen und winterlichem Motiv – passend für die Feiertage.'],
-        ['Eis-Bûche-Auswahl mit Früchten & Schokolade','Eine große Auswahl festlicher Eis-Bûches, dekoriert mit Früchten, Creme und Schokoladenelementen – ideal für eine festliche Präsentation.'],
-        ['Schokoladen-Eis-Bûche mit Weihnachtsdekor','Längliche Schokoladen-Eis-Bûche mit strukturierter Glasur, Gebäck und kleinen Weihnachtsdetails – rustikal und festlich gestaltet.'],
-        ['Weihnachtliches Eisdessert mit Baiser','Auffälliges gefrorenes Dessert mit spiralförmig abgeflammtem Baiser und kleinen Weihnachtsdetails – eine helle, festliche Eis-Spezialität.'],
-        ['Helle Eis-Bûche „Joyeux Noël“','Elegante helle Eis-Bûche mit feiner Dekoration, rosa Akzenten und „Joyeux Noël“-Schokoladenplatte – sauber und festlich präsentiert.'],
-        ['Rote Eis-Bûche mit Früchten & Schneemann','Glänzend rote Eis-Bûche mit rosa Dekor, frischen Früchten und kleinem Schneemann – eine farbenfrohe Weihnachts-Kreation.'],
-        ['Festliche Eistorte „Bonne Fête“','Runde Eistorte mit rosa und roten Dekor-Rosetten, „Bonne Fête“-Schokoladenplatte und kleinen Festdetails – ideal für einen besonderen Anlass.'],
-        ['Helle Eis-Bûche mit geröstetem Baiser','Längliche helle Eis-Bûche mit dekorativ abgeflammtem Baiser und kleinem festlichen Akzent – fein und klassisch präsentiert.']
+        ['Beim Bäcker Jos – Eis zum Mitnehmen','Unser Eis wird anschließend sauber abgefüllt und praktisch verpackt – bereit zum Mitnehmen und Genießen.']
       ]},
-      fr:{title:'Glaces maison',intro:'De la fabrication à nos créations glacées de fête : glaces maison, bûches glacées et gâteaux glacés, préparés avec soin dans notre atelier.',items:[
+      fr:{title:'Glaces maison',intro:'De la fabrication au conditionnement : un aperçu de notre travail, avec une préparation soignée et du matériel professionnel.',items:[
         ['Fraîchement sortie de la turbine','Une base glacée crémeuse directement issue de la production, travaillée avec soin pour une texture régulière et fine.'],
         ['Brassage & refroidissement maîtrisés','Pendant la préparation, la glace est brassée et refroidie de manière régulière afin d’obtenir une texture souple et homogène.'],
-        ['Beim Bäcker Jos – glace à emporter','Notre glace est ensuite conditionnée proprement et dans un format pratique, prête à emporter et à savourer.'],
-        ['Gâteau glacé de Noël « Joyeux Noël »','Gâteau glacé rond rouge et blanc avec crème décorative, plaque en chocolat et décor de Noël – une spécialité glacée festive pour les fêtes.'],
-        ['Gâteau glacé de Noël aux fruits','Gâteau glacé festif garni de fruits frais et d’un fin décor chocolaté – coloré, frais et élégant pour la période de Noël.'],
-        ['Assortiment de mini-desserts glacés « Joyeux Noël »','Un assortiment coloré de petits desserts glacés, présenté avec une plaque en chocolat « Joyeux Noël » – idéal à partager.'],
-        ['Bûche glacée à la meringue grillée','Bûche glacée allongée avec meringue délicatement dorée et décor de Noël – une création glacée classique et festive.'],
-        ['Bûche glacée au décor hivernal','Élégante bûche glacée avec fin décor chocolaté, petits éléments d’hiver et plaque « Joyeuses Fêtes » – une présentation artisanale et festive.'],
-        ['Assortiment festif de bûches glacées','Un grand assortiment de bûches glacées rouges et chocolatées, décorées de fruits, de crème et d’éléments en chocolat – idéal pour les fêtes.'],
-        ['Bûche glacée au chocolat décorée pour Noël','Création glacée au chocolat avec glaçage texturé, biscuits et petit décor de bonhomme de neige – rustique et festive.'],
-        ['Dessert glacé de Noël à la meringue','Dessert glacé spectaculaire avec meringue spiralée délicatement dorée et petits détails de Noël – une spécialité festive.'],
-        ['Bûche glacée au décor de meringue','Bûche glacée allongée généreusement décorée de meringue dorée et d’un petit détail vert – classique et festive.'],
-        ['Bûche glacée claire « Joyeux Noël »','Élégante bûche glacée claire avec décor délicat, touches roses et plaque en chocolat « Joyeux Noël » – une spécialité glacée festive.'],
-        ['Bûche glacée rouge aux fruits & bonhomme de neige','Bûche glacée rouge brillante avec décor rose, fruits frais et petits éléments de bonhomme de neige – colorée et festive.'],
-        ['Gâteau glacé festif « Bonne Fête »','Gâteau glacé rond avec décor rose et rouge, plaque en chocolat « Bonne Fête » et petit détail vert – idéal pour une occasion spéciale.'],
-        ['Gâteau glacé de Noël « Joyeux Noël »','Gâteau glacé rond rouge et blanc avec plaque en chocolat et détails de Noël – une création glacée festive pour les fêtes.'],
-        ['Gâteau glacé festif aux fruits','Gâteau glacé rond généreusement décoré de fruits frais, chocolat et détails de Noël – coloré et festif.'],
-        ['Assortiment de mini-desserts glacés de Noël','Une sélection colorée de petites créations glacées présentées sur plateau – idéale à partager et à découvrir.'],
-        ['Bûche glacée à la meringue grillée','Bûche glacée allongée avec meringue délicatement dorée et décor en chocolat « Joyeux Noël » – classique et festive.'],
-        ['Bûche glacée festive au décor hivernal','Élégante bûche glacée allongée avec décor chocolaté, petits éléments de Noël et motif hivernal – parfaite pour les fêtes.'],
-        ['Assortiment de bûches glacées aux fruits & chocolat','Un grand assortiment de bûches glacées festives, décorées de fruits, crème et éléments en chocolat – idéal pour une présentation de fête.'],
-        ['Bûche glacée au chocolat décorée pour Noël','Bûche glacée allongée au chocolat avec glaçage texturé, biscuits et petits détails de Noël – une création rustique et festive.'],
-        ['Dessert glacé de Noël à la meringue','Dessert glacé spectaculaire avec meringue spiralée délicatement dorée et petits détails de Noël – une spécialité glacée lumineuse et festive.'],
-        ['Bûche glacée claire « Joyeux Noël »','Élégante bûche glacée claire avec décoration fine, accents roses et plaque en chocolat « Joyeux Noël » – présentée avec soin.'],
-        ['Bûche glacée rouge aux fruits & bonhomme de neige','Bûche glacée rouge brillante avec décor rose, fruits frais et petit bonhomme de neige – une création de Noël colorée.'],
-        ['Gâteau glacé festif « Bonne Fête »','Gâteau glacé rond avec rosaces roses et rouges, plaque en chocolat « Bonne Fête » et petits détails festifs – idéal pour une occasion spéciale.'],
-        ['Bûche glacée claire à la meringue grillée','Bûche glacée claire allongée avec meringue décorative délicatement dorée et petite touche festive – une présentation fine et classique.']
+        ['Beim Bäcker Jos – glace à emporter','Notre glace est ensuite conditionnée proprement et dans un format pratique, prête à emporter et à savourer.']
       ]},
-      pt:{title:'Gelados artesanais',intro:'Da produção às nossas criações geladas festivas: gelados artesanais, bûches geladas e bolos gelados, preparados com cuidado na nossa pastelaria.',items:[
+      pt:{title:'Gelados artesanais',intro:'Da preparação ao acondicionamento: um olhar sobre o nosso trabalho, feito com cuidado e equipamento profissional.',items:[
         ['Fresco da máquina de gelado','Uma base cremosa acabada de sair da produção, trabalhada cuidadosamente para uma textura fina e uniforme.'],
         ['Mistura & arrefecimento controlados','Durante a preparação, a massa é arrefecida e misturada de forma uniforme para obter uma textura suave e homogénea.'],
-        ['Beim Bäcker Jos – gelado para levar','No final, o nosso gelado é acondicionado de forma limpa e prática, pronto para levar e saborear.'],
-        ['Bolo gelado de Natal « Joyeux Noël »','Bolo gelado redondo em tons vermelho e branco, com creme decorativo, placa de chocolate e decoração de Natal – uma especialidade gelada festiva.'],
-        ['Bolo gelado de Natal com fruta','Bolo gelado festivo com fruta fresca e decoração fina de chocolate – colorido, fresco e elegante para a época natalícia.'],
-        ['Seleção de mini-sobremesas geladas « Joyeux Noël »','Uma seleção colorida de pequenas sobremesas geladas, apresentada com placa de chocolate « Joyeux Noël » – ideal para partilhar.'],
-        ['Bûche gelada com merengue tostado','Bûche gelada alongada com merengue delicadamente tostado e decoração de Natal – uma criação gelada clássica e festiva.'],
-        ['Bûche gelada com decoração de inverno','Elegante bûche gelada com decoração fina de chocolate, pequenos elementos de inverno e placa « Joyeuses Fêtes » – uma apresentação artesanal e festiva.'],
-        ['Seleção festiva de bûches geladas','Uma grande seleção de bûches geladas vermelhas e de chocolate, decoradas com fruta, creme e elementos de chocolate – ideal para as festas.'],
-        ['Bûche gelada de chocolate com decoração de Natal','Criação gelada de chocolate com cobertura texturada, bolachas e pequeno boneco de neve – rústica e festiva.'],
-        ['Sobremesa gelada de Natal com merengue','Sobremesa gelada marcante com merengue em espiral delicadamente tostado e pequenos detalhes natalícios – uma especialidade festiva.'],
-        ['Bûche gelada com decoração de merengue','Bûche gelada alongada com bastante merengue tostado e pequeno detalhe verde – clássica e festiva.'],
-        ['Bûche gelada clara « Joyeux Noël »','Elegante bûche gelada clara com decoração delicada, apontamentos rosa e placa de chocolate « Joyeux Noël » – uma especialidade gelada festiva.'],
-        ['Bûche gelada vermelha com fruta & boneco de neve','Bûche gelada vermelha brilhante com decoração rosa, fruta fresca e pequenos elementos de boneco de neve – colorida e festiva.'],
-        ['Bolo gelado festivo « Bonne Fête »','Bolo gelado redondo com decoração rosa e vermelha, placa de chocolate « Bonne Fête » e pequeno detalhe verde – ideal para uma ocasião especial.'],
-        ['Bolo gelado de Natal « Joyeux Noël »','Bolo gelado redondo em vermelho e branco, com placa de chocolate e detalhes natalícios – uma criação gelada especial para as festas.'],
-        ['Bolo gelado festivo com fruta','Bolo gelado redondo generosamente decorado com fruta fresca, chocolate e detalhes de Natal – colorido e festivo.'],
-        ['Seleção de mini-sobremesas geladas de Natal','Uma seleção colorida de pequenas criações geladas num tabuleiro – ideal para partilhar e provar diferentes opções.'],
-        ['Bûche gelada com merengue tostado','Bûche gelada alongada com merengue delicadamente tostado e decoração de chocolate « Joyeux Noël » – clássica e festiva.'],
-        ['Bûche gelada festiva com decoração de inverno','Elegante bûche gelada alongada com decoração de chocolate, pequenos elementos natalícios e motivo de inverno – perfeita para as festas.'],
-        ['Seleção de bûches geladas com fruta & chocolate','Uma grande seleção de bûches geladas festivas, decoradas com fruta, creme e elementos de chocolate – ideal para uma apresentação de festa.'],
-        ['Bûche gelada de chocolate com decoração de Natal','Bûche gelada alongada de chocolate com cobertura texturada, bolachas e pequenos detalhes natalícios – uma criação rústica e festiva.'],
-        ['Sobremesa gelada de Natal com merengue','Sobremesa gelada marcante com merengue em espiral delicadamente tostado e pequenos detalhes natalícios – uma especialidade clara e festiva.'],
-        ['Bûche gelada clara « Joyeux Noël »','Elegante bûche gelada clara com decoração fina, apontamentos rosa e placa de chocolate « Joyeux Noël » – apresentada com cuidado.'],
-        ['Bûche gelada vermelha com fruta & boneco de neve','Bûche gelada vermelha brilhante com decoração rosa, fruta fresca e pequeno boneco de neve – uma criação natalícia colorida.'],
-        ['Bolo gelado festivo « Bonne Fête »','Bolo gelado redondo com rosetas rosa e vermelhas, placa de chocolate « Bonne Fête » e pequenos detalhes festivos – ideal para uma ocasião especial.'],
-        ['Bûche gelada clara com merengue tostado','Bûche gelada clara e alongada com merengue decorativo delicadamente tostado e pequeno apontamento festivo – uma apresentação fina e clássica.']
+        ['Beim Bäcker Jos – gelado para levar','No final, o nosso gelado é acondicionado de forma limpa e prática, pronto para levar e saborear.']
       ]}
     };
     function renderIceGallery(lang){
