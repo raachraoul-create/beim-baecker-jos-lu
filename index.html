@@ -175,7 +175,7 @@
           <a class="btn dark" href="#products" data-i18n="discover_range">Sortiment entdecken</a>
         </div>
         <div class="intro-media">
-          <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=1200&q=88" alt="Frësch Baguetten a Brout" loading="lazy">
+          <img src="images/brot/brot-02.webp" alt="Handwierklecht Sauerdeegbrout Beim Bäcker Jos" loading="lazy">
           <div class="intro-badge"><strong>LU</strong><span data-i18n="intro_badge">Zwee lokal Standuerter. Ee gemeinsamt Handwierk.</span></div>
         </div>
       </div>
@@ -188,7 +188,7 @@
           <p data-i18n="prod_text">Klassiker fir all Dag, séiss Momenter, salzeg Pausen an individuell Bestellungen – eng Bäckerei soll méi sinn ewéi nëmme Brout.</p>
         </div>
         <div class="product-grid">
-          <article class="product"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=86" alt="Brout" loading="lazy"><div class="product-copy"><b data-i18n="p1">Brout & Baguetten</b><p data-i18n="p1t">Klassesch, rustikal a fir den Alldag.</p></div></article>
+          <article class="product clickable" data-gallery="bread" role="button" tabindex="0" aria-label="Brout & Baguetten entdecken"><img src="images/brot/brot-01.webp" alt="Sauerdeegbrout Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p1">Brout & Baguetten</b><p data-i18n="p1t">Klassesch, rustikal a fir den Alldag.</p></div></article>
           <article class="product"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=86" alt="Croissants" loading="lazy"><div class="product-copy"><b data-i18n="p2">Viennoiserie</b><p data-i18n="p2t">Croissants, Mëtschen a séiss Klassiker.</p></div></article>
           <article class="product clickable" data-gallery="cakes" role="button" tabindex="0" aria-label="Pâtisserie & Torten entdecken"><img src="images/torten/torte-01.webp" alt="Hochzeitstorte aus der Backstube" loading="lazy"><div class="product-copy"><b data-i18n="p3">Pâtisserie & Torten</b><p data-i18n="p3t">Fir kleng Freed a grouss Momenter.</p></div></article>
           <article class="product clickable" data-gallery="snacks" role="button" tabindex="0" aria-label="Snacks, Fingerfood & Catering entdecken"><img src="images/snacks/canapes.webp" alt="Snacks und Catering Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p4">Snacks & Sandwiches</b><p data-i18n="p4t">Fir eng séier a gutt Paus.</p></div></article>
@@ -305,6 +305,16 @@
   </div>
 
 
+  <div class="modal gallery-modal" id="breadGalleryModal" role="dialog" aria-modal="true" aria-label="Brout & Baguetten">
+    <div class="gallery-card">
+      <div class="gallery-top">
+        <div><h3 id="breadGalleryTitle">Brout & Baguetten</h3><p id="breadGalleryIntro">Ausgewielte Brout-Spezialitéiten aus eiser Backstuff.</p></div>
+        <button class="gallery-close" type="button" data-close aria-label="Schließen">×</button>
+      </div>
+      <div class="gallery-scroll"><div class="gallery-grid" id="breadGalleryGrid"></div></div>
+    </div>
+  </div>
+
   <div class="modal gallery-modal" id="cakeGalleryModal" role="dialog" aria-modal="true" aria-label="Pâtisserie & Torten">
     <div class="gallery-card">
       <div class="gallery-top">
@@ -361,6 +371,45 @@
       pt:{top_local:'Artesanato do Luxemburgo',top_locations:'Descobrir as 2 lojas',nav_about:'Sobre nós',nav_products:'Produtos',nav_cakes:'Bolos',nav_locations:'Lojas',call_now:'Ligar agora',hero_eyebrow:'Padaria · Pastelaria · Luxemburgo',hero_title:'Artesanato que se saboreia.',hero_text:'Pão, viennoiserie, pastelaria e bolos – com experiência, raízes locais e paixão pelo ofício de padeiro.',find_location:'Encontrar uma loja',call_order:'Encomendar & ligar',trust_1_title:'Desde 2002',trust_1_text:'Tradição no ofício de padeiro',trust_2_title:'2 lojas',trust_2_text:'Beckerich & Saeul, Luxemburgo',trust_3_title:'RTL Readers’ Choice 2026',trust_3_text:'2.º lugar para os Fueskichelcher em Saeul',about_kicker:'Beim Bäcker Jos.LU',about_title:'Raízes locais. Feito artesanalmente.',about_text:'Somos uma padaria onde a qualidade, a proximidade e o prazer pelo produto estão no centro de tudo. Do pão de todos os dias ao bolo para um momento especial: queremos dar aos nossos clientes sempre um bom motivo para voltar.',tick_1:'Pães, baguetes & pãezinhos',tick_2:'Viennoiserie, pastelaria & petits fours',tick_3:'Bolos e sobremesas para todas as ocasiões',tick_4:'Rota do pão / serviço regional',discover_range:'Descobrir os nossos produtos',intro_badge:'Duas lojas locais. O mesmo saber-fazer.',prod_kicker:'Os nossos produtos',prod_title:'Algo bom para cada momento.',prod_text:'Clássicos para todos os dias, momentos doces, pausas salgadas e encomendas personalizadas – uma padaria deve oferecer mais do que apenas pão.',p1:'Pães & baguetes',p1t:'Clássicos, rústicos e para todos os dias.',p2:'Viennoiserie',p2t:'Croissants, pastelaria doce e grandes clássicos.',p3:'Pastelaria & bolos',p3t:'Para pequenos prazeres e grandes momentos.',p4:'Snacks & sandes',p4t:'Para uma pausa rápida e saborosa.',p5:'Bolachas & petits fours',p5t:'Pequenos, requintados e perfeitos para partilhar.',p6:'Gelados & doces',p6t:'Uma pequena recompensa doce.',cake_kicker:'Para o seu evento',cake_title:'Bolos artesanais para momentos especiais.',cake_text:'Seja para um aniversário, uma festa de família, o Dia do Pai ou uma ocasião muito pessoal, os nossos bolos são preparados frescos na nossa pastelaria e decorados com atenção aos detalhes. Desde criações frutadas e chocolate a motivos personalizados e inscrições, há muitas possibilidades. Cada bolo é adaptado à ocasião. Para pedidos especiais, recomendamos encomendar com antecedência.',cake_1:'Aniversário',cake_2:'Casamento',cake_3:'Comunhão',cake_4:'Empresa & evento',cake_cta:'Pedir informações sobre um bolo',award_title:'Beim Bäcker Jos em Saeul – 2.º lugar nos Fueskichelcher.',award_text:'Um bonito reconhecimento do saber-fazer e do trabalho por detrás de um clássico sazonal luxemburguês.',award_cta:'Artigo da RTL',loc_kicker:'Perto de si',loc_title:'As nossas duas lojas.',loc_text:'Escolha a loja que mais lhe convém. Com um clique, pode ligar-nos ou abrir diretamente o itinerário.',local_shop:'Padaria local',hours_week:'Terça – sexta-feira',hours_sat:'Sábado',hours_closed:'Domingo & segunda-feira',closed:'fechado',route:'Itinerário',r1:'Direto & pessoal',r1t:'Sem linha anónima: encomende diretamente junto da equipa que o recebe.',r2:'Para o dia a dia & dias especiais',r2t:'Do café de manhã ao bolo personalizado para um dia importante.',r3:'Local no Luxemburgo',r3t:'Beckerich e Saeul – distâncias curtas, raízes regionais e clientes locais.',faq_title:'Respostas rápidas às perguntas importantes.',q1:'Posso encomendar um bolo com antecedência?',a1:'Sim. Para bolos e encomendas para ocasiões especiais, ligue com antecedência para Beckerich ou Saeul para combinar os detalhes.',q2:'Há opção para levar?',a2:'Sim. Os nossos produtos podem ser levados em ambas as lojas.',q3:'Onde ficam as padarias?',a3:'Em Beckerich, na 37 Huewelerstrooss, e em Saeul, na 14A Haaptstrooss.',q4:'Qual é a forma mais rápida de encomendar?',a4:'A forma mais rápida é ligar diretamente para a loja. Os números e itinerários estão disponíveis aqui na página.',footer_text:'Padaria & Pastelaria com duas lojas no Grão-Ducado do Luxemburgo.',footer_locations:'Lojas',footer_nav:'Navegação',choose_call:'Para qual loja deseja ligar?',choose_route:'Para qual loja deseja ir?'}
 
     };
+
+    const BREAD_IMAGES=[
+      'images/brot/brot-01.webp',
+      'images/brot/brot-02.webp',
+      'images/brot/brot-03.webp',
+      'images/brot/brot-04.webp'
+    ];
+    const BREAD_GALLERY={
+      lb:{title:'Brout & Baguetten',intro:'Richteg Brout vum Bäcker Jos – handwierklech gebak, rustikal presentéiert an direkt aus eiser Produktioun.',items:[
+        ['Sauerdeegbrout','Rustikalt Sauerdeegbrout mat markanter Krust an handwierklechem Charakter – esou wéi et beim Bäcker Jos aus der Backstuff kënnt.'],
+        ['Sauerdeegbrout mat Wäiss- & Roggenmiel','Mat Wäiss- a Roggenmiel, ganz wéineg Hief a laanger Reifung iwwer Nuecht – aromatesch a mat enger schéiner Krust.'],
+        ['Béierbrout mat Lëtzebuerger Béier','E speziellt Béierbrout mat Lëtzebuerger Béier aus der Béierhaascht – rustikal, aromatesch an eng originell Spezialitéit.'],
+        ['Pain Soleil','Dekorativ geformt Brout a Sonnestil, goldbrong gebak – flott fir ze deelen an e richtege Bléckfang um Dësch.']
+      ]},
+      de:{title:'Brot & Baguettes',intro:'Echtes Brot vom Bäcker Jos – handwerklich gebacken, rustikal präsentiert und direkt aus der eigenen Backstube.',items:[
+        ['Sauerteigbrot','Rustikales Sauerteigbrot mit kräftiger Kruste und handwerklichem Charakter – frisch aus der Backstube von Beim Bäcker Jos.'],
+        ['Sauerteigbrot mit Weizen- & Roggenmehl','Mit Weizen- und Roggenmehl, sehr wenig Hefe und langer Reifung über Nacht – aromatisch und mit schöner Kruste.'],
+        ['Bierbrot mit Luxemburger Bier','Eine besondere Brotspezialität mit Luxemburger Bier aus der Béierhaascht – rustikal, aromatisch und außergewöhnlich.'],
+        ['Pain Soleil','Dekorativ in Sonnenform gearbeitet und goldbraun gebacken – ideal zum Teilen und ein besonderer Blickfang auf dem Tisch.']
+      ]},
+      fr:{title:'Pains & baguettes',intro:'De vrais pains de Beim Bäcker Jos – fabriqués artisanalement et présentés simplement, directement issus de notre fournil.',items:[
+        ['Pain au levain','Pain au levain rustique avec une belle croûte et un véritable caractère artisanal – préparé dans le fournil de Beim Bäcker Jos.'],
+        ['Pain au levain blé & seigle','Préparé avec farine de blé et de seigle, très peu de levure et une longue maturation pendant la nuit – parfumé et bien croûté.'],
+        ['Pain à la bière luxembourgeoise','Une spécialité originale préparée avec de la bière luxembourgeoise de la Béierhaascht – rustique et aromatique.'],
+        ['Pain Soleil','Pain décoratif en forme de soleil, cuit jusqu’à obtenir une belle couleur dorée – idéal à partager.']
+      ]},
+      pt:{title:'Pães & baguetes',intro:'Pão verdadeiro do Beim Bäcker Jos – feito artesanalmente e apresentado de forma simples, diretamente da nossa padaria.',items:[
+        ['Pão de massa mãe','Pão rústico de massa mãe com crosta marcada e verdadeiro carácter artesanal – preparado na padaria Beim Bäcker Jos.'],
+        ['Pão de massa mãe com trigo & centeio','Preparado com farinha de trigo e centeio, muito pouco fermento e uma longa fermentação durante a noite – aromático e com uma bela crosta.'],
+        ['Pão de cerveja luxemburguesa','Uma especialidade original preparada com cerveja luxemburguesa da Béierhaascht – rústica e aromática.'],
+        ['Pain Soleil','Pão decorativo em forma de sol, cozido até ficar dourado – ideal para partilhar e destacar numa mesa.']
+      ]}
+    };
+    function renderBreadGallery(lang){
+      const d=BREAD_GALLERY[lang]||BREAD_GALLERY.lb;
+      const t=document.getElementById('breadGalleryTitle'),i=document.getElementById('breadGalleryIntro'),g=document.getElementById('breadGalleryGrid');
+      if(t)t.textContent=d.title;if(i)i.textContent=d.intro;
+      if(g)g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+BREAD_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+BREAD_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4><p>'+x[1]+'</p></div></article>').join('');
+    }
 
     const CAKE_GALLERY={
       lb:{title:'Pâtisserie & Torten',intro:'Handgemaachten Taarte fir besonnesch Momenter – frësch aus eiser Backstuff, mat vill Suergfalt dekoréiert a passend fir Gebuertsdag, Familljefest, Pappendag oder ganz perséinlech Uläss.',items:[
@@ -921,11 +970,12 @@
       const modal=document.getElementById('newsModal'); if(modal)modal.setAttribute('aria-label',tx.modal);
     }
 
-    function setLang(lang){document.documentElement.lang=lang==='pt'?'pt-PT':lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(T[lang]&&T[lang][k])el.textContent=T[lang][k]});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderNews(lang);renderCakeGallery(lang);renderSnackGallery(lang);renderIceGallery(lang);localStorage.setItem('bbj_lang',lang)}
+    function setLang(lang){document.documentElement.lang=lang==='pt'?'pt-PT':lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(T[lang]&&T[lang][k])el.textContent=T[lang][k]});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderNews(lang);renderBreadGallery(lang);renderCakeGallery(lang);renderSnackGallery(lang);renderIceGallery(lang);localStorage.setItem('bbj_lang',lang)}
     document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
     setLang(localStorage.getItem('bbj_lang')||'lb');
     const nav=document.getElementById('nav'),hamb=document.getElementById('hamb');hamb.addEventListener('click',()=>nav.classList.toggle('open'));document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-    const callModal=document.getElementById('callModal'),routeModal=document.getElementById('routeModal'),newsModal=document.getElementById('newsModal'),cakeGalleryModal=document.getElementById('cakeGalleryModal'),snackGalleryModal=document.getElementById('snackGalleryModal'),iceGalleryModal=document.getElementById('iceGalleryModal');
+    const callModal=document.getElementById('callModal'),routeModal=document.getElementById('routeModal'),newsModal=document.getElementById('newsModal'),breadGalleryModal=document.getElementById('breadGalleryModal'),cakeGalleryModal=document.getElementById('cakeGalleryModal'),snackGalleryModal=document.getElementById('snackGalleryModal'),iceGalleryModal=document.getElementById('iceGalleryModal');
+    document.querySelectorAll('[data-gallery="bread"]').forEach(el=>{const open=()=>{breadGalleryModal.classList.add('open');document.body.classList.add('modal-open');nav.classList.remove('open')};el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
     document.querySelectorAll('[data-gallery="cakes"]').forEach(el=>{const open=()=>{cakeGalleryModal.classList.add('open');document.body.classList.add('modal-open');nav.classList.remove('open')};el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
     document.querySelectorAll('[data-gallery="snacks"]').forEach(el=>{const open=()=>{snackGalleryModal.classList.add('open');document.body.classList.add('modal-open');nav.classList.remove('open')};el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
     document.querySelectorAll('[data-gallery="ice"]').forEach(el=>{const open=()=>{iceGalleryModal.classList.add('open');document.body.classList.add('modal-open');nav.classList.remove('open')};el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
