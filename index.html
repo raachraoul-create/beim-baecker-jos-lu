@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#c9151e">
   <meta name="application-name" content="Beim Bäcker Jos">
   <meta name="color-scheme" content="light">
-  <title>Beim Bäcker Jos</title>
+  <title>Beim Bäcker Jos | Bäckerei in Beckerich & Saeul</title>
   <meta name="description" content="Beim Bäcker Jos in Beckerich und Saeul: handwerkliches Brot, Baguettes, Viennoiserie, Pâtisserie, Torten, Snacks und saisonale Spezialitäten aus Luxemburg.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
@@ -14,7 +14,7 @@
   <link rel="sitemap" type="application/xml" href="https://beim-baecker-jos-lu.webflow.io/sitemap.xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Beim Bäcker Jos">
-  <meta property="og:title" content="Beim Bäcker Jos">
+  <meta property="og:title" content="Beim Bäcker Jos | Bäckerei in Beckerich & Saeul">
   <meta property="og:description" content="Beim Bäcker Jos in Beckerich und Saeul: handwerkliches Brot, Baguettes, Viennoiserie, Pâtisserie, Torten, Snacks und saisonale Spezialitäten aus Luxemburg.">
   <meta property="og:url" content="https://beim-baecker-jos-lu.webflow.io/">
   <meta property="og:image" content="https://beim-baecker-jos-lu.webflow.io/logo.jpg">
@@ -292,19 +292,9 @@
         <div><div class="footer-title" data-i18n="footer_locations">Standuerter</div><div class="footer-links"><a href="#locations">Biekerech · +352 23 62 14 79</a><a href="#locations">Sëll · +352 26 62 24 44</a></div></div>
         <div><div class="footer-title" data-i18n="footer_nav">Navigatioun</div><div class="footer-links"><a href="#about" data-i18n="nav_about">Iwwer eis</a><a href="#products" data-i18n="nav_products">Sortiment</a><a href="#cakes" data-i18n="nav_cakes">Torten</a><a href="#news" data-news-open data-news-i18n="news_nav">News</a><a href="#faq">FAQ</a></div></div>
       </div>
-      <div class="legal"><span>BOULANGERIE-PATISSERIE « BEIM BÄCKER JOS » S.à r.l. · RCS B96927 · TVA LU19112744</span><span>Beim Bäcker Jos.LU <button class="secret-dot" id="secretDot" type="button" aria-label="Versteckter Hinweis">·</button> Luxembourg</span></div>
+      <div class="legal"><span>BOULANGERIE-PATISSERIE « BEIM BÄCKER JOS » S.à r.l. · RCS B96927 · TVA LU19112744</span><span>Beim Bäcker Jos.LU · Luxembourg</span></div>
     </div>
   </footer>
-
-  <div class="modal secret-modal" id="developerSecret" role="dialog" aria-modal="true" aria-label="Versteckter Entwicklerhinweis">
-    <div class="secret-card">
-      <button class="secret-close" type="button" data-close aria-label="Schließen">×</button>
-      <div class="secret-badge">🥖 Secret Backstube</div>
-      <h3>Du hast das Easter Egg gefunden.</h3>
-      <p>Ein kleiner versteckter Gruß hinter der Webseite von Beim Bäcker Jos.</p>
-      <div class="secret-signature">Entwicklung &amp; Design: Raoul Raach<small>Beim Bäcker Jos · Website 2026</small></div>
-    </div>
-  </div>
 
   <div class="mobile-cta"><button class="btn dark" data-open="call">☎ <span data-i18n="call_now">Elo uruffen</span></button><button class="btn primary" data-open="route">📍 <span data-i18n="route">Route</span></button></div>
 
@@ -1268,16 +1258,6 @@
 
     function setLang(lang){document.documentElement.lang=lang==='pt'?'pt-PT':lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(T[lang]&&T[lang][k])el.textContent=T[lang][k]});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderNews(lang);renderBreadGallery(lang);renderCakeGallery(lang);renderVienGallery(lang);renderSpecialtyGallery(lang);renderSnackGallery(lang);renderIceGallery(lang);renderOpeningStatus(lang);localStorage.setItem('bbj_lang',lang)}
     document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
-    (()=> {
-      const dot=document.getElementById('secretDot');
-      const egg=document.getElementById('developerSecret');
-      if(!dot||!egg)return;
-      dot.addEventListener('click',e=>{
-        e.preventDefault();
-        egg.classList.add('open');
-        document.body.classList.add('modal-open');
-      });
-    })();
     setInterval(()=>renderOpeningStatus(localStorage.getItem('bbj_lang')||'lb'),60000);
     setLang(localStorage.getItem('bbj_lang')||'lb');
     const nav=document.getElementById('nav'),hamb=document.getElementById('hamb');hamb.addEventListener('click',()=>nav.classList.toggle('open'));document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
