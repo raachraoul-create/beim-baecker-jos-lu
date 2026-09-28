@@ -87,6 +87,14 @@
   @media(max-width:780px){#news{padding:36px 0}.news-teaser{grid-template-columns:1fr;padding:24px 20px;gap:18px}.news-teaser-action{justify-content:flex-start}.news-open-btn{width:100%;justify-content:center}.news-price-modal .news-modal-card{width:calc(100% - 10px);max-height:96vh;border-radius:18px}.news-price-wrap{padding:5px}.news-modal-top{padding:12px 12px}.news-modal-title strong{font-size:16px}}
 
 
+  
+    /* Easter Egg artwork */
+    .secret-modal{place-items:center;background:rgba(7,4,4,.92);backdrop-filter:blur(10px);padding:18px}
+    .secret-card.secret-image-card{position:relative;width:min(560px,calc(100% - 18px));max-height:94vh;padding:0;border-radius:24px;overflow:hidden;background:#050505;border:1px solid #321010;box-shadow:0 32px 100px #000b;text-align:center}
+    .secret-image-card .secret-art{display:block;width:100%;height:auto;max-height:94vh;object-fit:contain}
+    .secret-image-card .secret-close{position:absolute;top:12px;right:12px;z-index:3;width:42px;height:42px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(0,0,0,.72);color:#fff;font-size:24px;cursor:pointer}
+    @media(max-width:680px){.secret-modal{padding:8px}.secret-card.secret-image-card{width:100%;max-height:calc(100dvh - 16px);border-radius:18px}.secret-image-card .secret-art{max-height:calc(100dvh - 16px)}}
+
   </style>
 </head>
 <body>
@@ -296,13 +304,10 @@
     </div>
   </footer>
 
-  <div class="modal secret-modal" id="developerSecret" role="dialog" aria-modal="true" aria-label="Versteckter Entwicklerhinweis">
-    <div class="secret-card">
+  <div class="modal secret-modal" id="developerSecret" role="dialog" aria-modal="true" aria-label="Easter Egg">
+    <div class="secret-card secret-image-card">
       <button class="secret-close" type="button" data-close aria-label="Schließen">×</button>
-      <div class="secret-badge">🥖 Secret Backstube</div>
-      <h3>Du hast das Easter Egg gefunden.</h3>
-      <p>Ein kleiner versteckter Gruß hinter der Webseite von Beim Bäcker Jos.</p>
-      <div class="secret-signature">Entwicklung &amp; Design: Raoul Raach<small>Beim Bäcker Jos · Website 2026</small></div>
+      <img class="secret-art" src="images/easter-egg.webp" alt="Easter Egg – Designer &amp; Entwickler: Raoul Raach">
     </div>
   </div>
 
