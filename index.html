@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="lb">
 <head>
-  <meta name="bbj-build" content="20260929-0815">
+  <meta name="bbj-build" content="20260929-0838">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -468,6 +468,7 @@
     };
 
     const BREAD_IMAGES=[
+      'images/produkte/kastenbrot-auswahl-neu.webp',
       'images/produkte/rustikales-landbrot.webp',
       'images/produkte/kuerbiskernbrot-premium.webp',
       'images/produkte/mehrkorn-kastenbrot.webp',
@@ -486,6 +487,7 @@
     ];
     const BREAD_GALLERY={
       lb:{title:"Brout & Bréidercher",intro:"Frësch gebakene Brout a Bréidercher vum Bäcker Jos – handwierklech preparéiert a professionell presentéiert.",items:[
+        ["Kastenbrout-Auswiel","Zwou handwierklech gebake Kastenbrout-Varianten mat appetitlecher, goldbronger Krust – klassesch presentéiert a perfekt fir Kaffi, Owesiessen oder fein belegte Schnitten."],
         ["Rustikalt Landbrout","E rustikalt, handwierklech gebakent Landbrout mat enger markanter Krust an engem appetitleche Bäckerei-Charakter – ideal fir Kaffi, Owesiessen oder eng häerzhaft Schnëtt."],
         ["Kürbiskärbrout","Goldbrong gebakent Brout mat sichtbare Kürbiskären – kräftëg an der Optik, rustikal am Charakter an ideal fir Kaffi oder Owesiessen."],
         ["Mehrkorn-Kastenbrout","E kompakt, handwierklech gebakent Kastenbrout mat enger rustikaler Uewerfläch – passend fir deeglech Schnitten, Kaffi oder Owesiessen."],
@@ -503,6 +505,7 @@
         ["Schwaarz Bréidercher","Schwaarz Bréidercher mat enger markanter donkeler Krust an engem kräftëgen Aroma – eng besonnesch Alternativ zu klassesche Bréidercher."]
       ]},
       de:{title:"Brot & Brötchen",intro:"Frisch gebackenes Brot und Brötchen von Beim Bäcker Jos – handwerklich zubereitet und professionell präsentiert.",items:[
+        ["Kastenbrot-Auswahl","Zwei handwerklich gebackene Kastenbrot-Varianten mit appetitlicher, goldbrauner Kruste – klassisch, vielseitig und ideal für Frühstück, Abendbrot oder fein belegte Scheiben."],
         ["Rustikales Landbrot","Handwerklich gebackenes Landbrot mit markanter Kruste und rustikalem Charakter – ideal zum Frühstück, Abendbrot oder für herzhaft belegte Scheiben."],
         ["Kürbiskernbrot","Goldbraun gebackenes Brot mit sichtbaren Kürbiskernen – kräftig in der Optik, rustikal im Charakter und ideal zu Frühstück oder Abendbrot."],
         ["Mehrkorn-Kastenbrot","Kompaktes, handwerklich gebackenes Kastenbrot mit rustikaler Oberfläche – vielseitig für Frühstück, Abendbrot oder belegte Brote."],
@@ -520,6 +523,7 @@
         ["Schwarze Brötchen","Schwarze Brötchen mit markanter dunkler Kruste und kräftigem Aroma – eine besondere Alternative zu klassischen Brötchen."]
       ]},
       fr:{title:"Pains & petits pains",intro:"Pains et petits pains fraîchement cuits chez Beim Bäcker Jos – préparés artisanalement et présentés avec soin.",items:[
+        ["Assortiment de pains moulés","Deux pains moulés artisanaux à la belle croûte dorée – classiques, polyvalents et parfaits au petit-déjeuner, au dîner ou pour de généreuses tartines."],
         ["Pain de campagne rustique","Pain de campagne artisanal à la croûte bien marquée et au caractère rustique – idéal au petit-déjeuner, au dîner ou pour de généreuses tartines."],
         ["Pain aux graines de courge","Pain bien doré garni de graines de courge visibles – une présentation généreuse et rustique, idéale pour le petit-déjeuner ou le repas du soir."],
         ["Pain multicéréales en moule","Pain multicéréales artisanal en moule, à l’aspect rustique – polyvalent pour le petit-déjeuner, les tartines ou le repas du soir."],
@@ -537,6 +541,7 @@
         ["Petits pains noirs","Des petits pains noirs à la croûte foncée et au goût marqué – une alternative originale aux petits pains classiques."]
       ]},
       pt:{title:"Pães & pãezinhos",intro:"Pães e pãezinhos acabados de cozer no Beim Bäcker Jos – preparados artesanalmente e apresentados com cuidado.",items:[
+        ["Seleção de pães de forma","Duas variedades de pão de forma artesanal com uma bela crosta dourada – clássicas, versáteis e ideais ao pequeno-almoço, ao jantar ou para sanduíches."],
         ["Pão rústico de campo","Pão artesanal de estilo rústico, com crosta bem marcada – ideal ao pequeno-almoço, ao jantar ou para fatias generosamente recheadas."],
         ["Pão com sementes de abóbora","Pão bem dourado com sementes de abóbora visíveis – de carácter rústico e apresentação apetitosa, ideal ao pequeno-almoço ou ao jantar."],
         ["Pão multicereais de forma","Pão multicereais artesanal de forma, com aspeto rústico – versátil para pequeno-almoço, sanduíches ou refeições."],
@@ -997,27 +1002,42 @@
     }
 
     const VIEN_IMAGES=[
+      'images/produkte/streuselteilchen-neu.webp',
+      'images/produkte/schoko-wirbel-neu.webp',
+      'images/produkte/aprikosen-plunder-neu.webp',
       'images/teilchen/bretzel.webp',
       'images/teilchen/fueskichelcher.webp',
       'images/teilchen/galette-stoffien.webp'
     ];
     const VIEN_GALLERY={
       lb:{title:'Viennoiserie & Mëtschen',intro:'Klassesch Viennoiserie a saisonal Spezialitéiten aus eiser Backstuff – mat richtege Produite vum Bäcker Jos.',items:[
+        ["Streusel-Mëtsch","E goldbrong gebakent Mëtsch mat generéise knusperege Streuselen – appetitlech, klassesch a perfekt fir Kaffi oder eng séiss Paus."],
+        ["Schockela-Wirbel","Fein bliederegt Gebäck a Wirbelform mat Schockelasstécker – goldbrong gebak, saftëg an ideal fir Kaffi oder als séissen Genoss zwëschenduerch."],
+        ["Aprikosen-Plunder","Knusprech Plundergebäck mat fruuchtegem Aprikosentopping a feiner Glasur – eng elegant Kombinatioun vu bliederegem Gebäck a fruuchtegem Genoss."],
         ['Bretzel','Eng Lëtzebuerger Traditioun, déi beim Bäcker Jos ëmmer erëm saisonal an de Mëttelpunkt steet.'],
         ['Dräikinnekskuch','Zum Dräikinneksdag, de 6. Januar, gehéiert den traditionellen Dräikinnekskuch einfach dozou. Am Kuch ass eng kleng Fève verstoppt – wien se a sengem Stéck fënnt, gëtt fir deen Dag zum Kinnek oder zur Kinnigin gekréint.'],
         ['Stoffien','Eng traditionell saisonal Spezialitéit aus eiser Backstuff, besonnesch ronderëm den Ufank vum Joer.']
       ]},
       de:{title:'Viennoiserie & Teilchen',intro:'Klassische Viennoiserie und saisonale Spezialitäten aus unserer Backstube – mit echten Produkten von Beim Bäcker Jos.',items:[
+        ["Streuselteilchen","Goldbraun gebackenes Teilchen mit großzügigen, knusprigen Streuseln – klassisch, appetitlich und perfekt zu Kaffee oder für die süße Pause."],
+        ["Schoko-Wirbel","Feinblättriges Gebäck in Wirbelform mit Schokoladenstückchen – goldbraun gebacken, saftig und ideal zu Kaffee oder als süßer Genuss zwischendurch."],
+        ["Aprikosen-Plunder","Knuspriges Plundergebäck mit fruchtigem Aprikosenbelag und feiner Glasur – eine elegante Kombination aus blättrigem Gebäck und fruchtigem Genuss."],
         ['Bretzel','Eine Luxemburger Tradition, die bei Beim Bäcker Jos saisonal immer wieder im Mittelpunkt steht.'],
         ['Dreikönigskuchen','Zum Dreikönigstag am 6. Januar gehört der traditionelle Dreikönigskuchen einfach dazu. Im Kuchen ist eine kleine Fève versteckt – wer sie in seinem Stück findet, wird für den Tag zum König oder zur Königin gekrönt.'],
         ['Stoffien','Eine traditionelle saisonale Spezialität aus unserer Backstube, besonders rund um den Jahresanfang.']
       ]},
       fr:{title:'Viennoiserie',intro:'Viennoiseries classiques et spécialités de saison de notre fournil – avec de vrais produits de Beim Bäcker Jos.',items:[
+        ["Viennoiserie aux streusels","Une viennoiserie bien dorée, généreusement couverte de streusels croustillants – classique, gourmande et parfaite avec un café ou pour une pause sucrée."],
+        ["Tourbillon au chocolat","Une viennoiserie feuilletée en forme de tourbillon, garnie de pépites de chocolat – dorée, généreuse et idéale avec un café ou pour une pause gourmande."],
+        ["Feuilleté à l’abricot","Une viennoiserie feuilletée croustillante avec une garniture fruitée à l’abricot et un fin glaçage – un équilibre élégant entre croustillant et douceur fruitée."],
         ['Bretzel','Une tradition luxembourgeoise régulièrement mise à l’honneur de façon saisonnière chez Beim Bäcker Jos.'],
         ['Galette des Rois','À l’Épiphanie, le 6 janvier, la traditionnelle galette des Rois est incontournable. Une petite fève est cachée à l’intérieur : la personne qui la trouve devient le roi ou la reine du jour.'],
         ['Stoffien','Une spécialité traditionnelle de saison de notre fournil, particulièrement présente au début de l’année.']
       ]},
       pt:{title:'Viennoiserie & doces',intro:'Viennoiserie clássica e especialidades sazonais da nossa padaria – com produtos reais do Beim Bäcker Jos.',items:[
+        ["Folhado com crumble","Pastel dourado com uma cobertura generosa e crocante de crumble – clássico, apetitoso e perfeito para acompanhar um café ou uma pausa doce."],
+        ["Espiral de chocolate","Pastel folhado em forma de espiral com pedaços de chocolate – dourado, macio e ideal com café ou como pequeno doce a qualquer hora."],
+        ["Folhado de damasco","Pastel folhado crocante com cobertura frutada de damasco e um fino acabamento glaceado – uma combinação elegante entre textura folhada e sabor frutado."],
         ['Bretzel','Uma tradição luxemburguesa que aparece sazonalmente com destaque no Beim Bäcker Jos.'],
         ['Galette des Rois','No Dia de Reis, a 6 de janeiro, a tradicional Galette des Rois é uma presença indispensável. No interior esconde-se uma pequena fève: quem a encontrar é coroado rei ou rainha do dia.'],
         ['Stoffien','Uma especialidade tradicional e sazonal da nossa padaria, especialmente no início do ano.']
