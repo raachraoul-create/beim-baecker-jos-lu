@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="lb">
 <head>
+  <meta name="bbj-build" content="20260929-0740">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -521,14 +522,14 @@
     }
 
     const PATISSERIE_IMAGES=[
-      'images/produkte/schoko-eclair.webp',
-      'images/produkte/kaffee-eclair.webp',
-      'images/produkte/pistazien-eclair.webp',
-      'images/produkte/schokotorte-kirsche.webp',
-      'images/produkte/mango-dessert.webp',
-      'images/produkte/karamell-windbeutel.webp',
-      'images/produkte/fruchttoertchen-auswahl.webp',
-      'images/produkte/kirschtarte.webp',
+      'images/produkte/schoko-eclair.webp?v=20260929-0740',
+      'images/produkte/kaffee-eclair.webp?v=20260929-0740',
+      'images/produkte/pistazien-eclair.webp?v=20260929-0740',
+      'images/produkte/schokotorte-kirsche.webp?v=20260929-0740',
+      'images/produkte/mango-dessert.webp?v=20260929-0740',
+      'images/produkte/karamell-windbeutel.webp?v=20260929-0740',
+      'images/produkte/fruchttoertchen-auswahl.webp?v=20260929-0740',
+      'images/produkte/kirschtarte.webp?v=20260929-0740',
       'images/produkte/frucht-eclair.webp',
       'images/produkte/mandel-schoko-knusper.webp',
       'images/produkte/schoko-spritzgebaeck.webp',
@@ -1083,7 +1084,7 @@
       const labels=SNACK_TAB_LABELS[lang]||SNACK_TAB_LABELS.lb;
       document.querySelectorAll('#snackGalleryTabs [data-snack-mode]').forEach(b=>{b.textContent=labels[b.dataset.snackMode];b.classList.toggle('active',b.dataset.snackMode===snackGalleryMode)});
       const ids=SNACK_GROUPS[snackGalleryMode]||SNACK_GROUPS.sandwiches;
-      if(g)g.innerHTML=ids.map(n=>{const x=d.items[n];return '<article class="gallery-item"><a href="images/snacks/'+SNACK_IMAGES[n]+'.webp" target="_blank" rel="noopener"><img src="images/snacks/'+SNACK_IMAGES[n]+'.webp" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4><p>'+x[1]+'</p></div></article>'}).join('');
+      if(g)g.innerHTML=ids.map(n=>{const x=d.items[n];return '<article class="gallery-item"><a href="images/snacks/'+SNACK_IMAGES[n]+'.webp?v=20260929-0740" target="_blank" rel="noopener"><img src="images/snacks/'+SNACK_IMAGES[n]+'.webp?v=20260929-0740" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4><p>'+x[1]+'</p></div></article>'}).join('');
     }
 
     const ICE_IMAGES=[
