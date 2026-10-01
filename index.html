@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="lb">
 <head>
-  <meta name="bbj-build" content="20261001-1648">
+  <meta name="bbj-build" content="20261001-2135">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -1091,10 +1091,10 @@
         ["Bretzel",""],
         ["Streusel",""],
         ["Duebelt Schockelas-Schneek",""],
-        ["Mëtsch vun der Woch","Eis Mëtsch vun der Woch wiesselt all Woch. Aktuell: Aprikosentäsch."],
+        ["Mëtsch vun der Woch","D'Sort wiesselt all Woch. Aktuell: Aprikosentäsch."],
         ["Bretzel",""],
-        ["Galette des Rois",""],
-        ["Stoffien / Fueskichelcher",""]
+        ["Dräikinnekskuch (Galette des Rois)","Lëtzebuerger Traditioun fir Dräikinneksdag: Am Kuch ass eng kleng Fève verstoppt. Wien se fënnt, gëtt fir deen Dag zum Kinnek oder zur Kinnigin."],
+        ["Stoffien",""]
       
       ]},
       de:{title:'Viennoiserie & Teilchen',intro:'',items:[
@@ -1109,10 +1109,10 @@
         ["Brezel",""],
         ["Streusel",""],
         ["Doppelte Schokoschnecke",""],
-        ["Teilchen der Woche","Unser Teilchen der Woche wechselt jede Woche. Aktuell: Aprikosentasche."],
+        ["Teilchen der Woche","Die Sorte wechselt jede Woche. Aktuell: Aprikosentasche."],
         ["Bretzel",""],
-        ["Galette des Rois (Dreikönigskuchen)",""],
-        ["Stoffien / Fueskichelcher",""]
+        ["Dreikönigskuchen (Galette des Rois)","Luxemburger Tradition zum Dreikönigstag: Im Kuchen ist eine kleine Fève versteckt. Wer sie findet, wird für den Tag zum König oder zur Königin."],
+        ["Stoffien",""]
       
       ]},
       fr:{title:'Viennoiserie',intro:'',items:[
@@ -1127,10 +1127,10 @@
         ["Bretzel",""],
         ["Streusel",""],
         ["Double escargot au chocolat",""],
-        ["Viennoiserie de la semaine","Notre viennoiserie de la semaine change chaque semaine. Actuellement : chausson à l’abricot."],
+        ["Viennoiserie de la semaine","La variété change chaque semaine. Actuellement : chausson à l’abricot."],
         ["Bretzel",""],
-        ["Galette des Rois",""],
-        ["Stoffien / Fueskichelcher",""]
+        ["Galette des Rois","Tradition luxembourgeoise de l’Épiphanie : une petite fève est cachée dans la galette. Celui ou celle qui la trouve devient roi ou reine du jour."],
+        ["Stoffien",""]
       
       ]},
       pt:{title:'Viennoiserie & doces',intro:'',items:[
@@ -1145,10 +1145,10 @@
         ["Bretzel",""],
         ["Streusel",""],
         ["Duplo caracol de chocolate",""],
-        ["Doce da semana","O nosso doce da semana muda todas as semanas. Atualmente: folhado de damasco."],
+        ["Doce da semana","A variedade muda todas as semanas. Atualmente: folhado de damasco."],
         ["Bretzel",""],
-        ["Galette des Rois",""],
-        ["Stoffien / Fueskichelcher",""]
+        ["Galette des Rois","Tradição luxemburguesa do Dia de Reis: uma pequena fava fica escondida no bolo. Quem a encontra torna-se rei ou rainha do dia."],
+        ["Stoffien",""]
       
       ]}
     };
@@ -1156,7 +1156,7 @@
       const d=VIEN_GALLERY[lang]||VIEN_GALLERY.lb;
       const t=document.getElementById('vienGalleryTitle'),i=document.getElementById('vienGalleryIntro'),g=document.getElementById('vienGalleryGrid');
       if(t)t.textContent=d.title;if(i){i.textContent=d.intro;i.hidden=!d.intro;}
-      if(g)g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+VIEN_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+VIEN_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4>'+(n===11&&x[1]?'<p class="weekly-pastry-note">'+x[1]+'</p>':'')+'</div></article>').join('');
+      if(g)g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+VIEN_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+VIEN_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4>'+((n===11||n===13)&&x[1]?'<p class="weekly-pastry-note">'+x[1]+'</p>':'')+'</div></article>').join('');
     }
 
     const SNACK_IMAGES=['fleischroellchen','canapes','fingerfood','salate','wraps','canapes-neu','gemueseplatte','wrap-offen','canapes-platte','minisandwich-tablett','mini-quiches','fladenbrot-tortenturm','mini-sandwich-buffet','wrap-ei-salat','wrap-lachs','wrap-schinken','wrap-haehnchen','quiche-lorraine-instagram'];
