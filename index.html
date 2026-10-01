@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="lb">
 <head>
-  <meta name="bbj-build" content="20261001-0330">
+  <meta name="bbj-build" content="20261001-0625">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -1078,83 +1078,83 @@
       'images/teilchen/galette-stoffien.webp'
     ];
     const VIEN_GALLERY={
-      lb:{title:'Viennoiserie & Mëtschen',intro:'Klassesch Viennoiserie a saisonal Spezialitéiten aus eiser Backstuff – mat richtege Produite vu Beim Bäcker Jos.',items:[
+      lb:{title:'Viennoiserie & Mëtschen',intro:'',items:[
         ["Kokoskugel",""],
-        ["Flan Mëtsch",""],
+        ["Aachtchen",""],
         ["Mandelgebäck",""],
         ["Schockela-Plunder",""],
-        ["Schneck",""],
+        ["Glaséiert Plunderschneek",""],
         ["Mandelcroissant",""],
-        ["Rosinenschnecke",""],
+        ["Rosinenschneek",""],
         ["Mandelplunder",""],
         ["Mandelkranz",""],
         ["Streusel",""],
-        ["Tresse Choco",""],
-        ["Poche Abricot",""],
+        ["Duebelt Schockelas-Schneek",""],
+        ["Aprikosentäsch",""],
         ["Bretzel",""],
         ["Galette des Rois",""],
-        ["Stoffien",""]
+        ["Stoffien / Fueskichelcher",""]
       
       ]},
-      de:{title:'Viennoiserie & Teilchen',intro:'Klassische Viennoiserie und saisonale Spezialitäten aus unserer Backstube – mit echten Produkten von Beim Bäcker Jos.',items:[
+      de:{title:'Viennoiserie & Teilchen',intro:'',items:[
         ["Kokoskugel",""],
-        ["Flan Mëtsch",""],
+        ["Aachtchen",""],
         ["Mandelgebäck",""],
         ["Schoko-Plunder",""],
-        ["Schneck",""],
+        ["Glasierte Plunderschnecke",""],
         ["Mandelcroissant",""],
         ["Rosinenschnecke",""],
         ["Mandelplunder",""],
         ["Mandelkranz",""],
         ["Streusel",""],
-        ["Tresse Choco",""],
-        ["Poche Abricot",""],
+        ["Doppelte Schokoschnecke",""],
+        ["Aprikosentasche",""],
         ["Bretzel",""],
-        ["Galette des Rois",""],
-        ["Stoffien",""]
+        ["Galette des Rois (Dreikönigskuchen)",""],
+        ["Stoffien / Fueskichelcher",""]
       
       ]},
-      fr:{title:'Viennoiserie',intro:'Viennoiseries classiques et spécialités de saison de notre fournil – avec de vrais produits de Beim Bäcker Jos.',items:[
+      fr:{title:'Viennoiserie',intro:'',items:[
         ["Boule coco",""],
-        ["Flan Mëtsch",""],
-        ["Feuilleté aux amandes",""],
+        ["Huit (Aachtchen)",""],
+        ["Viennoiserie aux amandes",""],
         ["Feuilleté au chocolat",""],
-        ["Schneck",""],
+        ["Escargot feuilleté glacé",""],
         ["Croissant aux amandes",""],
-        ["Rosinenschnecke",""],
+        ["Escargot aux raisins",""],
         ["Feuilleté aux amandes",""],
         ["Couronne aux amandes",""],
         ["Streusel",""],
-        ["Tresse Choco",""],
-        ["Poche Abricot",""],
+        ["Double escargot au chocolat",""],
+        ["Chausson à l’abricot",""],
         ["Bretzel",""],
         ["Galette des Rois",""],
-        ["Stoffien",""]
+        ["Stoffien / Fueskichelcher",""]
       
       ]},
-      pt:{title:'Viennoiserie & doces',intro:'Viennoiserie clássica e especialidades sazonais da nossa padaria – com produtos reais do Beim Bäcker Jos.',items:[
+      pt:{title:'Viennoiserie & doces',intro:'',items:[
         ["Bola de coco",""],
-        ["Flan Mëtsch",""],
-        ["Folhado de amêndoa",""],
+        ["Aachtchen",""],
+        ["Pastel de amêndoa",""],
         ["Folhado de chocolate",""],
-        ["Schneck",""],
+        ["Caracol folhado glaceado",""],
         ["Croissant de amêndoa",""],
-        ["Rosinenschnecke",""],
+        ["Caracol de passas",""],
         ["Folhado de amêndoa",""],
         ["Coroa de amêndoa",""],
         ["Streusel",""],
-        ["Tresse Choco",""],
-        ["Poche Abricot",""],
+        ["Duplo caracol de chocolate",""],
+        ["Folhado de damasco",""],
         ["Bretzel",""],
         ["Galette des Rois",""],
-        ["Stoffien",""]
+        ["Stoffien / Fueskichelcher",""]
       
       ]}
     };
     function renderVienGallery(lang){
       const d=VIEN_GALLERY[lang]||VIEN_GALLERY.lb;
       const t=document.getElementById('vienGalleryTitle'),i=document.getElementById('vienGalleryIntro'),g=document.getElementById('vienGalleryGrid');
-      if(t)t.textContent=d.title;if(i)i.textContent=d.intro;
+      if(t)t.textContent=d.title;if(i){i.textContent=d.intro;i.hidden=!d.intro;}
       if(g)g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+VIEN_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+VIEN_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4></div></article>').join('');
     }
 
