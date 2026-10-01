@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="lb">
 <head>
-  <meta name="bbj-build" content="20261001-1640">
+  <meta name="bbj-build" content="20261001-1648">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -45,7 +45,8 @@
     #breadGalleryGrid{align-items:start;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
     #breadGalleryGrid .gallery-copy{padding:14px 16px 16px}
     #breadGalleryGrid .gallery-copy h4{font-size:18px;margin:0;line-height:1.25}
-    #breadGalleryGrid .gallery-copy p{display:none}
+    #breadGalleryGrid .weekly-pastry-note{margin-top:7px;font-size:14px;line-height:1.45;color:var(--muted);font-weight:600}
+    .gallery-copy p{display:none}
     #breadGalleryGrid .gallery-item{border-color:#e5d8c9;box-shadow:0 10px 28px #2d1f1210;transition:transform .22s ease,box-shadow .22s ease}
     #breadGalleryGrid .gallery-item:hover{transform:translateY(-2px);box-shadow:0 14px 34px #2d1f1218}
     #breadGalleryGrid .gallery-item img{aspect-ratio:4/3;transition:transform .35s ease}
@@ -1090,7 +1091,7 @@
         ["Bretzel",""],
         ["Streusel",""],
         ["Duebelt Schockelas-Schneek",""],
-        ["Aprikosentäsch",""],
+        ["Mëtsch vun der Woch","Eis Mëtsch vun der Woch wiesselt all Woch. Aktuell: Aprikosentäsch."],
         ["Bretzel",""],
         ["Galette des Rois",""],
         ["Stoffien / Fueskichelcher",""]
@@ -1108,7 +1109,7 @@
         ["Brezel",""],
         ["Streusel",""],
         ["Doppelte Schokoschnecke",""],
-        ["Aprikosentasche",""],
+        ["Teilchen der Woche","Unser Teilchen der Woche wechselt jede Woche. Aktuell: Aprikosentasche."],
         ["Bretzel",""],
         ["Galette des Rois (Dreikönigskuchen)",""],
         ["Stoffien / Fueskichelcher",""]
@@ -1126,7 +1127,7 @@
         ["Bretzel",""],
         ["Streusel",""],
         ["Double escargot au chocolat",""],
-        ["Chausson à l’abricot",""],
+        ["Viennoiserie de la semaine","Notre viennoiserie de la semaine change chaque semaine. Actuellement : chausson à l’abricot."],
         ["Bretzel",""],
         ["Galette des Rois",""],
         ["Stoffien / Fueskichelcher",""]
@@ -1144,7 +1145,7 @@
         ["Bretzel",""],
         ["Streusel",""],
         ["Duplo caracol de chocolate",""],
-        ["Folhado de damasco",""],
+        ["Doce da semana","O nosso doce da semana muda todas as semanas. Atualmente: folhado de damasco."],
         ["Bretzel",""],
         ["Galette des Rois",""],
         ["Stoffien / Fueskichelcher",""]
@@ -1155,7 +1156,7 @@
       const d=VIEN_GALLERY[lang]||VIEN_GALLERY.lb;
       const t=document.getElementById('vienGalleryTitle'),i=document.getElementById('vienGalleryIntro'),g=document.getElementById('vienGalleryGrid');
       if(t)t.textContent=d.title;if(i){i.textContent=d.intro;i.hidden=!d.intro;}
-      if(g)g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+VIEN_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+VIEN_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4></div></article>').join('');
+      if(g)g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+VIEN_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+VIEN_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4>'+(n===11&&x[1]?'<p class="weekly-pastry-note">'+x[1]+'</p>':'')+'</div></article>').join('');
     }
 
     const SNACK_IMAGES=['fleischroellchen','canapes','fingerfood','salate','wraps','canapes-neu','gemueseplatte','wrap-offen','canapes-platte','minisandwich-tablett','mini-quiches','fladenbrot-tortenturm','mini-sandwich-buffet','wrap-ei-salat','wrap-lachs','wrap-schinken','wrap-haehnchen','quiche-lorraine-instagram'];
