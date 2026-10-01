@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="lb">
 <head>
-  <meta name="bbj-build" content="20261001-2210">
+  <meta name="bbj-build" content="20261001-2340">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -506,7 +506,8 @@
       'images/produkte/rustikales-broetchen.webp',
       'images/neu/rustikale-weizenbroetchen.webp',
       'images/neu/goldbraune-broetchen.webp',
-      'images/neu/koernerbroetchen-und-klassiker.webp'
+      'images/neu/koernerbroetchen-und-klassiker.webp',
+      'images/produkte/puderzucker-gebaeck.webp'
     ];
     const BREAD_GALLERY={
       lb:{title:"Brout & Bréidercher",intro:"Frësch gebakene Brout a Bréidercher vu Beim Bäcker Jos – handwierklech preparéiert a professionell presentéiert.",items:[
@@ -526,7 +527,8 @@
         ["Solé-Bréiderchen",""],
         ["Solé-Bréidercher",""],
         ["Goldbrong Bréidercher",""],
-        ["Siwekorn-Bréidercher",""]
+        ["Siwekorn-Bréidercher",""],
+        ["Roggen-Bréiderchen",""]
       
       ]},
       de:{title:"Brot & Brötchen",intro:"Frisch gebackenes Brot und Brötchen von Beim Bäcker Jos – handwerklich zubereitet und professionell präsentiert.",items:[
@@ -546,7 +548,8 @@
         ["Solé-Brötchen",""],
         ["Solé-Brötchen",""],
         ["Goldbraune Brötchen",""],
-        ["Siebenkorn-Brötchen",""]
+        ["Siebenkorn-Brötchen",""],
+        ["Roggenbrötchen",""]
       
       ]},
       fr:{title:"Pains & petits pains",intro:"Pains et petits pains fraîchement cuits chez Beim Bäcker Jos – préparés artisanalement et présentés avec soin.",items:[
@@ -566,7 +569,8 @@
         ["Petit pain Solé",""],
         ["Petits pains Solé",""],
         ["Petits pains dorés",""],
-        ["Petits pains aux sept céréales",""]
+        ["Petits pains aux sept céréales",""],
+        ["Petit pain de seigle",""]
       
       ]},
       pt:{title:"Pães & pãezinhos",intro:"Pães e pãezinhos acabados de cozer no Beim Bäcker Jos – preparados artesanalmente e apresentados com cuidado.",items:[
@@ -586,7 +590,8 @@
         ["Pãozinho Solé",""],
         ["Pãezinhos Solé",""],
         ["Pãezinhos dourados",""],
-        ["Pãezinhos de sete cereais",""]
+        ["Pãezinhos de sete cereais",""],
+        ["Pãozinho de centeio",""]
       
       ]}
     };
@@ -594,7 +599,7 @@
     const BREAD_GROUPS={
       kasten:[1,9,10],
       brot:[0,2,3,4,5,6,7,8,11],
-      broetchen:[12,13,14,15,16]
+      broetchen:[12,13,14,15,16,17]
     };
     function renderBreadGallery(lang){
       const d=BREAD_GALLERY[lang]||BREAD_GALLERY.lb;
@@ -635,7 +640,6 @@
       'images/produkte/mandel-schoko-knusper.webp',
       'images/produkte/schoko-spritzgebaeck.webp',
       'images/produkte/fruchttartlet.webp',
-      'images/produkte/puderzucker-gebaeck.webp',
       'images/produkte/cremeschnitte-waffeldekor.webp',
       'images/patisserie/patisserie-01.webp',
       'images/patisserie/patisserie-02.webp',
@@ -659,13 +663,13 @@
         ["Nusseck","Klassesch Nusseck mat enger saftëger Nëss-Fëllung an enger feiner Schockelas-Kant – aromatesch, knusprech an ideal beim Kaffi."],
         ["Houfeisen","Feint Houfeisen-Gebäck mat enger zaarter Schockelas-Verfeinerung – knusprech gebak a mat vill Suergfalt an eiser Backstuff preparéiert."],
         ["Uebst-Tartelette","Eng kleng Tartelette mat enger faarweger Auswiel u frëschem Uebst – appetitlech, elegant a passend als feinen Dessert."],
-        ["Feint Gebäck mat Pudderzocker","E feint ronnen Gebäck mat engem dezente Pudderzocker-Finish – schlicht, appetitlech a perfekt fir eng séiss Paus."],
         ["Petit Beurre Kuch mat Bottercrème","Feine Petit Beurre Kuch mat Bottercrème a sichtbare Schichten – cremeg, klassesch a mat vill Suergfalt an eiser Backstuff preparéiert."],
-        ['Fein Pâtisserie-Auswiel','Kleng, suergfälteg preparéiert Pâtisserie fir eng séiss Paus, e Fest oder als Dessert.'],
-        ['Pâtisserie aus eiser Backstuff','Handwierklech preparéiert a propper presentéiert – eng kleng Auswiel aus eiser deeglecher Pâtisserie-Aarbecht.'],
-        ['Kleng Dessert-Kreatiounen','Fein Portiounen a variéiert Pâtisserie, passend fir Kaffi, Dessert oder eng besonnesch Geleeënheet.'],
-        ['Festlech Pâtisserie','Eng appetitlech Auswiel u klenge séisse Kreatiounen, mat Suergfalt an eiser Backstuff preparéiert.'],
-        ['Mignardises & kleng Genëss','Kleng, fein Stécker fir ze deelen oder eng Dessert-Auswiel elegant ofzeronnen.']
+        ["Fein Pâtisserie-Auswiel","Kleng, suergfälteg preparéiert Pâtisserie fir eng séiss Paus, e Fest oder als Dessert."],
+        ["Pâtisserie aus eiser Backstuff","Handwierklech preparéiert a propper presentéiert – eng kleng Auswiel aus eiser deeglecher Pâtisserie-Aarbecht."],
+        ["Kleng Dessert-Kreatiounen","Fein Portiounen a variéiert Pâtisserie, passend fir Kaffi, Dessert oder eng besonnesch Geleeënheet."],
+        ["Festlech Pâtisserie","Eng appetitlech Auswiel u klenge séisse Kreatiounen, mat Suergfalt an eiser Backstuff preparéiert."],
+        ["Mignardises & kleng Genëss","Kleng, fein Stécker fir ze deelen oder eng Dessert-Auswiel elegant ofzeronnen."]
+      
       ]},
       de:{title:'Pâtisserie',intro:'Feine Pâtisserie und kleine Dessert-Kreationen aus unserer Backstube – mit echten Fotos von Beim Bäcker Jos.',items:[
         ["Apfeltarte","Elegante Apfeltarte mit fein arrangierten Apfelscheiben und dezentem Puderzuckerrand – klassisch, appetitlich und perfekt zu Kaffee oder als Dessert."],
@@ -682,13 +686,13 @@
         ["Nussecke","Klassische Nussecke mit saftiger Nussfüllung und feiner Schokoladenkante – aromatisch, knusprig und ideal zum Kaffee."],
         ["Hufeisen","Feines Hufeisen-Gebäck mit zarter Schokoladenveredelung – knusprig gebacken und sorgfältig in unserer Backstube vorbereitet."],
         ["Frisches Fruchttörtchen","Kleines Törtchen mit einer farbenfrohen Auswahl frischer Früchte – appetitlich, elegant und ideal als feines Dessert."],
-        ["Feines Puderzucker-Gebäck","Feines rundes Gebäck mit dezentem Puderzucker-Finish – schlicht, appetitlich und perfekt für eine süße Pause."],
         ["Petit Beurre Kuchen mit Buttercreme","Feiner Petit Beurre Kuchen mit Buttercreme und sichtbaren Schichten – cremig, klassisch und sorgfältig in unserer Backstube vorbereitet."],
-        ['Feine Pâtisserie-Auswahl','Kleine, sorgfältig vorbereitete Pâtisserie für die süße Pause, eine Feier oder als Dessert.'],
-        ['Pâtisserie aus unserer Backstube','Handwerklich vorbereitet und sauber präsentiert – ein Einblick in unsere Pâtisserie-Arbeit.'],
-        ['Kleine Dessert-Kreationen','Feine Portionen und abwechslungsreiche Pâtisserie, passend zu Kaffee, Dessert oder einem besonderen Anlass.'],
-        ['Festliche Pâtisserie','Eine einladende Auswahl kleiner süßer Kreationen, sorgfältig in unserer Backstube vorbereitet.'],
-        ['Mignardises & kleine Genüsse','Kleine, feine Stücke zum Teilen oder als eleganter Abschluss einer Dessert-Auswahl.']
+        ["Feine Pâtisserie-Auswahl","Kleine, sorgfältig vorbereitete Pâtisserie für die süße Pause, eine Feier oder als Dessert."],
+        ["Pâtisserie aus unserer Backstube","Handwerklich vorbereitet und sauber präsentiert – ein Einblick in unsere Pâtisserie-Arbeit."],
+        ["Kleine Dessert-Kreationen","Feine Portionen und abwechslungsreiche Pâtisserie, passend zu Kaffee, Dessert oder einem besonderen Anlass."],
+        ["Festliche Pâtisserie","Eine einladende Auswahl kleiner süßer Kreationen, sorgfältig in unserer Backstube vorbereitet."],
+        ["Mignardises & kleine Genüsse","Kleine, feine Stücke zum Teilen oder als eleganter Abschluss einer Dessert-Auswahl."]
+      
       ]},
       fr:{title:'Pâtisserie',intro:'Pâtisseries fines et petites créations dessert de notre atelier – avec de vraies photos de Beim Bäcker Jos.',items:[
         ["Tarte aux pommes","Élégante tarte aux pommes avec de fines tranches soigneusement disposées et une légère bordure de sucre glace – classique, appétissante et idéale avec un café ou en dessert."],
@@ -705,13 +709,13 @@
         ["Carré aux noix","Un classique aux noix avec une garniture généreuse et une fine bordure de chocolat – aromatique, croquant et idéal avec un café."],
         ["Fer à cheval au chocolat","Un fin biscuit en forme de fer à cheval avec une touche de chocolat – croustillant et préparé avec soin dans notre atelier."],
         ["Tartelette aux fruits frais","Une petite tartelette garnie d’un assortiment coloré de fruits frais – appétissante, élégante et idéale en dessert."],
-        ["Petite douceur au sucre glace","Une petite pâtisserie ronde avec une finition légère au sucre glace – simple, gourmande et parfaite pour une pause sucrée."],
         ["Gâteau Petit Beurre à la crème au beurre","Un gâteau Petit Beurre à la crème au beurre, aux couches bien visibles – crémeux, classique et préparé avec soin dans notre atelier."],
-        ['Sélection de pâtisseries fines','De petites pâtisseries préparées avec soin pour une pause gourmande, une fête ou un dessert.'],
-        ['Pâtisserie de notre atelier','Préparée artisanalement et présentée avec soin – un aperçu de notre travail de pâtisserie.'],
-        ['Petites créations dessert','Des portions raffinées et variées, idéales avec un café, en dessert ou pour une occasion spéciale.'],
-        ['Pâtisserie festive','Une sélection gourmande de petites créations sucrées préparées avec soin dans notre atelier.'],
-        ['Mignardises & petits plaisirs','De petites pièces délicates à partager ou pour compléter élégamment une sélection de desserts.']
+        ["Sélection de pâtisseries fines","De petites pâtisseries préparées avec soin pour une pause gourmande, une fête ou un dessert."],
+        ["Pâtisserie de notre atelier","Préparée artisanalement et présentée avec soin – un aperçu de notre travail de pâtisserie."],
+        ["Petites créations dessert","Des portions raffinées et variées, idéales avec un café, en dessert ou pour une occasion spéciale."],
+        ["Pâtisserie festive","Une sélection gourmande de petites créations sucrées préparées avec soin dans notre atelier."],
+        ["Mignardises & petits plaisirs","De petites pièces délicates à partager ou pour compléter élégamment une sélection de desserts."]
+      
       ]},
       pt:{title:'Pastelaria',intro:'Pastelaria fina e pequenas criações de sobremesa da nossa oficina – com fotografias reais do Beim Bäcker Jos.',items:[
         ["Tarte de maçã","Elegante tarte de maçã com fatias finamente dispostas e uma leve borda de açúcar em pó – clássica, apetitosa e perfeita com café ou como sobremesa."],
@@ -728,13 +732,13 @@
         ["Quadrado de noz","Um clássico com recheio de noz e uma fina borda de chocolate – aromático, crocante e ideal para acompanhar o café."],
         ["Ferradura com chocolate","Biscoito fino em forma de ferradura com acabamento de chocolate – crocante e preparado com cuidado na nossa padaria."],
         ["Tartelete de fruta fresca","Pequena tartelete com uma seleção colorida de fruta fresca – apetitosa, elegante e ideal como sobremesa."],
-        ["Doce fino com açúcar em pó","Pequena peça redonda com um acabamento leve de açúcar em pó – simples, apetitosa e perfeita para uma pausa doce."],
         ["Bolo Petit Beurre com creme de manteiga","Bolo Petit Beurre com creme de manteiga e camadas bem visíveis – cremoso, clássico e preparado com cuidado na nossa padaria."],
-        ['Seleção de pastelaria fina','Pequenos doces preparados com cuidado para uma pausa, uma festa ou como sobremesa.'],
-        ['Pastelaria da nossa oficina','Preparada artesanalmente e apresentada com cuidado – um olhar sobre o nosso trabalho de pastelaria.'],
-        ['Pequenas criações de sobremesa','Porções finas e variadas, ideais com café, como sobremesa ou para uma ocasião especial.'],
-        ['Pastelaria festiva','Uma seleção convidativa de pequenas criações doces, preparadas com cuidado na nossa oficina.'],
-        ['Mignardises & pequenos prazeres','Pequenas peças delicadas para partilhar ou completar elegantemente uma seleção de sobremesas.']
+        ["Seleção de pastelaria fina","Pequenos doces preparados com cuidado para uma pausa, uma festa ou como sobremesa."],
+        ["Pastelaria da nossa oficina","Preparada artesanalmente e apresentada com cuidado – um olhar sobre o nosso trabalho de pastelaria."],
+        ["Pequenas criações de sobremesa","Porções finas e variadas, ideais com café, como sobremesa ou para uma ocasião especial."],
+        ["Pastelaria festiva","Uma seleção convidativa de pequenas criações doces, preparadas com cuidado na nossa oficina."],
+        ["Mignardises & pequenos prazeres","Pequenas peças delicadas para partilhar ou completar elegantemente uma seleção de sobremesas."]
+      
       ]}
     };
 
