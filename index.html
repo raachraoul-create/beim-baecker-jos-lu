@@ -5,17 +5,18 @@
 const BBJ_OLD_HOST='beim-baecker-jos-lu.webflow.io';
 const BBJ_NEW_HOST='beim-baecker-jos.webflow.io';
 if(location.hostname.toLowerCase()===BBJ_OLD_HOST){
-  location.replace('https://'+BBJ_NEW_HOST+location.pathname+location.search+location.hash);
+  const target='https://'+BBJ_NEW_HOST+location.pathname+location.search+location.hash;
+  window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261007-0542">
+  <meta name="bbj-build" content="20261007-0625">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
   <meta name="application-name" content="Beim Bäcker Jos">
   <meta name="apple-mobile-web-app-title" content="Beim Bäcker Jos">
   <meta name="color-scheme" content="light">
-  <title>Beim Bäcker Jos | Bäckerei in Beckerich & Saeul</title>
+  <title>Beim Bäcker Jos</title>
   <meta name="description" content="Beim Bäcker Jos in Beckerich und Saeul: handwerkliches Brot, Baguettes, Viennoiserie, Pâtisserie, Torten, Snacks und saisonale Spezialitäten aus Luxemburg.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
@@ -23,7 +24,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST){
   <link rel="sitemap" type="application/xml" href="https://beim-baecker-jos.webflow.io/sitemap.xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Beim Bäcker Jos">
-  <meta property="og:title" content="Beim Bäcker Jos | Bäckerei in Beckerich & Saeul">
+  <meta property="og:title" content="Beim Bäcker Jos">
   <meta property="og:description" content="Beim Bäcker Jos in Beckerich und Saeul: handwerkliches Brot, Baguettes, Viennoiserie, Pâtisserie, Torten, Snacks und saisonale Spezialitäten aus Luxemburg.">
   <meta property="og:url" content="https://beim-baecker-jos.webflow.io/">
   <meta property="og:image" content="https://beim-baecker-jos.webflow.io/logo.jpg">
