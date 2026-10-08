@@ -119,7 +119,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST){
     .secret-image-card .secret-close{position:absolute;top:12px;right:12px;z-index:3;width:42px;height:42px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(0,0,0,.72);color:#fff;font-size:24px;cursor:pointer}
     @media(max-width:680px){.secret-modal{padding:8px}.secret-card.secret-image-card{width:100%;max-height:calc(100dvh - 16px);border-radius:18px}.secret-image-card .secret-art{max-height:calc(100dvh - 16px)}}
 
-  </style>
+  .cake-fruit-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.cake-fruit-badges span{display:inline-flex;padding:5px 9px;border-radius:999px;background:#f5eee5;color:#70452a;font-size:12px;font-weight:750;line-height:1.3;border:1px solid #e8d4c0}
+</style>
   <script>
     // Open the homepage at the top on fresh navigation/reload.
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -402,7 +403,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST){
           <p id="cakeGalleryIntro">Ausgewählte Arbeiten aus unserer Backstube.</p>
           <div class="gallery-tabs" id="cakeGalleryTabs">
             <button class="gallery-tab active" type="button" data-cake-mode="patisserie">Pâtisserie</button>
-            <button class="gallery-tab" type="button" data-cake-mode="cakes">All Torten</button>
+            <button class="gallery-tab" type="button" data-cake-mode="saint">Saint-Honoré</button>
             <button class="gallery-tab" type="button" data-cake-mode="birthday">Gebuertsdag</button>
             <button class="gallery-tab" type="button" data-cake-mode="wedding">Hochzäit</button>
             <button class="gallery-tab" type="button" data-cake-mode="baptism">Daf & Baby</button>
@@ -998,26 +999,30 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST){
 
     let cakeGalleryMode='patisserie',cakeVisibleCount=12;
     const CAKE_GROUPS={
-      cakes:Array.from({length:54},(_,n)=>n),
+      saint:[19],
       birthday:[3,11,15,21,30,31,34,35,36,37,38,39,40,41,42,43,50],
       wedding:[2,4,5,6,8,9],
       baptism:[12,44],
       communion:[46,47,48,49,51,53],
       father:[22,23,24,25,26,27,28,29,32],
       christmas:[14,20],
-      newyear:[16,17,18,19],
+      newyear:[16,17,18],
       event:[0,1,7,10,13,33,45,52]
     };
+    const CAKE_TITLE_OVERRIDES={"de":{"11":"Geburtstagskuchen mit frischen Früchten","17":"Neujahrskuchen „1. Januar“","18":"2024-Fruchtkuchen","19":"Saint-Honoré „2024“","21":"Fruchtiger Motivkuchen mit Sportwagen","22":"Papa-Kuchen mit Schokolade & Uhrdekor","23":"Himbeerkuchen „Vive Papa“","25":"Festlicher Fruchtkuchen „Vive Papa“","26":"Schokoladenkuchen „Vive Papa“","27":"Erdbeerkuchen „Vive Papa“","28":"Fruchtiger Charlotte-Kuchen „Vive Papa“","32":"Vive Papa – Festliche Kuchenauswahl","36":"Fruchtiger Geburtstagskuchen","37":"70 Jahre – Geburtstagskuchen mit Früchten","38":"50 Jahre – Fruchtiger Jubiläumskuchen","39":"Zahlenkuchen 61 mit Beeren","40":"Rustikaler Geburtstagskuchen mit Zitrone","41":"Geburtstagskuchen mit Früchten","42":"Sophia 18 – Geburtstagskuchen","43":"Zahlenkuchen 18 mit Früchten","50":"Fruchtiger Geburtstagskuchen"},"lb":{"11":"Gebuertsdagskuch mat frëschem Uebst","17":"Neijoers-Kuch „1. Januar“","18":"2024 Uebstkuchen","19":"Saint-Honoré „2024“","21":"Fruuchtege Motivkuch mat Sportwon","22":"Papa-Kuch mat Schockela & Auerendekor","23":"Hambier-Kuch „Vive Papa“","25":"Festlechen Uebst-Kuch „Vive Papa“","26":"Schockela-Kuch „Vive Papa“","27":"Äerdbier-Kuch „Vive Papa“","28":"Fruuchtege Charlotte-Kuch „Vive Papa“","32":"Vive Papa – Festlech Kuch-Auswiel","36":"Fruuchtege Gebuertsdagskuch","37":"70 Joer – Gebuertsdagskuch mat Uebst","38":"50 Joer – Fruuchtege Jubiläumskuch","39":"Zuelenkuch 61 mat Beeren","40":"Rustikale Gebuertsdagskuch mat Zitroun","41":"Gebuertsdagskuch mat Uebst","42":"Sophia 18 – Gebuertsdagskuch","43":"Zuelenkuch 18 mat Uebst","50":"Fruuchtege Gebuertsdagskuch"},"fr":{"19":"Saint-Honoré « 2024 »"},"pt":{"19":"Saint-Honoré « 2024 »"}};
+    const FRESH_FRUIT_TOP=new Set([10,11,17,18,21,23,25,27,28,32,36,37,38,39,40,41,42,43,50]);
+    const FRESH_FRUIT_INSIDE=new Set([27,34]);
+    const CAKE_FRUIT_LABELS={lb:{top:'Frëscht Uebst uewendrop',inside:'Frëscht Uebst bannendran'},de:{top:'Frisches Obst oben',inside:'Frisches Obst innen'},fr:{top:'Fruits frais dessus',inside:'Fruits frais à l’intérieur'},pt:{top:'Fruta fresca por cima',inside:'Fruta fresca no interior'}};
     const CAKE_TAB_LABELS={
-      lb:{patisserie:'Pâtisserie',cakes:'All Torten',birthday:'Gebuertsdag',wedding:'Hochzäit',baptism:'Daf & Baby',communion:'Kommunioun',father:'Pappendag',christmas:'Chrëschtdag',newyear:'Silvester / Neit Joer',event:'Aner Uläss',more:'Méi weisen'},
-      de:{patisserie:'Pâtisserie',cakes:'Alle Torten',birthday:'Geburtstag',wedding:'Hochzeit',baptism:'Taufe & Baby',communion:'Kommunion',father:'Vatertag',christmas:'Weihnachten',newyear:'Silvester / Neujahr',event:'Weitere Anlässe',more:'Mehr anzeigen'},
-      fr:{patisserie:'Pâtisserie',cakes:'Tous les gâteaux',birthday:'Anniversaire',wedding:'Mariage',baptism:'Baptême & bébé',communion:'Communion',father:'Fête des Pères',christmas:'Noël',newyear:'Nouvel An',event:'Autres occasions',more:'Voir plus'},
-      pt:{patisserie:'Pastelaria',cakes:'Todos os bolos',birthday:'Aniversário',wedding:'Casamento',baptism:'Batizado & bebé',communion:'Comunhão',father:'Dia do Pai',christmas:'Natal',newyear:'Passagem de Ano',event:'Outras ocasiões',more:'Mostrar mais'}
+      lb:{patisserie:'Pâtisserie',saint:'Saint-Honoré',birthday:'Gebuertsdag',wedding:'Hochzäit',baptism:'Daf & Baby',communion:'Kommunioun',father:'Pappendag',christmas:'Chrëschtdag',newyear:'Silvester / Neit Joer',event:'Aner Uläss',more:'Méi weisen'},
+      de:{patisserie:'Pâtisserie',saint:'Saint-Honoré',birthday:'Geburtstag',wedding:'Hochzeit',baptism:'Taufe & Baby',communion:'Kommunion',father:'Vatertag',christmas:'Weihnachten',newyear:'Silvester / Neujahr',event:'Weitere Anlässe',more:'Mehr anzeigen'},
+      fr:{patisserie:'Pâtisserie',saint:'Saint-Honoré',birthday:'Anniversaire',wedding:'Mariage',baptism:'Baptême & bébé',communion:'Communion',father:'Fête des Pères',christmas:'Noël',newyear:'Nouvel An',event:'Autres occasions',more:'Voir plus'},
+      pt:{patisserie:'Pastelaria',saint:'Saint-Honoré',birthday:'Aniversário',wedding:'Casamento',baptism:'Batizado & bebé',communion:'Comunhão',father:'Dia do Pai',christmas:'Natal',newyear:'Passagem de Ano',event:'Outras ocasiões',more:'Mostrar mais'}
     };
     function renderCakeGallery(lang){
       const overall={
-        lb:['Pâtisserie & Torten','Pâtisserie an Torten – propper no Geleeënheet sortéiert.'],
-        de:['Pâtisserie & Torten','Pâtisserie und Torten – übersichtlich nach Anlass sortiert.'],
+        lb:['Pâtisserie, Kuch & Taarte','Pâtisserie, Kuch an Taarte – propper no Geleeënheet sortéiert.'],
+        de:['Pâtisserie, Kuchen & Torten','Kuchen, Torten und Pâtisserie – übersichtlich nach Anlass sortiert.'],
         fr:['Pâtisserie & gâteaux','Pâtisseries et gâteaux – clairement classés par occasion.'],
         pt:['Pastelaria & bolos','Pastelaria e bolos – organizados por ocasião.']
       }[lang]||['Pâtisserie & Torten',''];
@@ -1032,9 +1037,9 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST){
         if(wrap)wrap.hidden=true;
       }else{
         const d=CAKE_GALLERY[lang]||CAKE_GALLERY.lb;
-        const indices=CAKE_GROUPS[cakeGalleryMode]||CAKE_GROUPS.cakes;
+        const indices=CAKE_GROUPS[cakeGalleryMode]||CAKE_GROUPS.saint;
         const visible=indices.slice(0,cakeVisibleCount);
-        g.innerHTML=visible.map(n=>{const x=d.items[n];return '<article class="gallery-item"><a href="'+CAKE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+CAKE_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4><p>'+x[1]+'</p></div></article>'}).join('');
+        g.innerHTML=visible.map(n=>{const x=d.items[n];const title=(CAKE_TITLE_OVERRIDES[lang]||{})[n]||x[0];const f=CAKE_FRUIT_LABELS[lang]||CAKE_FRUIT_LABELS.lb;const fruitBadges=(FRESH_FRUIT_TOP.has(n)||FRESH_FRUIT_INSIDE.has(n))?'<div class="cake-fruit-badges">'+(FRESH_FRUIT_TOP.has(n)?'<span>'+f.top+'</span>':'')+(FRESH_FRUIT_INSIDE.has(n)?'<span>'+f.inside+'</span>':'')+'</div>':'';return '<article class="gallery-item"><a href="'+CAKE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+CAKE_IMAGES[n]+'" alt="'+title+'" loading="lazy"></a><div class="gallery-copy"><h4>'+title+'</h4>'+fruitBadges+'<p>'+x[1]+'</p></div></article>'}).join('');
         if(more)more.textContent=labels.more;
         if(wrap)wrap.hidden=cakeVisibleCount>=indices.length;
       }
