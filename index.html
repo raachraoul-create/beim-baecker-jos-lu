@@ -1036,13 +1036,13 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       document.querySelectorAll('[data-cake-category]').forEach(b=>{const mode=b.dataset.cakeCategory;if(labels[mode])b.textContent=labels[mode]});
       if(cakeGalleryMode==='patisserie'){
         const d=PATISSERIE_GALLERY[lang]||PATISSERIE_GALLERY.lb;
-        g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+PATISSERIE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+PATISSERIE_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4><p>'+x[1]+'</p></div></article>').join('');
+        g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+PATISSERIE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+PATISSERIE_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4></div></article>').join('');
         if(wrap)wrap.hidden=true;
       }else{
         const d=CAKE_GALLERY[lang]||CAKE_GALLERY.lb;
         const indices=CAKE_GROUPS[cakeGalleryMode]||CAKE_GROUPS.saint;
         const visible=indices.slice(0,cakeVisibleCount);
-        g.innerHTML=visible.map(n=>{const x=d.items[n];const title=(CAKE_TITLE_OVERRIDES[lang]||{})[n]||x[0];const f=CAKE_FRUIT_LABELS[lang]||CAKE_FRUIT_LABELS.lb;const fruitBadges=(FRESH_FRUIT_TOP.has(n)||FRESH_FRUIT_INSIDE.has(n))?'<div class="cake-fruit-badges">'+(FRESH_FRUIT_TOP.has(n)?'<span>'+f.top+'</span>':'')+(FRESH_FRUIT_INSIDE.has(n)?'<span>'+f.inside+'</span>':'')+'</div>':'';const saintNote=SAINT_HONORE_FRUIT_ITEMS.has(n)?'<p class="saint-honore-fruit-description">'+(SAINT_HONORE_FRUIT_DESCRIPTION[lang]||SAINT_HONORE_FRUIT_DESCRIPTION.lb)+'</p>':'';return '<article class="gallery-item"><a href="'+CAKE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+CAKE_IMAGES[n]+'" alt="'+title+'" loading="lazy"></a><div class="gallery-copy"><h4>'+title+'</h4>'+fruitBadges+saintNote+'<p>'+x[1]+'</p></div></article>'}).join('');
+        g.innerHTML=visible.map(n=>{const x=d.items[n];const title=(CAKE_TITLE_OVERRIDES[lang]||{})[n]||x[0];return '<article class="gallery-item"><a href="'+CAKE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+CAKE_IMAGES[n]+'" alt="'+title+'" loading="lazy"></a><div class="gallery-copy"><h4>'+title+'</h4></div></article>'}).join('');
         if(more)more.textContent=labels.more;
         if(wrap)wrap.hidden=cakeVisibleCount>=indices.length;
       }
