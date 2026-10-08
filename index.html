@@ -4,7 +4,7 @@
 <script>
 const BBJ_OLD_HOST='beim-baecker-jos-lu.webflow.io';
 const BBJ_NEW_HOST='beim-baecker-jos.webflow.io';
-if(location.hostname.toLowerCase()===BBJ_OLD_HOST){
+if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(location.search).get('preview')!=='1'){
   const target='https://'+BBJ_NEW_HOST+location.pathname+location.search+location.hash;
   window.location.replace(target);
 }
