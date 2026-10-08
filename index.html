@@ -121,7 +121,9 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
 
   .cake-fruit-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.cake-fruit-badges span{display:inline-flex;padding:5px 9px;border-radius:999px;background:#f5eee5;color:#70452a;font-size:12px;font-weight:750;line-height:1.3;border:1px solid #e8d4c0}
 #cakeGalleryGrid .saint-honore-fruit-description{display:block;margin:10px 0 0;color:#655041;font-size:14px;line-height:1.5;font-weight:500}
-</style>
+    /* Bildunterschriften unter den Fotos in allen Galerien ausblenden. */
+    .gallery-grid .gallery-item .gallery-copy{display:none !important}
+  </style>
   <script>
     // Open the homepage at the top on fresh navigation/reload.
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
