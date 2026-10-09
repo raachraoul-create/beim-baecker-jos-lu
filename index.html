@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261009-0736">
+  <meta name="bbj-build" content="20261009-0758">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -524,7 +524,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       'images/neu/rustikale-weizenbroetchen.webp',
       'images/neu/goldbraune-broetchen.webp',
       'images/neu/koernerbroetchen-und-klassiker.webp',
-      'images/produkte/puderzucker-gebaeck.webp'
+      'images/produkte/puderzucker-gebaeck.webp',
+      'images/brot/kruescht.webp'
     ];
     const BREAD_GALLERY={
       lb:{title:"Brout & Bréidercher",intro:"Frësch gebakene Brout a Bréidercher vu Beim Bäcker Jos – handwierklech preparéiert a professionell presentéiert.",items:[
@@ -545,7 +546,9 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Solé-Bréidercher",""],
         ["Goldbrong Bréidercher",""],
         ["Siwekorn-Bréidercher",""],
-        ["Roggen-Bréiderchen",""]
+        ["Roggen-Bréiderchen",""],
+        ["Krüscht",""]
+      
       
       ]},
       de:{title:"Brot & Brötchen",intro:"Frisch gebackenes Brot und Brötchen von Beim Bäcker Jos – handwerklich zubereitet und professionell präsentiert.",items:[
@@ -566,7 +569,9 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Solé-Brötchen",""],
         ["Goldbraune Brötchen",""],
         ["Siebenkorn-Brötchen",""],
-        ["Roggenbrötchen",""]
+        ["Roggenbrötchen",""],
+        ["Krüscht",""]
+      
       
       ]},
       fr:{title:"Pains & petits pains",intro:"Pains et petits pains fraîchement cuits chez Beim Bäcker Jos – préparés artisanalement et présentés avec soin.",items:[
@@ -587,7 +592,9 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Petits pains Solé",""],
         ["Petits pains dorés",""],
         ["Petits pains aux sept céréales",""],
-        ["Petit pain de seigle",""]
+        ["Petit pain de seigle",""],
+        ["Krüscht",""]
+      
       
       ]},
       pt:{title:"Pães & pãezinhos",intro:"Pães e pãezinhos acabados de cozer no Beim Bäcker Jos – preparados artesanalmente e apresentados com cuidado.",items:[
@@ -608,13 +615,15 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Pãezinhos Solé",""],
         ["Pãezinhos dourados",""],
         ["Pãezinhos de sete cereais",""],
-        ["Pãozinho de centeio",""]
+        ["Pãozinho de centeio",""],
+        ["Krüscht",""]
+      
       
       ]}
     };
     let breadMode='kasten';
     const BREAD_GROUPS={
-      kasten:[1,9,10],
+      kasten:[1,9,10,18],
       brot:[0,2,3,4,5,6,7,8,11],
       broetchen:[12,13,14,15,16,17]
     };
