@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261009-0649">
+  <meta name="bbj-build" content="20261009-0718">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -643,11 +643,10 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     }
 
     const PATISSERIE_IMAGES=[
-      'images/produkte/apfeltarte-premium.webp',
-      'images/produkte/pflaumentarte-premium.webp',
       'images/produkte/schoko-eclair.webp?v=20260929-0740',
       'images/produkte/kaffee-eclair.webp?v=20260929-0740',
       'images/produkte/pistazien-eclair.webp?v=20260929-0740',
+      'images/patisserie/creme-flute.webp',
       'images/produkte/schokotorte-kirsche.webp?v=20260929-0740',
       'images/produkte/mango-dessert.webp?v=20260929-0740',
       'images/produkte/karamell-windbeutel.webp?v=20260929-0740',
@@ -662,15 +661,16 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       'images/patisserie/patisserie-02.webp',
       'images/patisserie/patisserie-03.webp',
       'images/patisserie/patisserie-04.webp',
-      'images/patisserie/patisserie-05.webp'
+      'images/patisserie/patisserie-05.webp',
+      'images/produkte/apfeltarte-premium.webp',
+      'images/produkte/pflaumentarte-premium.webp'
     ];
     const PATISSERIE_GALLERY={
       lb:{title:'Pâtisserie',intro:'Fein Pâtisserie a kleng Dessert-Kreatiounen aus eiser Backstuff – mat richtege Fotoen vu Beim Bäcker Jos.',items:[
-        ["Äppeltaart","Eng elegant Äppeltaart mat fein arrangéierten Äppelscheiwen an engem dezente Pudderzocker-Rand – klassesch, appetitlech a perfekt fir Kaffi oder Dessert."],
-        ["Quetschentaart","Eng fruuchteg Quetschentaart mat suergfälteg arrangéiertem Belag an engem feine Pudderzocker-Rand – klassesch a perfekt fir Kaffi oder Dessert."],
         ["Schockela-Eclair","E feinen Eclair aus liichtem Branddeeg, verfeinert mat enger zaarter Schockelasglasur – e klassesche Genoss fir Schockela-Liebhaber."],
         ["Mokka-Eclair","Eise Mokka-Eclair verbënnt lockere Branddeeg mat enger feiner Mokka-Crème an enger glanzvoller Glasur – elegant an aromatesch."],
         ["Pistazien-Eclair","E feine Pistazien-Eclair mat lockere Branddeeg an enger cremiger Pistaziennot – raffinéiert a passend fir e besonnesche Genossmoment."],
+        ["Crème Flûte",""],
         ["Schwarzwälder Kirsch","Schwarzwälder Kirsch mat Schockela, Crème a Kiischt – klassesch, cremeg a mat Suergfalt als fein Pâtisserie preparéiert."],
         ["Dessert-Kreatioun","Eng elegant kleng Dessert-Kreatioun mat glatter Glasur a feiner Dekoratioun – suergfälteg an eiser Pâtisserie preparéiert."],
         ["Wandbeutel mat Vanillepudding","E zaarten Wandbeutel mat enger cremeg-feiner Vanillepudding-Fëllung – liicht, klassesch a suergfälteg preparéiert."],
@@ -685,15 +685,17 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Pâtisserie aus eiser Backstuff","Handwierklech preparéiert a propper presentéiert – eng kleng Auswiel aus eiser deeglecher Pâtisserie-Aarbecht."],
         ["Kleng Dessert-Kreatiounen","Fein Portiounen a variéiert Pâtisserie, passend fir Kaffi, Dessert oder eng besonnesch Geleeënheet."],
         ["Festlech Pâtisserie","Eng appetitlech Auswiel u klenge séisse Kreatiounen, mat Suergfalt an eiser Backstuff preparéiert."],
-        ["Mignardises & kleng Genëss","Kleng, fein Stécker fir ze deelen oder eng Dessert-Auswiel elegant ofzeronnen."]
+        ["Mignardises & kleng Genëss","Kleng, fein Stécker fir ze deelen oder eng Dessert-Auswiel elegant ofzeronnen."],
+        ["Äppeltaart","Eng elegant Äppeltaart mat fein arrangéierten Äppelscheiwen an engem dezente Pudderzocker-Rand – klassesch, appetitlech a perfekt fir Kaffi oder Dessert."],
+        ["Quetschentaart","Eng fruuchteg Quetschentaart mat suergfälteg arrangéiertem Belag an engem feine Pudderzocker-Rand – klassesch a perfekt fir Kaffi oder Dessert."]
+      
       
       ]},
       de:{title:'Pâtisserie',intro:'Feine Pâtisserie und kleine Dessert-Kreationen aus unserer Backstube – mit echten Fotos von Beim Bäcker Jos.',items:[
-        ["Apfeltarte","Elegante Apfeltarte mit fein arrangierten Apfelscheiben und dezentem Puderzuckerrand – klassisch, appetitlich und perfekt zu Kaffee oder als Dessert."],
-        ["Quetschetarte","Fruchtige Quetschetarte mit sorgfältig arrangiertem Belag und feinem Puderzuckerrand – klassisch, appetitlich und ideal zu Kaffee oder als Dessert."],
         ["Schoko-Éclair","Ein feines Éclair aus luftigem Brandteig, veredelt mit einer zarten Schokoladenglasur – ein klassischer Genuss für Schokoladenliebhaber."],
         ["Mokka-Éclair","Unser Mokka-Éclair verbindet lockeren Brandteig mit einer feinen Mokka-Creme und glänzender Glasur – elegant und aromatisch."],
         ["Pistazien-Éclair","Feines Pistazien-Éclair mit luftigem Brandteig und cremiger Pistaziennote – raffiniert und ideal für einen besonderen Genussmoment."],
+        ["Crème Flûte",""],
         ["Schwarzwälder Kirsch","Klassische Schwarzwälder Kirsch mit Schokolade, Sahne und Kirsche – cremig, fein abgestimmt und sorgfältig als kleine Pâtisserie zubereitet."],
         ["Feines Dessert","Elegantes kleines Dessert mit glatter Glasur und feiner Dekoration – sorgfältig in unserer Pâtisserie zubereitet."],
         ["Windbeutel mit Vanillepudding","Zarter Windbeutel mit cremiger Vanillepudding-Füllung – leicht, klassisch und sorgfältig in unserer Pâtisserie zubereitet."],
@@ -708,15 +710,17 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Pâtisserie aus unserer Backstube","Handwerklich vorbereitet und sauber präsentiert – ein Einblick in unsere Pâtisserie-Arbeit."],
         ["Kleine Dessert-Kreationen","Feine Portionen und abwechslungsreiche Pâtisserie, passend zu Kaffee, Dessert oder einem besonderen Anlass."],
         ["Festliche Pâtisserie","Eine einladende Auswahl kleiner süßer Kreationen, sorgfältig in unserer Backstube vorbereitet."],
-        ["Mignardises & kleine Genüsse","Kleine, feine Stücke zum Teilen oder als eleganter Abschluss einer Dessert-Auswahl."]
+        ["Mignardises & kleine Genüsse","Kleine, feine Stücke zum Teilen oder als eleganter Abschluss einer Dessert-Auswahl."],
+        ["Apfeltarte","Elegante Apfeltarte mit fein arrangierten Apfelscheiben und dezentem Puderzuckerrand – klassisch, appetitlich und perfekt zu Kaffee oder als Dessert."],
+        ["Quetschetarte","Fruchtige Quetschetarte mit sorgfältig arrangiertem Belag und feinem Puderzuckerrand – klassisch, appetitlich und ideal zu Kaffee oder als Dessert."]
+      
       
       ]},
       fr:{title:'Pâtisserie',intro:'Pâtisseries fines et petites créations dessert de notre atelier – avec de vraies photos de Beim Bäcker Jos.',items:[
-        ["Tarte aux pommes","Élégante tarte aux pommes avec de fines tranches soigneusement disposées et une légère bordure de sucre glace – classique, appétissante et idéale avec un café ou en dessert."],
-        ["Tarte aux quetsches","Tarte fruitée aux quetsches, soigneusement garnie et finie d’une légère bordure de sucre glace – classique et idéale avec un café ou en dessert."],
         ["Éclair au chocolat","Un éclair fin en pâte à choux légère, délicatement nappé de chocolat – un classique gourmand pour les amateurs de chocolat."],
         ["Éclair moka","Notre éclair moka associe une pâte à choux légère à une fine crème moka et un glaçage brillant – élégant et aromatique."],
         ["Éclair à la pistache","Un éclair raffiné à la pistache, en pâte à choux légère, avec une note crémeuse de pistache – idéal pour une pause gourmande."],
+        ["Crème Flûte",""],
         ["Schwarzwälder Kirsch","Une création façon Forêt-Noire au chocolat, à la crème et à la cerise – crémeuse, équilibrée et soigneusement préparée."],
         ["Dessert fin","Un petit dessert élégant avec un glaçage lisse et une décoration raffinée – préparé avec soin dans notre pâtisserie."],
         ["Chou à la crème vanille","Un chou délicat garni d’une crème vanille onctueuse – léger, classique et préparé avec soin dans notre pâtisserie."],
@@ -731,15 +735,17 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Pâtisserie de notre atelier","Préparée artisanalement et présentée avec soin – un aperçu de notre travail de pâtisserie."],
         ["Petites créations dessert","Des portions raffinées et variées, idéales avec un café, en dessert ou pour une occasion spéciale."],
         ["Pâtisserie festive","Une sélection gourmande de petites créations sucrées préparées avec soin dans notre atelier."],
-        ["Mignardises & petits plaisirs","De petites pièces délicates à partager ou pour compléter élégamment une sélection de desserts."]
+        ["Mignardises & petits plaisirs","De petites pièces délicates à partager ou pour compléter élégamment une sélection de desserts."],
+        ["Tarte aux pommes","Élégante tarte aux pommes avec de fines tranches soigneusement disposées et une légère bordure de sucre glace – classique, appétissante et idéale avec un café ou en dessert."],
+        ["Tarte aux quetsches","Tarte fruitée aux quetsches, soigneusement garnie et finie d’une légère bordure de sucre glace – classique et idéale avec un café ou en dessert."]
+      
       
       ]},
       pt:{title:'Pastelaria',intro:'Pastelaria fina e pequenas criações de sobremesa da nossa oficina – com fotografias reais do Beim Bäcker Jos.',items:[
-        ["Tarte de maçã","Elegante tarte de maçã com fatias finamente dispostas e uma leve borda de açúcar em pó – clássica, apetitosa e perfeita com café ou como sobremesa."],
-        ["Tarte de ameixa quetsche","Tarte frutada de ameixa quetsche, cuidadosamente preparada e finalizada com uma leve borda de açúcar em pó – clássica e ideal com café ou como sobremesa."],
         ["Éclair de chocolate","Éclair delicado de massa choux leve, finalizado com uma fina cobertura de chocolate – um clássico para os amantes de chocolate."],
         ["Éclair moka","O nosso éclair moka combina massa choux leve, creme de moka e uma cobertura brilhante – elegante e aromático."],
         ["Éclair de pistácio","Éclair fino de pistácio, com massa choux leve e uma nota cremosa de pistácio – uma escolha requintada para um momento especial."],
+        ["Crème Flûte",""],
         ["Schwarzwälder Kirsch","Uma criação tipo Floresta Negra com chocolate, creme e cereja – cremosa, equilibrada e preparada com cuidado."],
         ["Sobremesa fina","Uma pequena sobremesa elegante com cobertura lisa e decoração delicada – preparada com cuidado na nossa pastelaria."],
         ["Profiterole com creme de baunilha","Profiterole delicado com recheio cremoso de baunilha – leve, clássico e preparado com cuidado na nossa pastelaria."],
@@ -754,7 +760,10 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Pastelaria da nossa oficina","Preparada artesanalmente e apresentada com cuidado – um olhar sobre o nosso trabalho de pastelaria."],
         ["Pequenas criações de sobremesa","Porções finas e variadas, ideais com café, como sobremesa ou para uma ocasião especial."],
         ["Pastelaria festiva","Uma seleção convidativa de pequenas criações doces, preparadas com cuidado na nossa oficina."],
-        ["Mignardises & pequenos prazeres","Pequenas peças delicadas para partilhar ou completar elegantemente uma seleção de sobremesas."]
+        ["Mignardises & pequenos prazeres","Pequenas peças delicadas para partilhar ou completar elegantemente uma seleção de sobremesas."],
+        ["Tarte de maçã","Elegante tarte de maçã com fatias finamente dispostas e uma leve borda de açúcar em pó – clássica, apetitosa e perfeita com café ou como sobremesa."],
+        ["Tarte de ameixa quetsche","Tarte frutada de ameixa quetsche, cuidadosamente preparada e finalizada com uma leve borda de açúcar em pó – clássica e ideal com café ou como sobremesa."]
+      
       
       ]}
     };
