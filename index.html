@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261009-zitrounekuch">
+  <meta name="bbj-build" content="20261009-bread-intro">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -640,8 +640,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     function renderBreadGallery(lang){
       const d=BREAD_GALLERY[lang]||BREAD_GALLERY.lb;
       const labels={
-        lb:{title:'Brout & Bréidercher',intro:'Eis Auswiel – propper no Kategorie sortéiert.',kasten:'Kastenbrout',brot:'Brout',broetchen:'Bréidercher / Baguetten'},
-        de:{title:'Brot & Brötchen',intro:'Unsere Auswahl – übersichtlich nach Kategorie sortiert.',kasten:'Kastenbrote',brot:'Brote',broetchen:'Brötchen / Baguettes'},
+        lb:{title:'Brout & Bréidercher',intro:'Brout · Deeg · Bréidercher',kasten:'Kastenbrout',brot:'Brout',broetchen:'Bréidercher / Baguetten'},
+        de:{title:'Brot & Brötchen',intro:'Brot · Teig · Brötchen',kasten:'Kastenbrote',brot:'Brote',broetchen:'Brötchen / Baguettes'},
         fr:{title:'Pains & petits pains',intro:'Notre sélection – clairement classée par catégorie.',kasten:'Pains moulés',brot:'Pains',broetchen:'Petits pains / Baguettes'},
         pt:{title:'Pães & pãezinhos',intro:'A nossa seleção – organizada por categoria.',kasten:'Pães de forma',brot:'Pães',broetchen:'Pãezinhos / Baguetes'}
       }[lang]||{title:d.title,intro:d.intro,kasten:'Kastenbrout',brot:'Brout',broetchen:'Bréidercher / Baguetten'};
