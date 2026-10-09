@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261009-baguette-francais">
+  <meta name="bbj-build" content="20261009-siebenkorn-baguette">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -526,7 +526,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       'images/neu/koernerbroetchen-und-klassiker.webp',
       'images/brot/roggenbroetchen.webp',
       'images/brot/kruescht.webp',
-      'images/brot/baguette-francais.webp'
+      'images/brot/baguette-francais.webp',
+      'images/brot/siebenkorn-baguette.webp'
     ];
     const BREAD_GALLERY={
       lb:{title:"Brout & Bréidercher",intro:"Frësch gebakene Brout a Bréidercher vu Beim Bäcker Jos – handwierklech preparéiert a professionell presentéiert.",items:[
@@ -549,7 +550,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Siwekorn-Bréidercher",""],
         ["Roggen-Bréiderchen",""],
         ["Krüscht",""],
-        ["Baguette Français",""]
+        ["Baguette Français",""],
+        ["Siwekorn-Baguette",""]
       
       
       ]},
@@ -573,7 +575,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Siebenkorn-Brötchen",""],
         ["Roggenbrötchen",""],
         ["Krüscht",""],
-        ["Baguette Français",""]
+        ["Baguette Français",""],
+        ["Siebenkorn-Baguette",""]
       
       
       ]},
@@ -597,7 +600,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Petits pains aux sept céréales",""],
         ["Petit pain de seigle",""],
         ["Krüscht",""],
-        ["Baguette française",""]
+        ["Baguette française",""],
+        ["Baguette aux sept céréales",""]
       
       
       ]},
@@ -621,7 +625,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Pãezinhos de sete cereais",""],
         ["Pãozinho de centeio",""],
         ["Krüscht",""],
-        ["Baguete francesa",""]
+        ["Baguete francesa",""],
+        ["Baguete de sete cereais",""]
       
       
       ]}
@@ -630,7 +635,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     const BREAD_GROUPS={
       kasten:[1,9,10,18],
       brot:[0,2,3,4,5,6,7,8,11],
-      broetchen:[12,13,14,15,16,17,19]
+      broetchen:[12,13,14,15,16,17,19,20]
     };
     function renderBreadGallery(lang){
       const d=BREAD_GALLERY[lang]||BREAD_GALLERY.lb;
