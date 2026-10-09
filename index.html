@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261009-wasserbroetchen-2">
+  <meta name="bbj-build" content="20261009-brotteig-mousses">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -410,6 +410,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
           <p id="cakeGalleryIntro">Ausgewählte Arbeiten aus unserer Backstube.</p>
           <div class="gallery-tabs" id="cakeGalleryTabs">
             <button class="gallery-tab active" type="button" data-cake-mode="patisserie">Pâtisserie</button>
+            <button class="gallery-tab" type="button" data-cake-mode="mousses">Mousses</button>
             <button class="gallery-tab" type="button" data-cake-mode="saint">Saint-Honoré</button>
             <button class="gallery-tab" type="button" data-cake-mode="birthday">Gebuertsdag</button>
             <button class="gallery-tab" type="button" data-cake-mode="wedding">Hochzäit</button>
@@ -543,7 +544,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Siwekorn-Kastenbrout",""],
         ["Dinkelkastenbrout mat Sonneblummekären",""],
         ["Natural Brout",""],
-        ["Waasserbréiderchen",""],
+        ["Broutdeeg-Bréiderchen",""],
         ["Solé-Bréiderchen",""],
         ["Solé-Bréidercher",""],
         ["Waasserbréidercher",""],
@@ -568,7 +569,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Siebenkorn-Kastenbrot",""],
         ["Dinkelkastenbrot mit Sonnenblumenkernen",""],
         ["Natural Brot",""],
-        ["Wasserbrötchen",""],
+        ["Brotteigbrötchen",""],
         ["Solé-Brötchen",""],
         ["Solé-Brötchen",""],
         ["Wasserbrötchen",""],
@@ -593,7 +594,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Pain moulé aux sept céréales",""],
         ["Pain d’épeautre moulé aux graines de tournesol",""],
         ["Natural Brot",""],
-        ["Petit pain à l’eau",""],
+        ["Petit pain à base de pâte à pain",""],
         ["Petit pain Solé",""],
         ["Petits pains Solé",""],
         ["Petits pains à l’eau",""],
@@ -618,7 +619,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Pão de forma de sete cereais",""],
         ["Pão de forma de espelta com sementes de girassol",""],
         ["Natural Brot",""],
-        ["Pãozinho de água",""],
+        ["Pãozinho de massa de pão",""],
         ["Pãozinho Solé",""],
         ["Pãezinhos Solé",""],
         ["Pãezinhos de água",""],
@@ -640,8 +641,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     function renderBreadGallery(lang){
       const d=BREAD_GALLERY[lang]||BREAD_GALLERY.lb;
       const labels={
-        lb:{title:'Brout & Bréidercher',intro:'Brout · Deeg · Bréidercher',kasten:'Kastenbrout',brot:'Brout',broetchen:'Bréidercher / Baguetten'},
-        de:{title:'Brot & Brötchen',intro:'Brot · Teig · Brötchen',kasten:'Kastenbrote',brot:'Brote',broetchen:'Brötchen / Baguettes'},
+        lb:{title:'Brout & Bréidercher',intro:'Eis Auswiel – propper no Kategorie sortéiert.',kasten:'Kastenbrout',brot:'Brout',broetchen:'Bréidercher / Baguetten'},
+        de:{title:'Brot & Brötchen',intro:'Unsere Auswahl – übersichtlich nach Kategorie sortiert.',kasten:'Kastenbrote',brot:'Brote',broetchen:'Brötchen / Baguettes'},
         fr:{title:'Pains & petits pains',intro:'Notre sélection – clairement classée par catégorie.',kasten:'Pains moulés',brot:'Pains',broetchen:'Petits pains / Baguettes'},
         pt:{title:'Pães & pãezinhos',intro:'A nossa seleção – organizada por categoria.',kasten:'Pães de forma',brot:'Pães',broetchen:'Pãezinhos / Baguetes'}
       }[lang]||{title:d.title,intro:d.intro,kasten:'Kastenbrout',brot:'Brout',broetchen:'Bréidercher / Baguetten'};
@@ -1071,6 +1072,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
 
     let cakeGalleryMode='patisserie',cakeVisibleCount=12;
     const CAKE_GROUPS={
+      mousses:[],
       saint:[19,11,36,37,40,41,42,44],
       birthday:[3,15,21,30,31,34,35,38,39,43,50],
       wedding:[2,4,5,6,8,9],
@@ -1088,10 +1090,10 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     const SAINT_HONORE_FRUIT_DESCRIPTION={lb:'Saint-Honoré mat frëschem Uebst an der Fëllung a frëschem Uebst uewendrop.',de:'Saint-Honoré mit frischem Obst in der Füllung und frischem Obst obenauf.',fr:'Saint-Honoré avec des fruits frais dans la garniture et sur le dessus.',pt:'Saint-Honoré com fruta fresca no recheio e por cima.'};
     const CAKE_FRUIT_LABELS={lb:{top:'Frëscht Uebst uewendrop',inside:'Frëscht Uebst bannendran'},de:{top:'Frisches Obst oben',inside:'Frisches Obst innen'},fr:{top:'Fruits frais dessus',inside:'Fruits frais à l’intérieur'},pt:{top:'Fruta fresca por cima',inside:'Fruta fresca no interior'}};
     const CAKE_TAB_LABELS={
-      lb:{patisserie:'Pâtisserie',saint:'Saint-Honoré',birthday:'Gebuertsdag',wedding:'Hochzäit',baptism:'Daf & Baby',communion:'Kommunioun',father:'Pappendag',christmas:'Chrëschtdag',newyear:'Silvester / Neit Joer',event:'Aner Uläss',more:'Méi weisen'},
-      de:{patisserie:'Pâtisserie',saint:'Saint-Honoré',birthday:'Geburtstag',wedding:'Hochzeit',baptism:'Taufe & Baby',communion:'Kommunion',father:'Vatertag',christmas:'Weihnachten',newyear:'Silvester / Neujahr',event:'Weitere Anlässe',more:'Mehr anzeigen'},
-      fr:{patisserie:'Pâtisserie',saint:'Saint-Honoré',birthday:'Anniversaire',wedding:'Mariage',baptism:'Baptême & bébé',communion:'Communion',father:'Fête des Pères',christmas:'Noël',newyear:'Nouvel An',event:'Autres occasions',more:'Voir plus'},
-      pt:{patisserie:'Pastelaria',saint:'Saint-Honoré',birthday:'Aniversário',wedding:'Casamento',baptism:'Batizado & bebé',communion:'Comunhão',father:'Dia do Pai',christmas:'Natal',newyear:'Passagem de Ano',event:'Outras ocasiões',more:'Mostrar mais'}
+      lb:{patisserie:'Pâtisserie',mousses:'Mousses',saint:'Saint-Honoré',birthday:'Gebuertsdag',wedding:'Hochzäit',baptism:'Daf & Baby',communion:'Kommunioun',father:'Pappendag',christmas:'Chrëschtdag',newyear:'Silvester / Neit Joer',event:'Aner Uläss',more:'Méi weisen'},
+      de:{patisserie:'Pâtisserie',mousses:'Mousses',saint:'Saint-Honoré',birthday:'Geburtstag',wedding:'Hochzeit',baptism:'Taufe & Baby',communion:'Kommunion',father:'Vatertag',christmas:'Weihnachten',newyear:'Silvester / Neujahr',event:'Weitere Anlässe',more:'Mehr anzeigen'},
+      fr:{patisserie:'Pâtisserie',mousses:'Mousses',saint:'Saint-Honoré',birthday:'Anniversaire',wedding:'Mariage',baptism:'Baptême & bébé',communion:'Communion',father:'Fête des Pères',christmas:'Noël',newyear:'Nouvel An',event:'Autres occasions',more:'Voir plus'},
+      pt:{patisserie:'Pastelaria',mousses:'Mousses',saint:'Saint-Honoré',birthday:'Aniversário',wedding:'Casamento',baptism:'Batizado & bebé',communion:'Comunhão',father:'Dia do Pai',christmas:'Natal',newyear:'Passagem de Ano',event:'Outras ocasiões',more:'Mostrar mais'}
     };
     function renderCakeGallery(lang){
       const overall={
