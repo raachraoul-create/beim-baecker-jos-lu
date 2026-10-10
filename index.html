@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261010-bread-kasten-seo">
+  <meta name="bbj-build" content="20261010-visitor-analytics">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -127,7 +127,12 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
 
   .cake-fruit-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.cake-fruit-badges span{display:inline-flex;padding:5px 9px;border-radius:999px;background:#f5eee5;color:#70452a;font-size:12px;font-weight:750;line-height:1.3;border:1px solid #e8d4c0}
 #cakeGalleryGrid .saint-honore-fruit-description{display:block;margin:10px 0 0;color:#655041;font-size:14px;line-height:1.5;font-weight:500}
-</style>
+
+    .analytics-consent{position:fixed;left:18px;right:18px;bottom:18px;z-index:1200;display:none;max-width:760px;margin:0 auto;background:#fff;border:1px solid #e6dbce;border-radius:18px;box-shadow:0 18px 50px #0003;padding:16px 18px}
+    .analytics-consent.open{display:block}.analytics-consent-inner{display:flex;align-items:center;gap:16px}.analytics-consent-copy{flex:1;min-width:0}.analytics-consent-copy strong{display:block;font-size:15px;margin-bottom:4px}.analytics-consent-copy p{margin:0;color:#6e655d;font-size:12px;line-height:1.45}.analytics-consent-actions{display:flex;gap:8px;flex:0 0 auto}.analytics-consent button{border:0;border-radius:999px;padding:10px 14px;font-weight:900;cursor:pointer}.analytics-accept{background:var(--red);color:#fff}.analytics-decline{background:#f1ece5;color:#4f443c}
+    @media(max-width:720px){.analytics-consent{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));padding:14px}.analytics-consent-inner{align-items:stretch;flex-direction:column;gap:10px}.analytics-consent-actions{width:100%}.analytics-consent-actions button{flex:1}}
+
+  </style>
   <script>
     // Open the homepage at the top on fresh navigation/reload.
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -358,6 +363,20 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     <div class="secret-card secret-image-card">
       <button class="secret-close" type="button" data-close aria-label="Schließen">×</button>
       <img class="secret-art" src="images/easter-egg.webp" alt="Easter Egg – Designer &amp; Entwickler: Raoul Raach">
+    </div>
+  </div>
+
+
+  <div class="analytics-consent" id="analyticsConsent" role="dialog" aria-live="polite" aria-label="Besucherstatistik">
+    <div class="analytics-consent-inner">
+      <div class="analytics-consent-copy">
+        <strong id="analyticsConsentTitle">Besucherstatistik</strong>
+        <p id="analyticsConsentText">Mir zielen d'Besich mat enger zoufälleger Browser-Kennung. Nimm, E-Mail-Adressen an IP-Adressen späichere mir net.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" class="analytics-decline" id="analyticsDecline">Nee, merci</button>
+        <button type="button" class="analytics-accept" id="analyticsAccept">Zoustëmmen</button>
+      </div>
     </div>
   </div>
 
@@ -1839,5 +1858,55 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
   </script>
 <!-- bbj-force-publish:20260929-0848 -->
+
+  <script>
+  (() => {
+    const endpoint='https://vrugwznymkyggijwpprd.supabase.co/functions/v1/bakery-visit';
+    const consentKey='bbj_analytics_consent';
+    const visitorKey='bbj_analytics_visitor';
+    const box=document.getElementById('analyticsConsent');
+    const title=document.getElementById('analyticsConsentTitle');
+    const text=document.getElementById('analyticsConsentText');
+    const accept=document.getElementById('analyticsAccept');
+    const decline=document.getElementById('analyticsDecline');
+    if(!box||!title||!text||!accept||!decline)return;
+
+    const tx={
+      lb:{title:'Besucherstatistik',text:"Mir zielen d'Besich mat enger zoufälleger Browser-Kennung. Nimm, E-Mail-Adressen an IP-Adressen späichere mir net.",yes:'Zoustëmmen',no:'Nee, merci'},
+      de:{title:'Besucherstatistik',text:'Wir zählen Besuche mit einer zufälligen Browser-Kennung. Namen, E-Mail-Adressen und IP-Adressen speichern wir nicht.',yes:'Zustimmen',no:'Nein, danke'},
+      fr:{title:'Statistiques de visite',text:"Nous comptons les visites à l'aide d'un identifiant de navigateur aléatoire. Nous ne stockons ni noms, ni adresses e-mail, ni adresses IP.",yes:'Accepter',no:'Non, merci'},
+      pt:{title:'Estatísticas de visitas',text:'Contamos as visitas através de um identificador aleatório do navegador. Não guardamos nomes, endereços de e-mail nem endereços IP.',yes:'Aceitar',no:'Não, obrigado'}
+    };
+    const paint=()=>{
+      const lang=localStorage.getItem('bbj_lang')||'lb',t=tx[lang]||tx.lb;
+      title.textContent=t.title;text.textContent=t.text;accept.textContent=t.yes;decline.textContent=t.no;
+    };
+    const makeId=()=>crypto.randomUUID?crypto.randomUUID():('xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0,v=c==='x'?r:(r&3|8);return v.toString(16)}));
+    const send=()=>{
+      if(localStorage.getItem(consentKey)!=='yes')return;
+      let id=localStorage.getItem(visitorKey);
+      if(!id){id=makeId();localStorage.setItem(visitorKey,id)}
+      fetch(endpoint,{method:'POST',mode:'cors',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({visitorId:id,path:location.pathname})}).catch(()=>{});
+    };
+
+    paint();
+    document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setTimeout(paint,0)));
+    const consent=localStorage.getItem(consentKey);
+    if(consent==='yes'){send()}
+    else if(consent!=='no'){box.classList.add('open')}
+
+    accept.addEventListener('click',()=>{
+      localStorage.setItem(consentKey,'yes');
+      box.classList.remove('open');
+      send();
+    });
+    decline.addEventListener('click',()=>{
+      localStorage.setItem(consentKey,'no');
+      localStorage.removeItem(visitorKey);
+      box.classList.remove('open');
+    });
+  })();
+  </script>
+
 </body>
 </html>
