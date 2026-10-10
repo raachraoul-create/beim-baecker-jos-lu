@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261009-brotteig-mousses">
+  <meta name="bbj-build" content="20261010-mousses-move">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -1071,6 +1071,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     ];
 
     let cakeGalleryMode='patisserie',cakeVisibleCount=12;
+    const PATISSERIE_MOUSSE_INDICES=[18,19,20];
     const CAKE_GROUPS={
       mousses:[],
       saint:[19,11,36,37,40,41,42,44],
@@ -1109,7 +1110,12 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       document.querySelectorAll('[data-cake-category]').forEach(b=>{const mode=b.dataset.cakeCategory;if(labels[mode])b.textContent=labels[mode]});
       if(cakeGalleryMode==='patisserie'){
         const d=PATISSERIE_GALLERY[lang]||PATISSERIE_GALLERY.lb;
-        g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+PATISSERIE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+PATISSERIE_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4></div></article>').join('');
+        const mousseSet=new Set(PATISSERIE_MOUSSE_INDICES);
+        g.innerHTML=d.items.map((x,n)=>({x,n})).filter(o=>!mousseSet.has(o.n)).map(o=>'<article class="gallery-item"><a href="'+PATISSERIE_IMAGES[o.n]+'" target="_blank" rel="noopener"><img src="'+PATISSERIE_IMAGES[o.n]+'" alt="'+o.x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+o.x[0]+'</h4></div></article>').join('');
+        if(wrap)wrap.hidden=true;
+      }else if(cakeGalleryMode==='mousses'){
+        const d=PATISSERIE_GALLERY[lang]||PATISSERIE_GALLERY.lb;
+        g.innerHTML=PATISSERIE_MOUSSE_INDICES.map(n=>{const x=d.items[n];return '<article class="gallery-item"><a href="'+PATISSERIE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+PATISSERIE_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4></div></article>'}).join('');
         if(wrap)wrap.hidden=true;
       }else{
         const d=CAKE_GALLERY[lang]||CAKE_GALLERY.lb;
