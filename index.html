@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261011-mobile-gallery-polish">
+  <meta name="bbj-build" content="20261011-mobile-cake-dropdown">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -72,29 +72,38 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     #breadGalleryGrid .gallery-item{border-color:#e5d8c9;box-shadow:0 10px 28px #2d1f1210;transition:transform .22s ease,box-shadow .22s ease}
     #breadGalleryGrid .gallery-item:hover{transform:translateY(-2px);box-shadow:0 14px 34px #2d1f1218}
     #breadGalleryGrid .gallery-item img{aspect-ratio:4/3;object-fit:contain;object-position:center;transition:transform .35s ease}
-    #breadGalleryGrid .gallery-item:hover img{transform:scale(1.015)}.gallery-copy{padding:14px 16px 16px}.gallery-copy h4{margin:0 0 6px;font-size:18px;line-height:1.3}.gallery-copy p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.gallery-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.gallery-tab{border:1px solid #ddd0c2;background:#fff;color:#4e433b;border-radius:999px;padding:9px 13px;font-weight:900;cursor:pointer}.gallery-tab.active{background:#1c1714;color:#fff;border-color:#1c1714}.gallery-load-wrap{display:flex;justify-content:center;padding:24px 0 4px}.gallery-load{border:1px solid #d9cbbb;background:#fff;border-radius:999px;padding:12px 18px;font-weight:900;cursor:pointer}.gallery-section-note{margin:0 0 18px;color:var(--muted);font-size:14px}
+    #breadGalleryGrid .gallery-item:hover img{transform:scale(1.015)}.gallery-copy{padding:14px 16px 16px}.gallery-copy h4{margin:0 0 6px;font-size:18px;line-height:1.3}.gallery-copy p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.cake-mobile-toolbar{display:none}.cake-mobile-category{min-width:0;flex:1}.cake-mobile-category select{width:100%;height:34px;border:1px solid #ddd0c2;border-radius:999px;background:#fff;color:#2a211c;padding:0 34px 0 12px;font:inherit;font-size:12px;font-weight:900;outline:none;appearance:auto}.gallery-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.gallery-tab{border:1px solid #ddd0c2;background:#fff;color:#4e433b;border-radius:999px;padding:9px 13px;font-weight:900;cursor:pointer}.gallery-tab.active{background:#1c1714;color:#fff;border-color:#1c1714}.gallery-load-wrap{display:flex;justify-content:center;padding:24px 0 4px}.gallery-load{border:1px solid #d9cbbb;background:#fff;border-radius:999px;padding:12px 18px;font-weight:900;cursor:pointer}.gallery-section-note{margin:0 0 18px;color:var(--muted);font-size:14px}
     @media(max-width:950px){.gallery-grid,#breadGalleryGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
     @media(max-width:720px){
       .gallery-modal{padding:0;place-items:stretch}
       .gallery-card{width:100%;height:100dvh;max-height:none;border-radius:0}
-      .gallery-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 10px;padding:max(11px,env(safe-area-inset-top)) 12px 10px;align-items:start}
+      .gallery-top{position:relative;display:block;padding:max(12px,env(safe-area-inset-top)) 12px 10px}
       .gallery-top>div:first-child{min-width:0}
-      .gallery-top h3{font-size:20px;line-height:1.08;letter-spacing:-.35px;padding-right:0}
-      .gallery-top p{font-size:12px;line-height:1.32;margin-top:5px}
-      .gallery-actions{position:sticky;top:max(7px,env(safe-area-inset-top));align-self:start;display:flex;flex-direction:row;align-items:center;gap:6px}
+      .gallery-top h3{font-size:20px;line-height:1.08;letter-spacing:-.35px;margin:0;padding-right:46px}
+      .gallery-top p{font-size:12px;line-height:1.32;margin:5px 0 0;padding-right:46px}
+      .gallery-actions{position:absolute;top:max(10px,env(safe-area-inset-top));right:11px;display:block}
+      .gallery-actions>.gallery-lang{margin-bottom:6px}
+      .gallery-actions .gallery-close{position:static;margin-left:auto;width:36px;height:36px;min-width:36px;flex:0 0 36px;font-size:23px;background:#efe7de;box-shadow:0 3px 10px #0002}
       .gallery-lang{gap:1px;padding:2px}
       .gallery-lang button{min-width:27px;height:27px;padding:0 5px;font-size:10px}
-      .gallery-actions .gallery-close{position:static;align-self:center;width:36px;height:36px;min-width:36px;flex:0 0 36px;font-size:23px;background:#efe7de;box-shadow:0 3px 10px #0002}
-      .gallery-scroll{padding:12px 12px max(22px,env(safe-area-inset-bottom))}
+      .gallery-scroll{padding:11px 12px max(22px,env(safe-area-inset-bottom))}
       .gallery-grid{grid-template-columns:1fr;gap:14px}
       #breadGalleryGrid{grid-template-columns:1fr}
       .gallery-item img,#breadGalleryGrid .gallery-item img{aspect-ratio:4/3;object-fit:contain;object-position:center;padding:5px}
       .gallery-copy{padding:13px 14px 15px}
       .gallery-copy h4{font-size:17px}
-      .gallery-tabs{display:flex;flex-wrap:nowrap;gap:7px;margin:9px -12px 0;padding:2px 12px 7px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x proximity}
+      .gallery-tabs{display:flex;flex-wrap:nowrap;gap:7px;margin:9px -12px 0;padding:2px 12px 7px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}
       .gallery-tabs::-webkit-scrollbar{display:none}
-      .gallery-tab{flex:0 0 auto;white-space:nowrap;font-size:12px;line-height:1;padding:9px 11px;scroll-snap-align:start}
-      #cakeGalleryTabs{grid-column:1/-1}
+      .gallery-tab{flex:0 0 auto;white-space:nowrap;font-size:12px;line-height:1;padding:9px 11px}
+      #cakeGalleryModal .gallery-top{padding-bottom:9px}
+      #cakeGalleryModal #cakeGalleryIntro{display:none}
+      #cakeGalleryModal #cakeGalleryTabs{display:none}
+      #cakeGalleryModal .gallery-actions>.gallery-lang{display:none}
+      #cakeGalleryModal .gallery-actions{top:max(9px,env(safe-area-inset-top))}
+      #cakeGalleryModal .cake-mobile-toolbar{display:flex;align-items:center;gap:8px;margin-top:10px;padding-right:0}
+      #cakeGalleryModal .cake-mobile-lang{flex:0 0 auto;box-shadow:none}
+      #cakeGalleryModal .cake-mobile-category{display:block;flex:1;min-width:0}
+      #cakeGalleryModal .cake-mobile-category select{height:33px;font-size:12px}
     }
     .special{background:linear-gradient(130deg,#f1e5d4,#fffaf4)}.special-card{background:#fff;border:1px solid #eee3d7;border-radius:34px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:var(--shadow)}.special-photo{min-height:520px;background:url('images/torten/torte-07.webp') center/cover}.special-photo.cake-category-link{cursor:pointer;position:relative}.special-photo.cake-category-link:after{content:'Torten ansehen ↗';position:absolute;left:22px;bottom:22px;background:rgba(255,255,255,.94);color:#241a14;border-radius:999px;padding:10px 14px;font-weight:900;box-shadow:0 8px 22px #0002}.special-photo.cake-category-link:focus-visible{outline:3px solid #c9151e;outline-offset:-5px}.special-copy{padding:56px}.special-copy h2{font-size:clamp(38px,5vw,58px);line-height:1;letter-spacing:-2px;margin:0 0 18px}.special-copy p{font-size:18px;color:var(--muted)}.mini-pills{display:flex;flex-wrap:wrap;gap:9px;margin:24px 0}.mini-pills button{background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:9px 12px;font-weight:800;font-size:13px;color:#2b211b;cursor:pointer;font:inherit}.mini-pills button:hover,.mini-pills button:focus-visible{background:#fff;border-color:#c9151e;outline:none}
     .award{padding:0}.award-card{margin:0 auto;background:var(--red);color:#fff;border-radius:30px;padding:38px 42px;display:flex;align-items:center;justify-content:space-between;gap:30px;box-shadow:0 18px 55px rgba(201,21,30,.22)}.award-mark{font-size:44px}.award-copy{flex:1}.award-copy small{font-weight:900;text-transform:uppercase;letter-spacing:1.4px;opacity:.8}.award-copy h3{font-size:30px;margin:5px 0 6px;line-height:1.05}.award-copy p{margin:0;opacity:.88}.award .btn{white-space:nowrap}
@@ -459,6 +468,30 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         <div>
           <h3 id="cakeGalleryTitle">Pâtisserie & Taarte</h3>
           <p id="cakeGalleryIntro">Ausgewählte Arbeiten aus unserer Backstube.</p>
+          <div class="cake-mobile-toolbar">
+            <div class="gallery-lang cake-mobile-lang" aria-label="Sprooch / Sprache / Langue / Idioma">
+              <button type="button" data-lang="lb" aria-label="Lëtzebuergesch">LU</button>
+              <button type="button" data-lang="de" aria-label="Deutsch">DE</button>
+              <button type="button" data-lang="fr" aria-label="Français">FR</button>
+              <button type="button" data-lang="pt" aria-label="Português">PT</button>
+            </div>
+            <label class="cake-mobile-category" aria-label="Kategorie">
+              <select id="cakeGallerySelect">
+                <option value="patisserie">Pâtisserie</option>
+                <option value="mousses">Mousses</option>
+                <option value="saint">Saint-Honoré</option>
+                <option value="birthday">Gebuertsdag</option>
+                <option value="humor">Humorvoll</option>
+                <option value="wedding">Hochzäit</option>
+                <option value="baptism">Daf & Baby</option>
+                <option value="communion">Kommunioun</option>
+                <option value="father">Pappendag</option>
+                <option value="christmas">Chrëschtdag</option>
+                <option value="newyear">Silvester / Neit Joer</option>
+                <option value="event">Aner Uläss</option>
+              </select>
+            </label>
+          </div>
           <div class="gallery-tabs" id="cakeGalleryTabs">
             <button class="gallery-tab active" type="button" data-cake-mode="patisserie">Pâtisserie</button>
             <button class="gallery-tab" type="button" data-cake-mode="mousses">Mousses</button>
@@ -1230,6 +1263,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       if(t)t.textContent=overall[0];if(i)i.textContent=overall[1];
       const labels=CAKE_TAB_LABELS[lang]||CAKE_TAB_LABELS.lb;
       document.querySelectorAll('#cakeGalleryTabs [data-cake-mode]').forEach(b=>{b.textContent=labels[b.dataset.cakeMode]||b.textContent;b.classList.toggle('active',b.dataset.cakeMode===cakeGalleryMode)});
+      const cakeSelect=document.getElementById('cakeGallerySelect');
+      if(cakeSelect){Array.from(cakeSelect.options).forEach(o=>{if(labels[o.value])o.textContent=labels[o.value]});cakeSelect.value=cakeGalleryMode}
       document.querySelectorAll('[data-cake-category]').forEach(b=>{const mode=b.dataset.cakeCategory;if(labels[mode])b.textContent=labels[mode]});
       if(cakeGalleryMode==='patisserie'){
         const d=PATISSERIE_GALLERY[lang]||PATISSERIE_GALLERY.lb;
@@ -1866,6 +1901,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     document.querySelectorAll('[data-gallery="cakes"]').forEach(el=>{const open=()=>{cakeGalleryMode='patisserie';cakeVisibleCount=12;renderCakeGallery(localStorage.getItem('bbj_lang')||'lb');cakeGalleryModal.classList.add('open');document.body.classList.add('modal-open');nav.classList.remove('open')};el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
     document.querySelectorAll('[data-gallery="viennoiserie"]').forEach(el=>{const open=()=>{vienGalleryModal.classList.add('open');document.body.classList.add('modal-open');nav.classList.remove('open')};el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
     document.querySelectorAll('#cakeGalleryTabs [data-cake-mode]').forEach(b=>b.addEventListener('click',()=>{cakeGalleryMode=b.dataset.cakeMode;cakeVisibleCount=12;renderCakeGallery(localStorage.getItem('bbj_lang')||'lb')}));
+    const cakeGallerySelect=document.getElementById('cakeGallerySelect');if(cakeGallerySelect)cakeGallerySelect.addEventListener('change',()=>{cakeGalleryMode=cakeGallerySelect.value||'patisserie';cakeVisibleCount=12;renderCakeGallery(localStorage.getItem('bbj_lang')||'lb');const sc=document.querySelector('#cakeGalleryModal .gallery-scroll');if(sc)sc.scrollTop=0});
     document.querySelectorAll('[data-cake-category]').forEach(el=>{const openCakeCategory=()=>{cakeGalleryMode=el.dataset.cakeCategory||'cakes';cakeVisibleCount=12;renderCakeGallery(localStorage.getItem('bbj_lang')||'lb');cakeGalleryModal.classList.add('open');document.body.classList.add('modal-open');nav.classList.remove('open')};el.addEventListener('click',openCakeCategory);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openCakeCategory()}})});
     
     const cakeLoadMore=document.getElementById('cakeLoadMore');if(cakeLoadMore)cakeLoadMore.addEventListener('click',()=>{cakeVisibleCount+=12;renderCakeGallery(localStorage.getItem('bbj_lang')||'lb')});
