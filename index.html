@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261014-professional-analytics">
+  <meta name="bbj-build" content="20261014-pro-analytics-v2">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -1914,7 +1914,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
 <!-- bbj-force-publish:20260929-0848 -->
   <script>
   (() => {
-    const endpoint='https://vrugwznymkyggijwpprd.supabase.co/functions/v1/bakery-analytics';
+    const analyticsEndpoint='https://vrugwznymkyggijwpprd.supabase.co/functions/v1/bakery-analytics';
+    const pageviewEndpoint='https://vrugwznymkyggijwpprd.supabase.co/functions/v1/bakery-pageview';
 
     const send=(event,value='')=>{
       const lang=localStorage.getItem('bbj_lang')||'lb';
@@ -1927,6 +1928,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
           source=host||'direct';
         }
       }catch(e){}
+      const endpoint=event==='pageview'?pageviewEndpoint:analyticsEndpoint;
       fetch(endpoint,{
         method:'POST',
         mode:'cors',
@@ -1958,6 +1960,15 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
 
       const cakeCat=e.target.closest('[data-cake-category]');
       if(cakeCat&&cakeCat.dataset.cakeCategory){send('gallery_open','cake:'+cakeCat.dataset.cakeCategory);return}
+
+      const cakeMode=e.target.closest('[data-cake-mode]');
+      if(cakeMode&&cakeMode.dataset.cakeMode){send('gallery_open','cake:'+cakeMode.dataset.cakeMode);return}
+
+      const breadMode=e.target.closest('[data-bread-mode]');
+      if(breadMode&&breadMode.dataset.breadMode){send('gallery_open','bread:'+breadMode.dataset.breadMode);return}
+
+      const snackMode=e.target.closest('[data-snack-mode]');
+      if(snackMode&&snackMode.dataset.snackMode){send('gallery_open','snack:'+snackMode.dataset.snackMode);return}
 
       const news=e.target.closest('[data-news-open]');
       if(news){send('news_open','news');return}
