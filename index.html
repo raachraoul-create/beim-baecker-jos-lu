@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261014-google-logo-seo">
+  <meta name="bbj-build" content="20261014-professional-analytics">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -1912,22 +1912,67 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
   </script>
 <!-- bbj-force-publish:20260929-0848 -->
-
-
   <script>
   (() => {
-    const url='https://vrugwznymkyggijwpprd.supabase.co/rest/v1/rpc/record_bakery_pageview';
-    const key='sb_publishable_hPmeWT0ZKpJ-H__ZU5FcAA_gptC6L1E';
-    fetch(url,{
-      method:'POST',
-      keepalive:true,
-      headers:{
-        'Content-Type':'application/json',
-        'apikey':key,
-        'Authorization':'Bearer '+key
-      },
-      body:JSON.stringify({p_path:location.pathname})
-    }).catch(()=>{});
+    const endpoint='https://vrugwznymkyggijwpprd.supabase.co/functions/v1/bakery-analytics';
+
+    const send=(event,value='')=>{
+      const lang=localStorage.getItem('bbj_lang')||'lb';
+      const w=Math.max(document.documentElement.clientWidth||0,window.innerWidth||0);
+      const device=w<768?'mobile':(w<1100?'tablet':'desktop');
+      let source='direct';
+      try{
+        if(document.referrer){
+          const host=new URL(document.referrer).hostname.replace(/^www\./,'');
+          source=host||'direct';
+        }
+      }catch(e){}
+      fetch(endpoint,{
+        method:'POST',
+        mode:'cors',
+        keepalive:true,
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          event,
+          value,
+          path:location.pathname,
+          language:lang,
+          device,
+          source
+        })
+      }).catch(()=>{});
+    };
+
+    window.bbjTrack=send;
+
+    // One anonymous aggregate page-view event. No cookie, fingerprint or persistent visitor ID.
+    send('pageview');
+
+    // Professional aggregate interaction metrics.
+    document.addEventListener('click',e=>{
+      const langBtn=e.target.closest('[data-lang]');
+      if(langBtn&&langBtn.dataset.lang){send('language_switch',langBtn.dataset.lang);return}
+
+      const gallery=e.target.closest('[data-gallery]');
+      if(gallery&&gallery.dataset.gallery){send('gallery_open',gallery.dataset.gallery);return}
+
+      const cakeCat=e.target.closest('[data-cake-category]');
+      if(cakeCat&&cakeCat.dataset.cakeCategory){send('gallery_open','cake:'+cakeCat.dataset.cakeCategory);return}
+
+      const news=e.target.closest('[data-news-open]');
+      if(news){send('news_open','news');return}
+
+      const tel=e.target.closest('a[href^="tel:"]');
+      if(tel){send('call_click',tel.getAttribute('href').replace('tel:',''));return}
+
+      const maps=e.target.closest('a[href*="google.com/maps"]');
+      if(maps){send('route_click','maps');return}
+
+      const cta=e.target.closest('[data-open="call"]');
+      if(cta){send('cta_click','call_modal');return}
+    },{passive:true});
+
+    // Clean up obsolete keys from the earlier analytics version.
     try{
       localStorage.removeItem('bbj_analytics_consent');
       localStorage.removeItem('bbj_analytics_visitor');
