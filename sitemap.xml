@@ -3,12 +3,10 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://beim-baecker-jos.webflow.io/</loc>
-    <lastmod>2026-10-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-24</lastmod>
     <image:image>
       <image:loc>https://beim-baecker-jos.webflow.io/favicon-512.png</image:loc>
-      <image:title>Beim Bäcker Jos</image:title>
+      <image:title>Beim Bäcker Jos – offizielles Logo</image:title>
     </image:image>
   </url>
 </urlset>
