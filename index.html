@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261024-official-logo-indexing">
+  <meta name="bbj-build" content="20261025-speckgromper-patisserie">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -821,7 +821,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       'images/produkte/pflaumentarte-premium.webp',
       'images/patisserie/aprikosetarte.webp',
       'images/patisserie/streuseltarte.webp',
-      'images/patisserie/rhabarbertarte.webp'
+      'images/patisserie/rhabarbertarte.webp',
+      'images/produkte/kokoskugel-nachtrag.webp'
     ];
     const PATISSERIE_GALLERY={
       lb:{title:'Pâtisserie',intro:'Fein Pâtisserie a kleng Dessert-Kreatiounen aus eiser Backstuff – mat richtege Fotoen vu Beim Bäcker Jos.',items:[
@@ -854,7 +855,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Quetschentaart","Eng fruuchteg Quetschentaart mat suergfälteg arrangéiertem Belag an engem feine Pudderzocker-Rand – klassesch a perfekt fir Kaffi oder Dessert."],
         ["Aprikosentaart",""],
         ["Streiseltaart",""],
-        ["Rubbarbstaart",""]
+        ["Rubbarbstaart",""],
+        ["Speckgromper",""]
       ]},
       de:{title:'Pâtisserie',intro:'Feine Pâtisserie und kleine Dessert-Kreationen aus unserer Backstube – mit echten Fotos von Beim Bäcker Jos.',items:[
         ["Schoko-Éclair","Ein feines Éclair aus luftigem Brandteig, veredelt mit einer zarten Schokoladenglasur – ein klassischer Genuss für Schokoladenliebhaber."],
@@ -886,7 +888,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Quetschetarte","Fruchtige Quetschetarte mit sorgfältig arrangiertem Belag und feinem Puderzuckerrand – klassisch, appetitlich und ideal zu Kaffee oder als Dessert."],
         ["Aprikosetarte",""],
         ["Streuseltarte",""],
-        ["Rhabarbertarte",""]
+        ["Rhabarbertarte",""],
+        ["Speckkartoffel",""]
       ]},
       fr:{title:'Pâtisserie',intro:'Pâtisseries fines et petites créations dessert de notre atelier – avec de vraies photos de Beim Bäcker Jos.',items:[
         ["Éclair au chocolat","Un éclair fin en pâte à choux légère, délicatement nappé de chocolat – un classique gourmand pour les amateurs de chocolat."],
@@ -918,7 +921,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Tarte aux quetsches","Tarte fruitée aux quetsches, soigneusement garnie et finie d’une légère bordure de sucre glace – classique et idéale avec un café ou en dessert."],
         ["Tarte aux abricots",""],
         ["Tarte crumble",""],
-        ["Tarte à la rhubarbe",""]
+        ["Tarte à la rhubarbe",""],
+        ["Speckgromper",""]
       ]},
       pt:{title:'Pastelaria',intro:'Pastelaria fina e pequenas criações de sobremesa da nossa oficina – com fotografias reais do Beim Bäcker Jos.',items:[
         ["Éclair de chocolate","Éclair delicado de massa choux leve, finalizado com uma fina cobertura de chocolate – um clássico para os amantes de chocolate."],
@@ -950,7 +954,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Tarte de ameixa quetsche","Tarte frutada de ameixa quetsche, cuidadosamente preparada e finalizada com uma leve borda de açúcar em pó – clássica e ideal com café ou como sobremesa."],
         ["Tarte de alperce",""],
         ["Tarte de crumble",""],
-        ["Tarte de ruibarbo",""]
+        ["Tarte de ruibarbo",""],
+        ["Speckgromper",""]
       ]}
     };
 
@@ -1330,7 +1335,6 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     }
 
     const VIEN_IMAGES=[
-      'images/produkte/kokoskugel-nachtrag.webp',
       'images/produkte/puddingteilchen-nachtrag.webp',
       'images/produkte/mandelgebaeck-nachtrag.webp',
       'images/produkte/schoko-plunder-nachtrag.webp',
@@ -1351,7 +1355,6 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     ];
     const VIEN_GALLERY={
       lb:{title:'Viennoiserie & Mëtschen',intro:'',items:[
-        ["Speckgromper",""],
         ["Aachtchen",""],
         ["Pain Chocolat",""],
         ["Pain Chocolat Nutella",""],
@@ -1373,7 +1376,6 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       
       ]},
       de:{title:'Viennoiserie & Teilchen',intro:'',items:[
-        ["Speckkartoffel",""],
         ["Aachtchen",""],
         ["Pain Chocolat",""],
         ["Pain Chocolat Nutella",""],
@@ -1395,7 +1397,6 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       
       ]},
       fr:{title:'Viennoiserie',intro:'',items:[
-        ["Speckgromper",""],
         ["Huit (Aachtchen)",""],
         ["Pain Chocolat",""],
         ["Pain Chocolat Nutella",""],
@@ -1417,7 +1418,6 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       
       ]},
       pt:{title:'Viennoiserie & doces',intro:'',items:[
-        ["Speckgromper",""],
         ["Aachtchen",""],
         ["Pain Chocolat",""],
         ["Pain Chocolat Nutella",""],
@@ -1443,7 +1443,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       const d=VIEN_GALLERY[lang]||VIEN_GALLERY.lb;
       const t=document.getElementById('vienGalleryTitle'),i=document.getElementById('vienGalleryIntro'),g=document.getElementById('vienGalleryGrid');
       if(t)t.textContent=d.title;if(i){i.textContent=d.intro;i.hidden=!d.intro;}
-      if(g)g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+VIEN_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+VIEN_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4>'+((n===11||n===13)&&x[1]?'<p class="weekly-pastry-note">'+x[1]+'</p>':'')+'</div></article>').join('');
+      if(g)g.innerHTML=d.items.map((x,n)=>'<article class="gallery-item"><a href="'+VIEN_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+VIEN_IMAGES[n]+'" alt="'+x[0]+'" loading="lazy"></a><div class="gallery-copy"><h4>'+x[0]+'</h4>'+((n===10||n===12)&&x[1]?'<p class="weekly-pastry-note">'+x[1]+'</p>':'')+'</div></article>').join('');
     }
 
     const SNACK_IMAGES=['fleischroellchen','canapes','fingerfood','salate','wraps','canapes-neu','gemueseplatte','wrap-offen','canapes-platte','minisandwich-tablett','mini-quiches','fladenbrot-tortenturm','mini-sandwich-buffet','wrap-ei-salat','wrap-lachs','wrap-schinken','wrap-haehnchen','quiche-lorraine-instagram'];
