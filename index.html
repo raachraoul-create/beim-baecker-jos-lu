@@ -1253,6 +1253,21 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       fr:{patisserie:'Pâtisserie',mousses:'Mousses',saint:'Saint-Honoré',birthday:'Anniversaire',humor:'Gâteaux humoristiques',wedding:'Mariage',baptism:'Baptême & bébé',communion:'Communion',father:'Fête des Pères',christmas:'Noël',newyear:'Nouvel An',event:'Autres occasions',more:'Voir plus'},
       pt:{patisserie:'Pastelaria',mousses:'Mousses',saint:'Saint-Honoré',birthday:'Aniversário',humor:'Bolos divertidos',wedding:'Casamento',baptism:'Batizado & bebé',communion:'Comunhão',father:'Dia do Pai',christmas:'Natal',newyear:'Passagem de Ano',event:'Outras ocasiões',more:'Mostrar mais'}
     };
+    // Geburtstagskuchen: echtes Foto aus der Bäcker-Jos-Pâtisserie.
+    const BBJ_BAGGER_BIRTHDAY_INDEX=CAKE_IMAGES.length;
+    CAKE_IMAGES.push('images/torten/baggerkuchen-2may.webp');
+    CAKE_GROUPS.birthday.unshift(BBJ_BAGGER_BIRTHDAY_INDEX);
+    const BBJ_BAGGER_BIRTHDAY_TITLES={
+      de:'Biskuit, Buttercreme, Marzipan – Geburtstagskuchen',
+      lb:'Biskuit, Bottercrème, Marzipan – Gebuertsdagskuch',
+      fr:'Gâteau d’anniversaire – génoise, crème au beurre et massepain',
+      pt:'Bolo de aniversário – pão de ló, creme de manteiga e maçapão'
+    };
+    Object.entries(BBJ_BAGGER_BIRTHDAY_TITLES).forEach(([lang,title])=>{
+      if(!CAKE_GALLERY[lang] || !Array.isArray(CAKE_GALLERY[lang].items))return;
+      CAKE_GALLERY[lang].items[BBJ_BAGGER_BIRTHDAY_INDEX]=[title,''];
+    });
+
     function renderCakeGallery(lang){
       const overall={
         lb:['Pâtisserie, Kuch & Taarte','Pâtisserie, Kuch an Taarte – propper no Geleeënheet sortéiert.'],
