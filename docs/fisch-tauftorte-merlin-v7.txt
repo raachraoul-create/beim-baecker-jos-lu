@@ -2,9 +2,9 @@ Foto 002 – Taufe Fisch-Torte "Taufe Merlin" – Version v7
 Erstellt: 01.11.2026
 
 Ablage im Website-Repo: images/torten/fisch-tauftorte-merlin-v7.jpg
-Status: nur die Bilddatei. Noch nicht in CAKE_IMAGES / der Taufe-Galerie.
-Veröffentlichung wartet auf Freigabe von Raach. Der bisherige Taufe-Eintrag
-(images/torten/torte-11.webp, Kanddaaf vum Quinn) bleibt live.
+Status: von Raach für die Live-Galerie freigegeben.
+Verdrahtung: CAKE_IMAGES-Index 59, CAKE_GROUPS.baptism [12, 59].
+Index 12 (images/torten/torte-11.webp, Kanddaaf vum Quinn) bleibt.
 
 WAS BISHER FALSCH WAR
 - 002-edited.jpg / v3: KI-Neugenerierung des ganzen Bildes -> Fisch und Schokoschrift
