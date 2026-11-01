@@ -1027,7 +1027,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Hochzäitstaart mat echte Blumen", "Biskuit, Bottercrème, echt Blumen"],
         ["Fussball-Taart mat Veräinswopen", "Biskuit, Bottercrème, Marzipan"],
         ["Naked-Cake mat Zockerrousen", "Biskuit, Bottercrème"],
-        ["Rennauto-Torte „COLIN“", "Biskuit, Bottercrème, Fondant"]
+        ["Rennauto-Torte „COLIN“", "Biskuit, Bottercrème, Fondant"],
+        ["Fototaart „18“ am Bob-Marley-Stil", "Biskuit, Bottercrème, Marzipan"]
       ]},
       de:{title:'Pâtisserie & Torten',intro:'Handgefertigte Torten für besondere Momente – frisch aus unserer Backstube, sorgfältig dekoriert und passend für Geburtstage, Familienfeiern, den Vatertag oder ganz persönliche Anlässe.',items:[
         ["Buttercreme-Kuchen mit Pralinen", "Feiner Buttercreme-Kuchen mit dekorativen Pralinen und eleganter Verzierung – sorgfältig gestaltet für besondere Genussmomente."],
@@ -1096,7 +1097,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Hochzeitstorte mit echten Blumen", "Biskuit, Buttercreme, echte Blumen"],
         ["Fußball-Torte mit Vereinswappen", "Biskuit, Buttercreme, Marzipan"],
         ["Naked Cake mit Zuckerrosen", "Biskuit, Buttercreme"],
-        ["Rennauto-Torte „COLIN“", "Biskuit, Buttercreme, Fondant"]
+        ["Rennauto-Torte „COLIN“", "Biskuit, Buttercreme, Fondant"],
+        ["Fototorte „18“ im Bob-Marley-Stil", "Biskuit, Buttercreme, Marzipan"]
       ]},
       fr:{title:'Pâtisserie & gâteaux',intro:'Des gâteaux artisanaux pour des moments particuliers – préparés frais dans notre atelier, décorés avec soin et adaptés aux anniversaires, aux fêtes de famille, à la fête des Pères ou aux demandes personnalisées.',items:[
         ["Gâteau à la crème au beurre et pralines", "Un gâteau fin à la crème au beurre, décoré de pralines et d’une finition élégante – préparé avec soin pour les moments gourmands."],
@@ -1165,7 +1167,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Gâteau de mariage aux fleurs fraîches", "Génoise, crème au beurre, fleurs fraîches"],
         ["Gâteau football avec blason de club", "Génoise, crème au beurre, massepain"],
         ["Naked cake aux roses en sucre", "Génoise, crème au beurre"],
-        ["Gâteau voiture de course « COLIN »", "Génoise, crème au beurre, glaçage"]
+        ["Gâteau voiture de course « COLIN »", "Génoise, crème au beurre, glaçage"],
+        ["Gâteau photo « 18 » style Bob Marley", "Génoise, crème au beurre, massepain"]
       ]},
       pt:{title:'Pastelaria & bolos',intro:'Bolos artesanais para momentos especiais – preparados frescos na nossa pastelaria, decorados com cuidado e adaptados a aniversários, festas de família, Dia do Pai ou pedidos personalizados.',items:[
         ["Bolo de creme de manteiga com pralinés", "Bolo fino de creme de manteiga, decorado com pralinés e acabamento elegante – preparado com cuidado para momentos especiais."],
@@ -1234,7 +1237,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Bolo de casamento com flores verdadeiras", "Pão de ló, creme de manteiga, flores verdadeiras"],
         ["Bolo de futebol com emblema do clube", "Pão de ló, creme de manteiga, maçapão"],
         ["Naked cake com rosas de açúcar", "Pão de ló, creme de manteiga"],
-        ["Bolo carro de corrida « COLIN »", "Pão de ló, creme de manteiga, glacê"]
+        ["Bolo carro de corrida « COLIN »", "Pão de ló, creme de manteiga, glacê"],
+        ["Bolo com foto « 18 » estilo Bob Marley", "Pão de ló, creme de manteiga, maçapão"]
       ]}
     };
 
@@ -1257,7 +1261,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       'images/torten/hochzeits-torte-rosen-spitze.jpg',
       'images/torten/fussball-torte-vereinswappen.jpg',
       'images/torten/naked-cake-rosen-rosa.jpg',
-      'images/torten/rennauto-torte-colin.jpg'
+      'images/torten/rennauto-torte-colin.jpg',
+      'images/torten/fototorte-rasta-18-geburtstag.jpg'
     ];
 
     let cakeGalleryMode='patisserie',cakeVisibleCount=12;
@@ -1299,6 +1304,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     CAKE_GROUPS.event.unshift(NAKED_CAKE_ROSEN_INDEX);
     const RENNAUTO_COLIN_INDEX=CAKE_IMAGES.indexOf('images/torten/rennauto-torte-colin.jpg');
     CAKE_GROUPS.birthday.unshift(RENNAUTO_COLIN_INDEX);
+    const FOTOTORTE_RASTA_18_INDEX=CAKE_IMAGES.indexOf('images/torten/fototorte-rasta-18-geburtstag.jpg');
+    CAKE_GROUPS.birthday.unshift(FOTOTORTE_RASTA_18_INDEX);
     const BBJ_BAGGER_BIRTHDAY_TITLES={
       de:'Biskuit, Buttercreme, Marzipan – Geburtstagskuchen',
       lb:'Biskuit, Bottercrème, Marzipan – Gebuertsdagskuch',
@@ -1340,7 +1347,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         const d=CAKE_GALLERY[lang]||CAKE_GALLERY.lb;
         const indices=CAKE_GROUPS[cakeGalleryMode]||CAKE_GROUPS.saint;
         const visible=indices.slice(0,cakeVisibleCount);
-        g.innerHTML=visible.map(n=>{const x=d.items[n];const title=(CAKE_TITLE_OVERRIDES[lang]||{})[n]||x[0];const desc=((cakeGalleryMode==='humor')||(cakeGalleryMode==='birthday'&&(n===21||n===38||n===58||n===60||n===FUSSBALL_VEREINSWAPPEN_INDEX||n===RENNAUTO_COLIN_INDEX))||(cakeGalleryMode==='baptism'&&n===59)||(cakeGalleryMode==='wedding'&&n===61)||(cakeGalleryMode==='event'&&n===NAKED_CAKE_ROSEN_INDEX))&&x[1]?'<p>'+x[1]+'</p>':'';return '<article class="gallery-item"><a href="'+CAKE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+CAKE_IMAGES[n]+'" alt="'+title+'" loading="lazy"></a><div class="gallery-copy"><h4>'+title+'</h4>'+desc+'</div></article>'}).join('');
+        g.innerHTML=visible.map(n=>{const x=d.items[n];const title=(CAKE_TITLE_OVERRIDES[lang]||{})[n]||x[0];const desc=((cakeGalleryMode==='humor')||(cakeGalleryMode==='birthday'&&(n===21||n===38||n===58||n===60||n===FUSSBALL_VEREINSWAPPEN_INDEX||n===RENNAUTO_COLIN_INDEX||n===FOTOTORTE_RASTA_18_INDEX))||(cakeGalleryMode==='baptism'&&n===59)||(cakeGalleryMode==='wedding'&&n===61)||(cakeGalleryMode==='event'&&n===NAKED_CAKE_ROSEN_INDEX))&&x[1]?'<p>'+x[1]+'</p>':'';return '<article class="gallery-item"><a href="'+CAKE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+CAKE_IMAGES[n]+'" alt="'+title+'" loading="lazy"></a><div class="gallery-copy"><h4>'+title+'</h4>'+desc+'</div></article>'}).join('');
         if(more)more.textContent=labels.more;
         if(wrap)wrap.hidden=cakeVisibleCount>=indices.length;
       }
