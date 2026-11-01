@@ -1,0 +1,41 @@
+Foto 002 – Taufe Fisch-Torte "Taufe Merlin" – Version v7
+Erstellt: 01.11.2026
+
+Ablage im Website-Repo: images/torten/fisch-tauftorte-merlin-v7.jpg
+Status: nur die Bilddatei. Noch nicht in CAKE_IMAGES / der Taufe-Galerie.
+Veröffentlichung wartet auf Freigabe von Raach. Der bisherige Taufe-Eintrag
+(images/torten/torte-11.webp, Kanddaaf vum Quinn) bleibt live.
+
+WAS BISHER FALSCH WAR
+- 002-edited.jpg / v3: KI-Neugenerierung des ganzen Bildes -> Fisch und Schokoschrift
+  "Taufe Merlin" neu gezeichnet, nicht 1:1 wie im Original (Form, Flossen, Punkte, Schrift anders).
+- v4 / v5: Ausschnitt aus dem Original, aber Torte/Goldplatte weiter schief
+  (Original: Brett-Ellipse ca. -6,4° geneigt, links/rechts ~21 px Höhenunterschied) bzw. nur
+  teilweise ausgerichtet.
+- v6: Freisteller (rembg + Pillow), Brett um -6,46° gedreht + 4,5° "Spin", QC sagte PASS –
+  ABER: Fisch/Schrift durch Drehung neu abgetastet (nicht pixelgleich, PSNR ~36–38 dB) und vor
+  allem schräge Perspektive von vorne/oben (~45–60°, Seitenwand + Kordel sichtbar,
+  Hintergrund mit Fliesenwand/Regal). Raoul will DRAUFSICHT – gerade von oben auf die Torte.
+
+WAS v7 ÄNDERT
+1. Kamera: echte Draufsicht. Brett und Tortenoberfläche sind exakte Kreise
+   (Brett-Ellipsenfit im Endbild: Achsen 1120,2 / 1120,5 px, Verhältnis 0,9997 -> rund,
+   damit automatisch waagerecht/gerade, keine Neigung). Keine Seitenwand, keine Kordel.
+2. Fisch + Schrift 1:1 aus dem Original (002.jpg): nur ganzzahlig verschoben
+   (keine Drehung, keine Skalierung, kein Neuzeichnen, keine KI). Prüfung gegen das Original:
+   Fisch 168.627 px und Schrift 8.284 px -> max. Abweichung 1 Graustufe im verlustfreien PNG
+   (002-edited-v7.png); im JPG nur Kompression (PSNR ~41 dB).
+   Fisch-Lage wie im Original (~1,7° Neigung des Fischkörpers bleibt bewusst so – Drehen würde
+   die Pixel neu berechnen).
+3. Fondant-Oberfläche: aus dem Original-Fondant (Draufsicht-entzerrt, ca. +7 %), untere
+   Kante/Naht der Seitenwand durch gespiegelten sauberen Fondant ersetzt, leichte Kuppel-
+   Schattierung zum Rand.
+4. Goldbrett: echte Goldtextur aus dem Original (entzerrt), verdeckte Bereiche aus den
+   sichtbaren Goldstücken ergänzt.
+5. Hintergrund: leere Edelstahl-Arbeitsfläche von oben, Leinentuch oben links, 3 Himbeeren +
+   Puderzucker unten rechts, keine Personen. Nur der leere Hintergrund ist KI-generiert –
+   die Torte NICHT.
+6. Format 2000x1500, Torte zentriert, weicher Schatten.
+
+Hinweis: Die Fondant-Kordel unten vorne aus dem Original ist in der Draufsicht nicht sichtbar
+(sitzt an der Seitenwand) und daher weggelassen.
