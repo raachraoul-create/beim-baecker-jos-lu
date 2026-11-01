@@ -2,16 +2,27 @@
 <html lang="lb">
 <head>
 <script>
-/* Best-effort only. A static GitHub Pages / Webflow export cannot send an
-   HTTP 301 from beim-baecker-jos-lu.webflow.io to the locked host.
-   rel=canonical (below) is the signal for search engines. Disable the old
-   Webflow staging host and the GitHub Pages duplicate in those dashboards. */
+/* Best-effort only. This static file cannot send an HTTP 301.
+   GitHub Pages does not honor _headers, _redirects, or vercel.json, and it
+   cannot 301 a *.webflow.io host. Disable the old Webflow host and the
+   GitHub Pages site in those dashboards. rel=canonical is the SEO signal. */
 const BBJ_OLD_HOST='beim-baecker-jos-lu.webflow.io';
+const BBJ_PAGES_HOST='raachraoul-create.github.io';
+const BBJ_PAGES_BASE='/beim-baecker-jos-lu';
 const BBJ_NEW_HOST='beim-baecker-jos.webflow.io';
-if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(location.search).get('preview')!=='1'){
-  const target='https://'+BBJ_NEW_HOST+location.pathname+location.search+location.hash;
-  window.location.replace(target);
-}
+(function(){
+  if(new URLSearchParams(location.search).get('preview')==='1') return;
+  const host=location.hostname.toLowerCase();
+  if(host!==BBJ_OLD_HOST && host!==BBJ_PAGES_HOST) return;
+  let path=location.pathname||'/';
+  if(host===BBJ_PAGES_HOST){
+    if(path===BBJ_PAGES_BASE||path===BBJ_PAGES_BASE+'/') path='/';
+    else if(path.indexOf(BBJ_PAGES_BASE+'/')===0) path=path.slice(BBJ_PAGES_BASE.length)||'/';
+    if(path==='/index.html') path='/';
+  }
+  if(path.charAt(0)!=='/') path='/'+path;
+  window.location.replace('https://'+BBJ_NEW_HOST+path+location.search+location.hash);
+})();
 </script>
   <meta name="bbj-build" content="20261101-seo-canonical-lock">
   <meta charset="utf-8">
@@ -35,6 +46,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://beim-baecker-jos.webflow.io/">
+  <!-- One URL for lb/de/fr/pt (JS i18n). Only x-default until real /de/ /fr/ /pt/ pages exist. -->
   <link rel="alternate" hreflang="x-default" href="https://beim-baecker-jos.webflow.io/">
   <link rel="sitemap" type="application/xml" href="https://beim-baecker-jos.webflow.io/sitemap.xml">
   <meta property="og:type" content="website">
@@ -321,7 +333,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         </div>
         <div class="product-grid">
           <article class="product clickable" data-gallery="bread" role="button" tabindex="0" aria-label="Brout & Baguetten entdecken"><img src="images/brot/brot-01.webp" alt="Sauerdeegbrout Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p1">Brout & Baguetten</b><p data-i18n="p1t">Klassesch, rustikal a fir den Alldag.</p></div></article>
-          <article class="product clickable" data-gallery="viennoiserie" role="button" tabindex="0" aria-label="Viennoiserie entdecken"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=86" alt="Croissants" loading="lazy"><div class="product-copy"><b data-i18n="p2">Viennoiserie</b><p data-i18n="p2t">Croissants, Mëtschen a séiss Klassiker.</p></div></article>
+          <article class="product clickable" data-gallery="viennoiserie" role="button" tabindex="0" aria-label="Viennoiserie entdecken"><img src="images/produkte/mandelcroissant-nachtrag.webp" alt="Mandelcroissant Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p2">Viennoiserie</b><p data-i18n="p2t">Croissants, Mëtschen a séiss Klassiker.</p></div></article>
           <article class="product clickable" data-gallery="cakes" role="button" tabindex="0" aria-label="Pâtisserie & Torten entdecken"><img src="images/torten/torte-01.webp" alt="Hochzeitstorte aus der Backstube" loading="lazy"><div class="product-copy"><b data-i18n="p3">Pâtisserie & Torten</b><p data-i18n="p3t">Fir kleng Freed a grouss Momenter.</p></div></article>
           <article class="product clickable" data-gallery="snacks" role="button" tabindex="0" aria-label="Snacks, Fingerfood & Catering entdecken"><img src="images/snacks/canapes.webp" alt="Snacks und Catering Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p4">Snacks & Sandwiches</b><p data-i18n="p4t">Fir eng séier a gutt Paus.</p></div></article>
           <article class="product clickable" data-gallery="specialties" role="button" tabindex="0" aria-label="Bamkuch & Spezialitéiten entdecken"><img src="images/spezialitaeten/bamkuch.webp" alt="Bamkuch Spezialitéit Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p5">Bamkuch & Spezialitéiten</b><p data-i18n="p5t">Handwierklech Klassiker a saisonal Spezialitéiten.</p></div></article>
