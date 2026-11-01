@@ -1,3 +1,6 @@
+# Indexing is allowed. No path is disallowed.
+# GitHub Pages cannot send an HTTP 301 to the Webflow host.
 User-agent: *
 Allow: /
+
 Sitemap: https://beim-baecker-jos.webflow.io/sitemap.xml

@@ -3,7 +3,35 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://beim-baecker-jos.webflow.io/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-01</lastmod>
+    <image:image>
+      <image:loc>https://beim-baecker-jos.webflow.io/images/brot/brot-02.webp</image:loc>
+      <image:title>Sauerteigbrot der Bäckerei Beim Bäcker Jos in Beckerich und Saeul, Luxemburg</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://beim-baecker-jos.webflow.io/images/brot/brot-01.webp</image:loc>
+      <image:title>Sauerteigbrot Beim Bäcker Jos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://beim-baecker-jos.webflow.io/images/produkte/mandelcroissant-nachtrag.webp</image:loc>
+      <image:title>Mandelcroissant der Bäckerei Beim Bäcker Jos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://beim-baecker-jos.webflow.io/images/torten/torte-01.webp</image:loc>
+      <image:title>Torte aus der Backstube Beim Bäcker Jos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://beim-baecker-jos.webflow.io/images/snacks/canapes.webp</image:loc>
+      <image:title>Snacks und Canapés Beim Bäcker Jos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://beim-baecker-jos.webflow.io/images/spezialitaeten/bamkuch.webp</image:loc>
+      <image:title>Bamkuch Beim Bäcker Jos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://beim-baecker-jos.webflow.io/images/eis/eis-03.webp</image:loc>
+      <image:title>Hausgemachtes Eis Beim Bäcker Jos</image:title>
+    </image:image>
     <image:image>
       <image:loc>https://beim-baecker-jos.webflow.io/favicon-512.png</image:loc>
       <image:title>Beim Bäcker Jos – offizielles Logo</image:title>
