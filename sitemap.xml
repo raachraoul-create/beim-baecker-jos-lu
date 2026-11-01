@@ -3,7 +3,11 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://beim-baecker-jos.webflow.io/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-01</lastmod>
+    <image:image>
+      <image:loc>https://beim-baecker-jos.webflow.io/images/brot/brot-02.webp</image:loc>
+      <image:title>Sauerteigbrot der Bäckerei Beim Bäcker Jos in Beckerich und Saeul, Luxemburg</image:title>
+    </image:image>
     <image:image>
       <image:loc>https://beim-baecker-jos.webflow.io/favicon-512.png</image:loc>
       <image:title>Beim Bäcker Jos – offizielles Logo</image:title>
