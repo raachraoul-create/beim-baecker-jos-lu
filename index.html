@@ -1024,7 +1024,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Bottercrème-Gebuertsdagstaart mat Marzipan", "Dinosaurier-Motivtaart aus Bottercrème mat Marzipan-Dekor – handwierklech an eiser Backstuff gestalt."],
         ["Fësch-Daftaart „Taufe Merlin“", "Biskuit, Bottercrème, Marzipan"],
         ["Feierwier-Gebuertsdagstaart „LANCE 12 JOER“", "Biskuit, Bottercrème, Fondant"],
-        ["Hochzäitstaart mat echte Blumen", "Biskuit, Bottercrème, echt Blumen"]
+        ["Hochzäitstaart mat echte Blumen", "Biskuit, Bottercrème, echt Blumen"],
+        ["Fussball-Taart mat Veräinswopen", "Biskuit, Bottercrème, Marzipan"]
       ]},
       de:{title:'Pâtisserie & Torten',intro:'Handgefertigte Torten für besondere Momente – frisch aus unserer Backstube, sorgfältig dekoriert und passend für Geburtstage, Familienfeiern, den Vatertag oder ganz persönliche Anlässe.',items:[
         ["Buttercreme-Kuchen mit Pralinen", "Feiner Buttercreme-Kuchen mit dekorativen Pralinen und eleganter Verzierung – sorgfältig gestaltet für besondere Genussmomente."],
@@ -1090,7 +1091,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Buttercreme-Geburtstagstorte mit Marzipan", "Dinosaurier-Motivtorte aus Buttercreme mit Marzipan-Dekor – handwerklich in unserer Backstube gestaltet."],
         ["Fisch-Tauftorte „Taufe Merlin“", "Biskuit, Buttercreme, Marzipan"],
         ["Feuerwehr-Geburtstagstorte „LANCE 12 JOER“", "Biskuit, Buttercreme, Fondant"],
-        ["Hochzeitstorte mit echten Blumen", "Biskuit, Buttercreme, echte Blumen"]
+        ["Hochzeitstorte mit echten Blumen", "Biskuit, Buttercreme, echte Blumen"],
+        ["Fußball-Torte mit Vereinswappen", "Biskuit, Buttercreme, Marzipan"]
       ]},
       fr:{title:'Pâtisserie & gâteaux',intro:'Des gâteaux artisanaux pour des moments particuliers – préparés frais dans notre atelier, décorés avec soin et adaptés aux anniversaires, aux fêtes de famille, à la fête des Pères ou aux demandes personnalisées.',items:[
         ["Gâteau à la crème au beurre et pralines", "Un gâteau fin à la crème au beurre, décoré de pralines et d’une finition élégante – préparé avec soin pour les moments gourmands."],
@@ -1156,7 +1158,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Gâteau d’anniversaire à la crème au beurre et au massepain", "Gâteau d’anniversaire à motif dinosaure en crème au beurre avec décor en massepain – façonné artisanalement dans notre atelier."],
         ["Gâteau de baptême au poisson « Taufe Merlin »", "Biscuit, crème au beurre, massepain"],
         ["Gâteau d’anniversaire pompier « LANCE 12 JOER »", "Biscuit, crème au beurre, fondant"],
-        ["Gâteau de mariage aux fleurs fraîches", "Génoise, crème au beurre, fleurs fraîches"]
+        ["Gâteau de mariage aux fleurs fraîches", "Génoise, crème au beurre, fleurs fraîches"],
+        ["Gâteau football avec blason de club", "Génoise, crème au beurre, massepain"]
       ]},
       pt:{title:'Pastelaria & bolos',intro:'Bolos artesanais para momentos especiais – preparados frescos na nossa pastelaria, decorados com cuidado e adaptados a aniversários, festas de família, Dia do Pai ou pedidos personalizados.',items:[
         ["Bolo de creme de manteiga com pralinés", "Bolo fino de creme de manteiga, decorado com pralinés e acabamento elegante – preparado com cuidado para momentos especiais."],
@@ -1222,7 +1225,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         ["Bolo de aniversário de creme de manteiga com maçapão", "Bolo de aniversário com motivo de dinossauro em creme de manteiga e decoração de maçapão – preparado artesanalmente na nossa pastelaria."],
         ["Bolo de batizado com peixe « Taufe Merlin »", "Pão de ló, creme de manteiga, marzipan"],
         ["Bolo de aniversário dos bombeiros « LANCE 12 JOER »", "Pão de ló, creme de manteiga, fondant"],
-        ["Bolo de casamento com flores verdadeiras", "Pão de ló, creme de manteiga, flores verdadeiras"]
+        ["Bolo de casamento com flores verdadeiras", "Pão de ló, creme de manteiga, flores verdadeiras"],
+        ["Bolo de futebol com emblema do clube", "Pão de ló, creme de manteiga, maçapão"]
       ]}
     };
 
@@ -1242,7 +1246,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
       'images/torten/dinosaurier-torte-geburtstag.jpg',
       'images/torten/fisch-tauftorte-merlin-v7.jpg',
       'images/torten/feuerwehr-torte-lance-12-joer.jpg',
-      'images/torten/hochzeits-torte-rosen-spitze.jpg'
+      'images/torten/hochzeits-torte-rosen-spitze.jpg',
+      'images/torten/fussball-torte-vereinswappen.jpg'
     ];
 
     let cakeGalleryMode='patisserie',cakeVisibleCount=12;
@@ -1278,6 +1283,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     const BBJ_BAGGER_BIRTHDAY_INDEX=CAKE_IMAGES.length;
     CAKE_IMAGES.push('images/torten/baggerkuchen-2may.webp');
     CAKE_GROUPS.birthday.unshift(BBJ_BAGGER_BIRTHDAY_INDEX);
+    const FUSSBALL_VEREINSWAPPEN_INDEX=CAKE_IMAGES.indexOf('images/torten/fussball-torte-vereinswappen.jpg');
+    CAKE_GROUPS.birthday.unshift(FUSSBALL_VEREINSWAPPEN_INDEX);
     const BBJ_BAGGER_BIRTHDAY_TITLES={
       de:'Biskuit, Buttercreme, Marzipan – Geburtstagskuchen',
       lb:'Biskuit, Bottercrème, Marzipan – Gebuertsdagskuch',
@@ -1319,7 +1326,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         const d=CAKE_GALLERY[lang]||CAKE_GALLERY.lb;
         const indices=CAKE_GROUPS[cakeGalleryMode]||CAKE_GROUPS.saint;
         const visible=indices.slice(0,cakeVisibleCount);
-        g.innerHTML=visible.map(n=>{const x=d.items[n];const title=(CAKE_TITLE_OVERRIDES[lang]||{})[n]||x[0];const desc=((cakeGalleryMode==='humor')||(cakeGalleryMode==='birthday'&&(n===21||n===38||n===58||n===60))||(cakeGalleryMode==='baptism'&&n===59)||(cakeGalleryMode==='wedding'&&n===61))&&x[1]?'<p>'+x[1]+'</p>':'';return '<article class="gallery-item"><a href="'+CAKE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+CAKE_IMAGES[n]+'" alt="'+title+'" loading="lazy"></a><div class="gallery-copy"><h4>'+title+'</h4>'+desc+'</div></article>'}).join('');
+        g.innerHTML=visible.map(n=>{const x=d.items[n];const title=(CAKE_TITLE_OVERRIDES[lang]||{})[n]||x[0];const desc=((cakeGalleryMode==='humor')||(cakeGalleryMode==='birthday'&&(n===21||n===38||n===58||n===60||n===FUSSBALL_VEREINSWAPPEN_INDEX))||(cakeGalleryMode==='baptism'&&n===59)||(cakeGalleryMode==='wedding'&&n===61))&&x[1]?'<p>'+x[1]+'</p>':'';return '<article class="gallery-item"><a href="'+CAKE_IMAGES[n]+'" target="_blank" rel="noopener"><img src="'+CAKE_IMAGES[n]+'" alt="'+title+'" loading="lazy"></a><div class="gallery-copy"><h4>'+title+'</h4>'+desc+'</div></article>'}).join('');
         if(more)more.textContent=labels.more;
         if(wrap)wrap.hidden=cakeVisibleCount>=indices.length;
       }
