@@ -9,7 +9,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   window.location.replace(target);
 }
 </script>
-  <meta name="bbj-build" content="20261025-four-language-proofread">
+  <meta name="bbj-build" content="20261107-privacy-and-imprint">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#c9151e">
@@ -173,7 +173,14 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
   .cake-fruit-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.cake-fruit-badges span{display:inline-flex;padding:5px 9px;border-radius:999px;background:#f5eee5;color:#70452a;font-size:12px;font-weight:750;line-height:1.3;border:1px solid #e8d4c0}
 #cakeGalleryGrid .saint-honore-fruit-description{display:block;margin:10px 0 0;color:#655041;font-size:14px;line-height:1.5;font-weight:500}
 
-  </style>
+  
+    section[hidden],[data-news-open][hidden]{display:none!important}
+    .footer-legal-links{display:flex;flex-wrap:wrap;gap:10px 20px;padding:20px 0 4px;align-items:center}
+    .footer-legal-links a,.footer-legal-links button{color:#fff;border:0;background:none;padding:7px 0;font-weight:750;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+    .footer-legal-links a:focus-visible,.footer-legal-links button:focus-visible,.bbj-cookie-banner button:focus-visible{outline:3px solid #ffc168;outline-offset:4px}
+    .bbj-cookie-banner[hidden]{display:none!important}.bbj-cookie-banner{position:fixed;z-index:99999;bottom:max(12px,env(safe-area-inset-bottom));left:12px;right:12px;max-width:640px;margin:auto;background:#fff;color:#201914;border:1px solid #e5d8c9;border-radius:19px;padding:22px;box-shadow:0 15px 60px #0006;line-height:1.5}
+    .bbj-cookie-banner strong{display:block;font-size:19px;margin-bottom:8px}.bbj-cookie-banner p{font-size:14px;margin:0 0 13px}.bbj-cookie-actions{display:flex;flex-wrap:wrap;gap:9px}.bbj-cookie-actions button{border:1px solid #9f1c20;border-radius:999px;padding:10px 15px;cursor:pointer;font-weight:800;background:white;color:#9f1c20}.bbj-cookie-actions button[data-choice=granted]{background:#c9151e;color:#fff}
+</style>
   <script>
     // Open the homepage at the top on fresh navigation/reload.
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -263,7 +270,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
 
 
     
-    <section id="news">
+    <section id="news" hidden>
       <div class="container">
         <div class="news-teaser">
           <div class="news-teaser-copy">
@@ -315,7 +322,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         </div>
         <div class="product-grid">
           <article class="product clickable" data-gallery="bread" role="button" tabindex="0" aria-label="Brout & Baguetten entdecken"><img src="images/brot/brot-01.webp" alt="Sauerdeegbrout Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p1">Brout & Baguetten</b><p data-i18n="p1t">Klassesch, rustikal a fir den Alldag.</p></div></article>
-          <article class="product clickable" data-gallery="viennoiserie" role="button" tabindex="0" aria-label="Viennoiserie entdecken"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=86" alt="Croissants" loading="lazy"><div class="product-copy"><b data-i18n="p2">Viennoiserie</b><p data-i18n="p2t">Croissants, Mëtschen a séiss Klassiker.</p></div></article>
+          <article class="product clickable" data-gallery="viennoiserie" role="button" tabindex="0" aria-label="Viennoiserie entdecken"><img src="images/produkte/mandelcroissant-nachtrag.webp" alt="Mandelcroissant aus dem Sortiment Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p2">Viennoiserie</b><p data-i18n="p2t">Croissants, Mëtschen a séiss Klassiker.</p></div></article>
           <article class="product clickable" data-gallery="cakes" role="button" tabindex="0" aria-label="Pâtisserie & Torten entdecken"><img src="images/torten/torte-01.webp" alt="Hochzeitstorte aus der Backstube" loading="lazy"><div class="product-copy"><b data-i18n="p3">Pâtisserie & Torten</b><p data-i18n="p3t">Fir kleng Freed a grouss Momenter.</p></div></article>
           <article class="product clickable" data-gallery="snacks" role="button" tabindex="0" aria-label="Snacks, Fingerfood & Catering entdecken"><img src="images/snacks/canapes.webp" alt="Snacks und Catering Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p4">Snacks & Sandwiches</b><p data-i18n="p4t">Fir eng séier a gutt Paus.</p></div></article>
           <article class="product clickable" data-gallery="specialties" role="button" tabindex="0" aria-label="Bamkuch & Spezialitéiten entdecken"><img src="images/spezialitaeten/bamkuch.webp" alt="Bamkuch Spezialitéit Beim Bäcker Jos" loading="lazy"><div class="product-copy"><b data-i18n="p5">Bamkuch & Spezialitéiten</b><p data-i18n="p5t">Handwierklech Klassiker a saisonal Spezialitéiten.</p></div></article>
@@ -396,6 +403,7 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
         <div><div class="footer-title" data-i18n="footer_locations">Standuerter</div><div class="footer-links"><a href="#locations">Biekerech · +352 23 62 14 79</a><a href="#locations">Sëll · +352 26 62 24 44</a></div></div>
         <div><div class="footer-title" data-i18n="footer_nav">Navigatioun</div><div class="footer-links"><a href="#about" data-i18n="nav_about">Iwwer eis</a><a href="#products" data-i18n="nav_products">Sortiment</a><a href="#cakes" data-i18n="nav_cakes">Torten</a><a href="#news" data-news-open data-news-i18n="news_nav">News</a><a href="#faq">FAQ</a></div></div>
       </div>
+      <nav class="footer-legal-links" aria-label="Rechtliche Informationen"><a href="impressum.html">Impressum / Mentions légales</a><a href="datenschutz.html">Datenschutz / Confidentialité</a><button type="button" id="bbjCookieSettings">Cookie-Astellungen / Cookie-Einstellungen</button></nav>
       <div class="legal"><span>BOULANGERIE-PATISSERIE « BEIM BÄCKER JOS » S.à r.l. · RCS B96927 · TVA LU19112744</span><span>Beim Bäcker Jos <button class="secret-dot" id="secretDot" type="button" aria-label="Versteckter Hinweis">·</button> Luxembourg</span></div>
     </div>
   </footer>
@@ -1843,10 +1851,14 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     };
 
     function currentNewsEvent(now=new Date()){
-      return NEWS_EVENTS.find(e=>now<new Date(e.end)) || NEWS_EVENTS[NEWS_EVENTS.length-1];
+      return NEWS_EVENTS.find(e=>now<new Date(e.end)) || null;
     }
     function renderNews(lang){
-      const event=currentNewsEvent(), tx=event.t[lang]||event.t.lb, common=NEWS_COMMON[lang]||NEWS_COMMON.lb;
+      const event=currentNewsEvent(), section=document.getElementById('news');
+      if(section)section.hidden=!event;
+      document.querySelectorAll('[data-news-open]').forEach(el=>{if(!el.closest('#news'))el.hidden=!event});
+      if(!event)return;
+      const tx=event.t[lang]||event.t.lb, common=NEWS_COMMON[lang]||NEWS_COMMON.lb;
       document.querySelectorAll('[data-news-i18n="news_nav"]').forEach(el=>el.textContent=common.nav);
       const map={news_badge:tx.badge,news_title:tx.title,news_intro:tx.intro,news_date:tx.date,news_open:tx.open,news_modal_title:tx.modal,news_modal_note:tx.note,news_order:tx.order,news_close:common.close};
       document.querySelectorAll('[data-news-i18n]').forEach(el=>{const k=el.dataset.newsI18n;if(map[k])el.textContent=map[k]});
@@ -1989,6 +2001,8 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
     const pageviewEndpoint='https://vrugwznymkyggijwpprd.supabase.co/functions/v1/bakery-pageview';
 
     const send=(event,value='')=>{
+      // No external analytics request until the visitor has opted in.
+      if(localStorage.getItem('bbj_analytics_consent')!=='granted')return;
       const lang=localStorage.getItem('bbj_lang')||'lb';
       const w=Math.max(document.documentElement.clientWidth||0,window.innerWidth||0);
       const device=w<768?'mobile':(w<1100?'tablet':'desktop');
@@ -2056,9 +2070,35 @@ if(location.hostname.toLowerCase()===BBJ_OLD_HOST && new URLSearchParams(locatio
 
     // Clean up obsolete keys from the earlier analytics version.
     try{
-      localStorage.removeItem('bbj_analytics_consent');
       localStorage.removeItem('bbj_analytics_visitor');
     }catch(e){}
+  })();
+  </script>
+
+
+  <div id="bbjCookieConsent" class="bbj-cookie-banner" role="dialog" aria-labelledby="bbjCookieTitle" aria-modal="false" hidden>
+    <strong id="bbjCookieTitle">Statistiken / Statistiques</strong>
+    <p id="bbjCookieCopy">Mir wëllen anonymiséiert Besuchsstatistiken iwwer Supabase erhiewen. Dir kënnt zoustëmmen oder refuséieren; d'Websäit funktionéiert och ouni Statistiken.</p>
+    <div class="bbj-cookie-actions"><button type="button" id="bbjCookieReject" data-choice="denied">Refuséieren</button><button type="button" id="bbjCookieAccept" data-choice="granted">Zoustëmmen</button><a href="datenschutz.html">Dateschutz</a></div>
+  </div>
+  <script>
+  (()=> {
+    const copy={
+      lb:["Statistiken","Mir géife gären d'Benotzung vun der Websäit mat Supabase auswerten. Nëmmen no Ärer Zoustëmmung schécke mir Statistikdaten. D'Säit funktionéiert och ouni.", "Refuséieren","Zoustëmmen","Dateschutz"],
+      de:["Statistiken","Wir möchten mit Supabase anonyme Nutzungsstatistiken erheben. Erst nach Ihrer Einwilligung werden Statistikdaten gesendet. Die Webseite funktioniert auch ohne.","Ablehnen","Zustimmen","Datenschutz"],
+      fr:["Statistiques","Nous souhaitons mesurer l'utilisation du site avec Supabase. Les statistiques ne sont transmises qu'après votre consentement. Le site fonctionne aussi sans.","Refuser","Accepter","Confidentialité"],
+      pt:["Estatísticas","Gostaríamos de analisar a utilização do site com Supabase. Só enviamos estatísticas após o seu consentimento. O site funciona sem estatísticas.","Recusar","Aceitar","Privacidade"]
+    };
+    const root=document.getElementById('bbjCookieConsent'),reject=document.getElementById('bbjCookieReject'),accept=document.getElementById('bbjCookieAccept'),settings=document.getElementById('bbjCookieSettings');
+    function localLang(){let l='lb';try{l=localStorage.getItem('bbj_lang')||'lb'}catch(e){}return copy[l]?l:'lb'}
+    function translate(){const t=copy[localLang()];document.getElementById('bbjCookieTitle').textContent=t[0];document.getElementById('bbjCookieCopy').textContent=t[1];reject.textContent=t[2];accept.textContent=t[3];root.querySelector('a').textContent=t[4]}
+    function show(){translate();root.hidden=false}
+    function save(choice){try{localStorage.setItem('bbj_analytics_consent',choice)}catch(e){}root.hidden=true;if(choice==='granted'&&typeof window.bbjTrack==='function')window.bbjTrack('pageview')}
+    accept.addEventListener('click',()=>save('granted'));reject.addEventListener('click',()=>save('denied'));
+    if(settings)settings.addEventListener('click',()=>show());
+    document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{if(!root.hidden)translate()}));
+    let state=null;try{state=localStorage.getItem('bbj_analytics_consent')}catch(e){}
+    if(!['granted','denied'].includes(state)||new URLSearchParams(location.search).has('consent'))show();
   })();
   </script>
 
